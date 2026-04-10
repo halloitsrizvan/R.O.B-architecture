@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth overflow-x-hidden">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>R.O.B ARCHITECTURAL STUDIO | Art + Architecture</title>
-    <meta name="description" content="R.O.B Architectural Studio blends creativity and functionality. Art + Architecture | Interior + Landscape Design.">
-    
+    <meta name="description"
+        content="R.O.B Architectural Studio blends creativity and functionality. Art + Architecture | Interior + Landscape Design.">
+
     <!-- Google Fonts (Poppins) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <!-- Custom Font (Agraham) -->
     <link href="https://fonts.cdnfonts.com/css/agraham" rel="stylesheet">
-    
+
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -52,6 +55,7 @@
             transform: translateY(40px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
+
         .fade-in-up.is-visible {
             opacity: 1;
             transform: translateY(0);
@@ -61,19 +65,23 @@
         #navbar {
             transition: all 0.3s ease;
         }
+
         .nav-scrolled {
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
             color: #0f172a !important;
         }
+
         .nav-scrolled #nav-logo {
             color: #0f172a;
         }
+
         .nav-scrolled .mobile-menu-btn {
             color: #0f172a;
         }
-
+        
+        
         /* Hero Overlay Gradient */
         .hero-overlay {
             background: linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(0, 0, 0, 0.6));
@@ -83,50 +91,66 @@
         .project-card {
             overflow: hidden;
         }
+
         .project-card img {
             transition: transform 0.7s ease-in-out;
         }
+
         .project-card:hover img {
             transform: scale(1.1);
         }
+
         .project-overlay {
-            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
             opacity: 0;
             transition: opacity 0.4s ease;
         }
+
         .project-card:hover .project-overlay {
             opacity: 1;
         }
-        
+
         /* Floating WhatsApp Bounce */
         @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
         }
+
         .wa-float {
             animation: float 3s ease-in-out infinite;
         }
     </style>
 </head>
-<body class="font-sans text-gray-800 bg-brand-light">
+
+<body class="font-sans text-gray-800 bg-brand-light overflow-x-hidden relative w-full">
 
     <!-- 1. NAVBAR -->
     <nav id="navbar" class="fixed w-full z-50 py-5 px-6 md:px-12 text-white transition-all duration-300">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <!-- Logo -->
             <a href="#" class="flex items-center gap-3">
-                <img src="logo.png" alt="R.O.B Logo" class="h-8 object-contain transition-all duration-300 brightness-0 invert opacity-90" id="img-logo" onerror="this.style.display='none'; document.getElementById('text-logo').classList.remove('hidden');">
+                <img src="logo.png" alt="R.O.B Logo"
+                    class="h-8 object-contain transition-all duration-300 brightness-0 invert opacity-90" id="img-logo"
+                    onerror="this.style.display='none'; document.getElementById('text-logo').classList.remove('hidden');">
                 <!-- <span id="text-logo" class="font-sans font-bold text-2xl tracking-wider uppercase">R.O.B</span> -->
             </a>
 
             <!-- Desktop Menu -->
             <div class="hidden md:flex space-x-8 text-sm font-medium tracking-wide">
-                <a href="#home" class="hover:text-brand-light transition-colors duration-300">Home</a>
-                <a href="#projects" class="hover:text-brand-light transition-colors duration-300">Projects</a>
-                <a href="#about" class="hover:text-brand-light transition-colors duration-300">About</a>
-                <a href="#services" class="hover:text-brand-light transition-colors duration-300">Services</a>
-                <a href="#contact" class="hover:text-brand-light transition-colors duration-300">Contact</a>
+                <a href="#home" class="transition-colors duration-300">Home</a>
+                <a href="#projects" class="transition-colors duration-300">Projects</a>
+                <a href="#about" class="transition-colors duration-300">About</a>
+                <a href="#services" class="transition-colors duration-300">Services</a>
+                <a href="#contact" class="transition-colors duration-300">Contact</a>
             </div>
 
             <!-- Mobile Menu Button -->
@@ -136,7 +160,8 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white text-brand-dark shadow-lg border-t">
+        <div id="mobile-menu"
+            class="hidden absolute top-full left-0 w-full bg-white text-brand-dark shadow-lg border-t">
             <div class="flex flex-col py-4 px-6 space-y-4">
                 <a href="#home" class="mobile-link text-lg font-medium">Home</a>
                 <a href="#projects" class="mobile-link text-lg font-medium">Projects</a>
@@ -158,13 +183,18 @@
 
         <!-- Hero Content -->
         <div class="relative z-10 text-center px-6 max-w-4xl mx-auto text-white fade-in-up shrink">
-            <h1 class="font-serif text-3xl md:text-4xl font-bold mb-4 tracking-tight drop-shadow-lg">ROB ARCHITECTURAL STUDIO</h1>
+            <h1 class="font-serif text-2xl md:text-4xl font-bold mb-4 tracking-tight drop-shadow-lg" style="line-height: 1.8;" >ROB Architectural Studio</h1>
             <p class="text-xl md:text-3xl font-light mb-6 opacity-90 drop-shadow-md">Designing Spaces That Inspire</p>
-            <p class="text-sm md:text-lg tracking-widest uppercase mb-10 opacity-80">Art + Architecture | Interior + Landscape Design</p>
-            
+            <p class="text-sm md:text-lg tracking-widest uppercase mb-10 opacity-80">Art + Architecture | Interior +
+                Landscape Design</p>
+
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#projects" class="px-8 py-3 bg-brand-accent hover:bg-brand-darkAccent text-white font-medium rounded-sm transition-all duration-300 shadow-lg transform hover:-translate-y-1">View Projects</a>
-                <a href="#contact" class="px-8 py-3 bg-transparent border border-white hover:bg-white hover:text-brand-dark text-white font-medium rounded-sm transition-all duration-300 shadow-lg transform hover:-translate-y-1">Contact Us</a>
+                <a href="#projects"
+                    class="px-8 py-3 bg-brand-accent hover:bg-brand-darkAccent text-white font-medium rounded-sm transition-all duration-300 shadow-lg transform hover:-translate-y-1">View
+                    Projects</a>
+                <a href="#contact"
+                    class="px-8 py-3 bg-transparent border border-white hover:bg-white hover:text-brand-dark text-white font-medium rounded-sm transition-all duration-300 shadow-lg transform hover:-translate-y-1">Contact
+                    Us</a>
             </div>
         </div>
     </section>
@@ -173,39 +203,60 @@
     <section id="projects" class="py-24 px-6 md:px-12 bg-white">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16 fade-in-up">
-                <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-dark mb-4">Featured Projects</h2>
+                <h2 class="font-serif text-2xl md:text-4xl font-bold text-brand-dark mb-4">Featured Projects</h2>
                 <div class="h-1 w-20 bg-brand-accent mx-auto"></div>
-                <p class="mt-4 text-gray-500 max-w-2xl mx-auto">A curated selection of our finest works, showcasing our commitment to excellence, innovation, and timeless design.</p>
+                <p class="mt-4 text-gray-500 max-w-2xl mx-auto">A curated selection of our finest works, showcasing our
+                    commitment to excellence, innovation, and timeless design.</p>
             </div>
 
             <!-- Grid: 3 Columns on Desktop -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
+
                 <!-- Project 1 -->
                 <div class="project-card relative rounded-sm shadow-md cursor-pointer h-[400px] fade-in-up group">
                     <img src="/assets/image1.jpg" alt="Modern Villa" class="w-full h-full object-cover">
                     <div class="project-overlay absolute inset-0 flex flex-col justify-end p-8">
-                        <h3 class="text-white font-serif text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Tropical Home</h3>
-                        <p class="text-brand-light mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">Nature meets elegance  ROB Architectural Studio’s stunning tropical design for Mr. Dhreej’s 1950+ sqft home in Peravoor! Blending traditional charm with modern low-cost architecture, living in sync with nature. </p>
+                        <h3
+                            class="text-white font-serif text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            Tropical Home</h3>
+                        <p
+                            class="text-brand-light mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                            Nature meets elegance ROB Architectural Studio’s stunning tropical design for Mr. Dhreej’s
+                            1950+ sqft home in Peravoor! Blending traditional charm with modern low-cost architecture,
+                            living in sync with nature. </p>
                     </div>
                 </div>
 
                 <!-- Project 2 -->
-                <div class="project-card relative rounded-sm shadow-md cursor-pointer h-[400px] fade-in-up group" style="transition-delay: 100ms;">
+                <div class="project-card relative rounded-sm shadow-md cursor-pointer h-[400px] fade-in-up group"
+                    style="transition-delay: 100ms;">
                     <img src="/assets/image2.jpg" alt="Urban Residence" class="w-full h-full object-cover">
                     <div class="project-overlay absolute inset-0 flex flex-col justify-end p-8">
-                        <h3 class="text-white font-serif text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">CURVE Residence</h3>
-                        <p class="text-brand-light mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">Designed over 4,950 sqft, Curve is a futuristic residence shaped by fluid forms and organic geometry. The client’s vision was to create a unique architectural identity that blends seamlessly with nature, and the design responds through soft sculptural curves that flow naturally within the lush tropical landscape.</p>
+                        <h3
+                            class="text-white font-serif text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            CURVE Residence</h3>
+                        <p
+                            class="text-brand-light mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                            Designed over 4,950 sqft, Curve is a futuristic residence shaped by fluid forms and organic
+                            geometry. The client’s vision was to create a unique architectural identity that blends
+                            seamlessly with nature, and the design responds through soft sculptural curves that flow
+                            naturally within the lush tropical landscape.</p>
                     </div>
                 </div>
 
                 <!-- Project 3 -->
-                <div class="project-card relative rounded-sm shadow-md cursor-pointer h-[400px] fade-in-up group" style="transition-delay: 200ms;">
+                <div class="project-card relative rounded-sm shadow-md cursor-pointer h-[400px] fade-in-up group"
+                    style="transition-delay: 200ms;">
                     <img src="/assets/image3.jpg" alt="Landscape Retreat" class="w-full h-full object-cover">
                     <div class="project-overlay absolute inset-0 flex flex-col justify-end p-8">
-                        <h3 class="text-white font-serif text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Contemporary Home</h3>
-                        <p class="text-brand-light mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">A stunning 4953 sqft contemporary home blending modern design with Kerala’s tropical charm 
-Clean lines, warm wood, and expansive glass create a perfect balance of style and nature.</p>
+                        <h3
+                            class="text-white font-serif text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            Contemporary Home</h3>
+                        <p
+                            class="text-brand-light mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                            A stunning 4953 sqft contemporary home blending modern design with Kerala’s tropical charm
+                            Clean lines, warm wood, and expansive glass create a perfect balance of style and nature.
+                        </p>
                     </div>
                 </div>
 
@@ -213,31 +264,50 @@ Clean lines, warm wood, and expansive glass create a perfect balance of style an
                 <div class="project-card relative rounded-sm shadow-md cursor-pointer h-[400px] fade-in-up group">
                     <img src="/assets/image4.jpg" alt="Luxury Interior" class="w-full h-full object-cover">
                     <div class="project-overlay absolute inset-0 flex flex-col justify-end p-8">
-                        <h3 class="text-white font-serif text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Future Design</h3>
-                        <p class="text-brand-light mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">Designing the future, one project at a time  Check out our latest architectural masterpiece!</p>
+                        <h3
+                            class="text-white font-serif text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            Future Design</h3>
+                        <p
+                            class="text-brand-light mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                            Designing the future, one project at a time Check out our latest architectural masterpiece!
+                        </p>
                     </div>
                 </div>
 
                 <!-- Project 5 -->
-                <div class="project-card relative rounded-sm shadow-md cursor-pointer h-[400px] fade-in-up group" style="transition-delay: 100ms;">
+                <div class="project-card relative rounded-sm shadow-md cursor-pointer h-[400px] fade-in-up group"
+                    style="transition-delay: 100ms;">
                     <img src="/assets/image5.jpg" alt="Corporate Headquarters" class="w-full h-full object-cover">
                     <div class="project-overlay absolute inset-0 flex flex-col justify-end p-8">
-                        <h3 class="text-white font-serif text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Modern Villa</h3>
-                        <p class="text-brand-light mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">Modern vibes in Peravoor! Just designed this stunning project that’s all about sleek lines, minimalist charm, and seamless integration with nature. Can’t wait to see it come to life!</p>
+                        <h3
+                            class="text-white font-serif text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            Modern Villa</h3>
+                        <p
+                            class="text-brand-light mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                            Modern vibes in Peravoor! Just designed this stunning project that’s all about sleek lines,
+                            minimalist charm, and seamless integration with nature. Can’t wait to see it come to life!
+                        </p>
                     </div>
                 </div>
 
                 <!-- Project 6 -->
-                <div class="project-card relative rounded-sm shadow-md cursor-pointer h-[400px] fade-in-up group" style="transition-delay: 200ms;">
+                <div class="project-card relative rounded-sm shadow-md cursor-pointer h-[400px] fade-in-up group"
+                    style="transition-delay: 200ms;">
                     <img src="/assets/image6.jpg" alt="Residencial Project" class="w-full h-full object-cover">
                     <div class="project-overlay absolute inset-0 flex flex-col justify-end p-8">
-                        <h3 class="text-white font-serif text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Residencial Project</h3>
-                        <p class="text-brand-light mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">Blending tradition with modernity, our 2800 sqft Kerala home design redefines contemporary living. Inspired by traditional Kerala architecture, this home seamlessly integrates modern elements, creating a unique and harmonious space.</p>
+                        <h3
+                            class="text-white font-serif text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            Residencial Project</h3>
+                        <p
+                            class="text-brand-light mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                            Blending tradition with modernity, our 2800 sqft Kerala home design redefines contemporary
+                            living. Inspired by traditional Kerala architecture, this home seamlessly integrates modern
+                            elements, creating a unique and harmonious space.</p>
                     </div>
                 </div>
 
             </div>
-            
+
             <!-- <div class="text-center mt-12 fade-in-up">
                 <a href="#" class="inline-block px-8 py-3 bg-brand-dark text-white font-medium rounded-sm hover:bg-brand-accent transition-colors duration-300">View All Projects</a>
             </div> -->
@@ -248,9 +318,11 @@ Clean lines, warm wood, and expansive glass create a perfect balance of style an
     <section id="about" class="py-24 px-6 md:px-12 bg-brand-light">
         <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
             <!-- Image -->
-            <div class="w-full lg:w-1/2 fade-in-up">
-                <div class="relative p-4 before:absolute before:inset-0 before:bg-brand-accent before:opacity-20 before:-translate-x-4 before:-translate-y-4 before:-z-10 before:rounded-sm">
-                    <img src="/assets/about-image.png" alt="Our Studio" class="w-full h-[450px] object-cover rounded-sm shadow-xl">
+            <div class="w-full lg:w-1/2 fade-in-up hidden md:block">
+                <div
+                    class="relative p-4 before:absolute before:inset-0 before:bg-brand-accent before:opacity-20 before:-translate-x-4 before:-translate-y-4 before:-z-10 before:rounded-sm">
+                    <img src="/assets/about-image.png" alt="Our Studio"
+                        class="w-full h-[450px] object-cover rounded-sm shadow-xl ">
                 </div>
             </div>
             <!-- Text -->
@@ -258,13 +330,17 @@ Clean lines, warm wood, and expansive glass create a perfect balance of style an
                 <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-dark mb-6">About Us</h2>
                 <div class="h-1 w-20 bg-brand-accent mb-8"></div>
                 <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-                    R.O.B Architectural Studio blends creativity and functionality to sculpt environments that resonate with the human spirit. With an unwavering commitment to minimalist elegance, we approach every project as a unique piece of art.
+                    R.O.B Architectural Studio blends creativity and functionality to sculpt environments that resonate
+                    with the human spirit. With an unwavering commitment to minimalist elegance, we approach every
+                    project as a unique piece of art.
                 </p>
                 <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-                    Our team of passionate designers, architects, and visionaries works closely with clients to transform dreams into tangible, enduring structures. We integrate cutting-edge materials with timeless aesthetics to create spaces that endure the test of time.
+                    Our team of passionate designers, architects, and visionaries works closely with clients to
+                    transform dreams into tangible, enduring structures. We integrate cutting-edge materials with
+                    timeless aesthetics to create spaces that endure the test of time.
                 </p>
-                
-                <div class="flex items-center gap-6">
+
+                <div class="flex flex-wrap items-center gap-4 sm:gap-6">
                     <div class="text-center">
                         <span class="block text-3xl font-bold text-brand-accent">15+</span>
                         <span class="text-sm text-gray-500 uppercase tracking-wide">Years Experience</span>
@@ -289,30 +365,42 @@ Clean lines, warm wood, and expansive glass create a perfect balance of style an
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                 <!-- Service 1 -->
-                <div class="bg-brand-light p-10 text-center rounded-sm shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-transparent border-b-4 hover:border-brand-accent fade-in-up group">
-                    <div class="w-20 h-20 mx-auto bg-white rounded-full flex items-center justify-center shadow-md mb-6 group-hover:bg-brand-accent transition-colors duration-300">
-                        <i class="fa-solid fa-building text-3xl text-brand-accent group-hover:text-white transition-colors duration-300"></i>
+                <div
+                    class="bg-brand-light p-10 text-center rounded-sm shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-transparent border-b-4 hover:border-brand-accent fade-in-up group">
+                    <div
+                        class="w-20 h-20 mx-auto bg-white rounded-full flex items-center justify-center shadow-md mb-6 group-hover:bg-brand-accent transition-colors duration-300">
+                        <i
+                            class="fa-solid fa-building text-3xl text-brand-accent group-hover:text-white transition-colors duration-300"></i>
                     </div>
-                    <h3 class="font-serif text-2xl font-bold text-brand-dark mb-4">Architectural Design</h3>
-                    <p class="text-gray-500">Innovative structural designs tailored to seamlessly blend form, function, and the surrounding environment.</p>
+                    <h3 class="font-serif text-2xl font-bold text-brand-dark mb-4" style="line-height: 1.6;">Architectural Design</h3>
+                    <p class="text-gray-500">Innovative structural designs tailored to seamlessly blend form, function,
+                        and the surrounding environment.</p>
                 </div>
 
                 <!-- Service 2 -->
-                <div class="bg-brand-light p-10 text-center rounded-sm shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-transparent border-b-4 hover:border-brand-accent fade-in-up group" style="transition-delay: 100ms;">
-                    <div class="w-20 h-20 mx-auto bg-white rounded-full flex items-center justify-center shadow-md mb-6 group-hover:bg-brand-accent transition-colors duration-300">
-                        <i class="fa-solid fa-couch text-3xl text-brand-accent group-hover:text-white transition-colors duration-300"></i>
+                <div class="bg-brand-light p-10 text-center rounded-sm shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-transparent border-b-4 hover:border-brand-accent fade-in-up group"
+                    style="transition-delay: 100ms;">
+                    <div
+                        class="w-20 h-20 mx-auto bg-white rounded-full flex items-center justify-center shadow-md mb-6 group-hover:bg-brand-accent transition-colors duration-300">
+                        <i
+                            class="fa-solid fa-couch text-3xl text-brand-accent group-hover:text-white transition-colors duration-300"></i>
                     </div>
-                    <h3 class="font-serif text-2xl font-bold text-brand-dark mb-4">Interior Design</h3>
-                    <p class="text-gray-500">Crafting luxurious, functional interiors that maximize space and reflect your unique personal style.</p>
+                    <h3 class="font-serif text-2xl font-bold text-brand-dark mb-4" style="line-height: 1.6;">Interior Design</h3>
+                    <p class="text-gray-500">Crafting luxurious, functional interiors that maximize space and reflect
+                        your unique personal style.</p>
                 </div>
 
                 <!-- Service 3 -->
-                <div class="bg-brand-light p-10 text-center rounded-sm shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-transparent border-b-4 hover:border-brand-accent fade-in-up group" style="transition-delay: 200ms;">
-                    <div class="w-20 h-20 mx-auto bg-white rounded-full flex items-center justify-center shadow-md mb-6 group-hover:bg-brand-accent transition-colors duration-300">
-                        <i class="fa-solid fa-tree text-3xl text-brand-accent group-hover:text-white transition-colors duration-300"></i>
+                <div class="bg-brand-light p-10 text-center rounded-sm shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-transparent border-b-4 hover:border-brand-accent fade-in-up group"
+                    style="transition-delay: 200ms;">
+                    <div
+                        class="w-20 h-20 mx-auto bg-white rounded-full flex items-center justify-center shadow-md mb-6 group-hover:bg-brand-accent transition-colors duration-300">
+                        <i
+                            class="fa-solid fa-tree text-3xl text-brand-accent group-hover:text-white transition-colors duration-300"></i>
                     </div>
-                    <h3 class="font-serif text-2xl font-bold text-brand-dark mb-4">Landscape Design</h3>
-                    <p class="text-gray-500">Transforming outdoor spaces into elegant retreats that harmonize perfectly with the natural landscape.</p>
+                    <h3 class="font-serif text-2xl font-bold text-brand-dark mb-4" style="line-height: 1.6;">Landscape Design</h3>
+                    <p class="text-gray-500">Transforming outdoor spaces into elegant retreats that harmonize perfectly
+                        with the natural landscape.</p>
                 </div>
             </div>
         </div>
@@ -321,12 +409,15 @@ Clean lines, warm wood, and expansive glass create a perfect balance of style an
     <!-- 6. CALL TO ACTION SECTION -->
     <section class="py-24 px-6 md:px-12 bg-brand-dark text-white text-center relative overflow-hidden">
         <!-- Subtle background pattern -->
-        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 30px 30px;"></div>
-        
+        <div class="absolute inset-0 opacity-10"
+            style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 30px 30px;"></div>
+
         <div class="max-w-4xl mx-auto relative z-10 fade-in-up">
-            <h2 class="font-serif text-3xl md:text-4xl font-bold mb-6">Let’s bring your vision to life.</h2>
-            <p class="text-xl opacity-80 mb-10 max-w-2xl mx-auto">Ready to start your next architectural project? Our expert team is here to guide you every step of the way.</p>
-            <a href="tel:8921533894" class="inline-flex items-center gap-3 px-10 py-4 bg-brand-accent hover:bg-brand-darkAccent text-white text-lg font-medium rounded-sm transition-transform duration-300 transform hover:scale-105 shadow-xl">
+            <h2 class="font-serif text-2xl md:text-4xl font-bold mb-6" style="line-height: 2.4;">Let’s bring your vision to life.</h2>
+            <p class="text-xl opacity-80 mb-10 max-w-2xl mx-auto">Ready to start your next architectural project? Our
+                expert team is here to guide you every step of the way.</p>
+            <a href="tel:8921533894"
+                class="inline-flex items-center gap-3 px-10 py-4 bg-brand-accent hover:bg-brand-darkAccent text-white text-lg font-medium rounded-sm transition-transform duration-300 transform hover:scale-105 shadow-xl">
                 <i class="fa-solid fa-phone"></i> Call Now: +91 8921533894
             </a>
         </div>
@@ -335,16 +426,18 @@ Clean lines, warm wood, and expansive glass create a perfect balance of style an
     <!-- 7. CONTACT SECTION -->
     <section id="contact" class="py-24 px-6 md:px-12 bg-brand-light border-b border-gray-200">
         <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16">
-            
+
             <!-- Contact Info -->
             <div class="w-full lg:w-1/3 fade-in-up">
-                <h2 class="font-serif text-3xl font-bold text-brand-dark mb-4">Get In Touch</h2>
+                <h2 class="font-serif text-2xl font-bold text-brand-dark mb-4">Get In Touch</h2>
                 <div class="h-1 w-16 bg-brand-accent mb-8"></div>
-                <p class="text-gray-600 mb-10">We'd love to hear about your project. Drop us a message and our team will get back to you shortly.</p>
-                
+                <p class="text-gray-600 mb-10">We'd love to hear about your project. Drop us a message and our team will
+                    get back to you shortly.</p>
+
                 <div class="space-y-6">
                     <div class="flex items-start gap-4">
-                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
+                        <div
+                            class="w-12 h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
                             <i class="fa-solid fa-location-dot text-brand-accent text-xl"></i>
                         </div>
                         <div>
@@ -352,9 +445,10 @@ Clean lines, warm wood, and expansive glass create a perfect balance of style an
                             <p class="text-gray-500">123 Architecture Blvd, City Center, Design District</p>
                         </div>
                     </div>
-                    
+
                     <div class="flex items-start gap-4">
-                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
+                        <div
+                            class="w-12 h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
                             <i class="fa-solid fa-phone text-brand-accent text-xl"></i>
                         </div>
                         <div>
@@ -364,7 +458,8 @@ Clean lines, warm wood, and expansive glass create a perfect balance of style an
                     </div>
 
                     <div class="flex items-start gap-4">
-                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
+                        <div
+                            class="w-12 h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
                             <i class="fa-solid fa-envelope text-brand-accent text-xl"></i>
                         </div>
                         <div>
@@ -381,50 +476,65 @@ Clean lines, warm wood, and expansive glass create a perfect balance of style an
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
-                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors" placeholder="John Doe" required>
+                            <input type="text"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors"
+                                placeholder="John Doe" required>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
-                            <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors" placeholder="+91 8921533894" required>
+                            <input type="tel"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors"
+                                placeholder="+91 8921533894" required>
                         </div>
                     </div>
                     <div class="mb-6">
                         <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
-                        <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors" placeholder="john@example.com" required>
+                        <input type="email"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors"
+                            placeholder="john@example.com" required>
                     </div>
                     <div class="mb-8">
                         <label class="block text-sm font-medium text-gray-700 mb-2">Your Message</label>
-                        <textarea rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors" placeholder="Tell us about your project..." required></textarea>
+                        <textarea rows="5"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors"
+                            placeholder="Tell us about your project..." required></textarea>
                     </div>
-                    <button type="submit" class="w-full bg-brand-dark hover:bg-brand-accent text-white font-medium py-4 rounded-sm transition-colors duration-300 shadow-md">
+                    <button type="submit"
+                        class="w-full bg-brand-dark hover:bg-brand-accent text-white font-medium py-4 rounded-sm transition-colors duration-300 shadow-md">
                         Send Message <i class="fa-solid fa-paper-plane ml-2"></i>
                     </button>
                 </form>
             </div>
-            
+
         </div>
     </section>
 
     <!-- 8. FOOTER -->
     <footer class="bg-brand-dark text-gray-400 py-16 px-6 md:px-12 border-t-4 border-brand-accent text-sm">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
-            
+
             <!-- Brand -->
             <div>
                 <a href="#" class="flex items-center gap-2 mb-6">
-                    <img src="logo.png" alt="R.O.B Logo" class="h-6 w-auto brightness-0 invert opacity-90" id="footer-img-logo" onerror="this.style.display='none'; document.getElementById('footer-text-logo').classList.remove('hidden');">
+                    <img src="logo.png" alt="R.O.B Logo" class="h-6 w-auto brightness-0 invert opacity-90"
+                        id="footer-img-logo"
+                        onerror="this.style.display='none'; document.getElementById('footer-text-logo').classList.remove('hidden');">
 
                 </a>
-                <p class="leading-relaxed mb-6">We create meaningful spaces that enrich human lives and connect people to their environments through thoughtful architecture.</p>
+                <p class="leading-relaxed mb-6">We create meaningful spaces that enrich human lives and connect people
+                    to their environments through thoughtful architecture.</p>
                 <!-- Social -->
                 <div class="flex gap-4">
-                    <a href="#" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:bg-brand-accent hover:text-white hover:border-brand-accent transition-all duration-300">
+                    <a href="#"
+                        class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:bg-brand-accent hover:text-white hover:border-brand-accent transition-all duration-300">
                         <i class="fa-brands fa-instagram text-lg"></i>
                     </a>
-                    <a href="#" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:bg-brand-accent hover:text-white hover:border-brand-accent transition-all duration-300">
+                    <a href="#"
+                        class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:bg-brand-accent hover:text-white hover:border-brand-accent transition-all duration-300">
                         <i class="fa-brands fa-facebook-f text-lg"></i>
                     </a>
-                    <a href="#" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:bg-brand-accent hover:text-white hover:border-brand-accent transition-all duration-300">
+                    <a href="#"
+                        class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:bg-brand-accent hover:text-white hover:border-brand-accent transition-all duration-300">
                         <i class="fa-brands fa-pinterest-p text-lg"></i>
                     </a>
                 </div>
@@ -462,18 +572,22 @@ Clean lines, warm wood, and expansive glass create a perfect balance of style an
             </div>
 
         </div>
-        
-        <div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-gray-800 text-center flex flex-col md:flex-row justify-between items-center gap-4">
+
+        <div
+            class="max-w-7xl mx-auto mt-16 pt-8 border-t border-gray-800 text-center flex flex-col md:flex-row justify-between items-center gap-4">
             <p>&copy; 2026 R.O.B Architectural Studio. All rights reserved.</p>
             <p class="text-xs">Designed with <i class="fa-solid fa-heart text-brand-accent mx-1"></i> depoXstudio</p>
         </div>
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/918921533894" target="_blank" class="fixed bottom-8 right-8 bg-[#25D366] hover:bg-[#1ebd5b] text-white p-4 rounded-full shadow-2xl z-50 flex items-center justify-center wa-float transition-colors duration-300 group" title="Chat on WhatsApp">
+    <a href="https://wa.me/918921533894" target="_blank"
+        class="fixed bottom-8 right-8 bg-[#25D366] hover:bg-[#1ebd5b] text-white p-4 rounded-full shadow-2xl z-50 flex items-center justify-center wa-float transition-colors duration-300 group"
+        title="Chat on WhatsApp">
         <i class="fa-brands fa-whatsapp text-3xl"></i>
         <!-- Optional Tooltip -->
-        <span class="absolute right-full mr-4 bg-white text-gray-800 px-3 py-1 rounded shadow-md text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
+        <span
+            class="absolute right-full mr-4 bg-white text-gray-800 px-3 py-1 rounded shadow-md text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
             Chat with us
         </span>
     </a>
@@ -484,20 +598,20 @@ Clean lines, warm wood, and expansive glass create a perfect balance of style an
             // 1. Scrolled Navbar Effect
             const navbar = document.getElementById('navbar');
             const logo = document.getElementById('img-logo');
-            
+
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
                     navbar.classList.add('nav-scrolled');
                     navbar.classList.remove('text-white', 'py-4');
                     navbar.classList.add('py-4'); // shrink slightly
-                    if(logo) {
+                    if (logo) {
                         logo.classList.remove('brightness-0', 'invert', 'opacity-90');
                     }
                 } else {
                     navbar.classList.remove('nav-scrolled');
                     navbar.classList.add('text-white', 'py-4');
                     navbar.classList.remove('py-4');
-                    if(logo) {
+                    if (logo) {
                         logo.classList.add('brightness-0', 'invert', 'opacity-90');
                     }
                 }
@@ -532,13 +646,13 @@ Clean lines, warm wood, and expansive glass create a perfect balance of style an
 
             // 3. Scroll Reveal Animation (Intersection Observer)
             const fadeElements = document.querySelectorAll('.fade-in-up');
-            
+
             const appearOptions = {
                 threshold: 0.15,
                 rootMargin: "0px 0px -50px 0px"
             };
 
-            const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+            const appearOnScroll = new IntersectionObserver(function (entries, observer) {
                 entries.forEach(entry => {
                     if (!entry.isIntersecting) {
                         return; // do not remove is-visible class so they stay visible once faded in
@@ -552,17 +666,18 @@ Clean lines, warm wood, and expansive glass create a perfect balance of style an
             fadeElements.forEach(el => {
                 appearOnScroll.observe(el);
             });
-            
+
             // Execute scroll immediately in case elements are already visible on load
             if (window.scrollY > 50) {
-                 navbar.classList.add('nav-scrolled');
-                 navbar.classList.remove('text-white', 'py-4');
-                 navbar.classList.add('py-2');
-                 if(logo) {
-                     logo.classList.remove('brightness-0', 'invert', 'opacity-90');
-                 }
+                navbar.classList.add('nav-scrolled');
+                navbar.classList.remove('text-white', 'py-4');
+                navbar.classList.add('py-2');
+                if (logo) {
+                    logo.classList.remove('brightness-0', 'invert', 'opacity-90');
+                }
             }
         });
     </script>
 </body>
+
 </html>
