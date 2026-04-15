@@ -7,6 +7,7 @@
     <title>R.O.B ARCHITECTURAL STUDIO | Art + Architecture</title>
     <meta name="description"
         content="R.O.B Architectural Studio blends creativity and functionality. Art + Architecture | Interior + Landscape Design.">
+    <link rel="stylesheet" href="style.css">
 
     <!-- Google Fonts (Poppins) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,9 +29,9 @@
                 extend: {
                     colors: {
                         brand: {
-                            accent: '#000000', // Black
+                            accent: '#0f172a', // Black
                             darkAccent: '#1f2937', // Gray-800
-                            dark: '#0f172a',
+                            dark: '#000000',
                             light: '#f8fafc',
                         }
                     },
@@ -42,135 +43,46 @@
             }
         }
     </script>
-    <style>
-        /* Custom Styles */
-        body {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* Scroll Animations */
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .fade-in-up.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Navbar Transition */
-        #navbar {
-            transition: all 0.3s ease;
-        }
-
-        .nav-scrolled {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            color: #0f172a !important;
-        }
-
-        .nav-scrolled #nav-logo {
-            color: #0f172a;
-        }
-
-        .nav-scrolled .mobile-menu-btn {
-            color: #0f172a;
-        }
-        
-        
-        /* Hero Overlay Gradient */
-        .hero-overlay {
-            background: linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(0, 0, 0, 0.6));
-        }
-
-        /* Project Card Hover */
-        .project-card {
-            overflow: hidden;
-        }
-
-        .project-card img {
-            transition: transform 0.7s ease-in-out;
-        }
-
-        .project-card:hover img {
-            transform: scale(1.1);
-        }
-
-        .project-overlay {
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .project-card:hover .project-overlay {
-            opacity: 1;
-        }
-
-        /* Floating WhatsApp Bounce */
-        @keyframes float {
-            0% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-
-            100% {
-                transform: translateY(0px);
-            }
-        }
-
-        .wa-float {
-            animation: float 3s ease-in-out infinite;
-        }
-    </style>
 </head>
 
 <body class="font-sans text-gray-800 bg-brand-light overflow-x-hidden relative w-full">
 
     <!-- 1. NAVBAR -->
-    <nav id="navbar" class="fixed w-full z-50 py-5 px-6 md:px-12 text-white transition-all duration-300">
+    <nav id="navbar" class="fixed w-full z-50 py-5 px-6 md:px-12 text-black bg-white/60 backdrop-blur-xl shadow-sm">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <!-- Logo -->
-            <a href="#" class="flex items-center gap-3">
-                <img src="logo.png" alt="R.O.B Logo"
-                    class="h-8 object-contain transition-all duration-300 brightness-0 invert opacity-90" id="img-logo"
-                    onerror="this.style.display='none'; document.getElementById('text-logo').classList.remove('hidden');">
-                <!-- <span id="text-logo" class="font-sans font-bold text-2xl tracking-wider uppercase">R.O.B</span> -->
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="logo.png" alt="R.O.B Logo" class="h-8 object-contain" id="img-logo">
+                <span id="text-logo" class="hidden font-sans font-bold text-2xl tracking-wider uppercase">R.O.B</span>
             </a>
 
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-8 text-sm font-medium tracking-wide">
-                <a href="#home" class="transition-colors duration-300">Home</a>
-                <a href="#projects" class="transition-colors duration-300">Projects</a>
-                <a href="#about" class="transition-colors duration-300">About</a>
-                <a href="#services" class="transition-colors duration-300">Services</a>
-                <a href="#contact" class="transition-colors duration-300">Contact</a>
+            <div class="hidden md:flex space-x-12 text-xs font-bold uppercase tracking-[0.2em] items-center">
+                <a href="index.html" class="border-b-2 border-black pb-1">Home</a>
+                <a href="projects.html" class="hover:text-gray-400 transition-colors">Projects</a>
+                <a href="about.html" class="hover:text-gray-400 transition-colors">About</a>
+                <a href="services.html" class="hover:text-gray-400 transition-colors">Services</a>
+                <a href="contact.html" class="hover:text-gray-400 transition-colors">Contact</a>
             </div>
 
-            <!-- Mobile Menu Button -->
-            <button class="md:hidden mobile-menu-btn text-2xl focus:outline-none" id="mobile-toggle">
+            <button class="md:hidden text-2xl focus:outline-none" id="mobile-toggle">
                 <i class="fa-solid fa-bars"></i>
             </button>
-        </div>
 
-        <!-- Mobile Menu -->
+
+            <!-- Mobile Menu -->
         <div id="mobile-menu"
             class="hidden absolute top-full left-0 w-full bg-white text-brand-dark shadow-lg border-t">
             <div class="flex flex-col py-4 px-6 space-y-4">
-                <a href="#home" class="mobile-link text-lg font-medium">Home</a>
-                <a href="#projects" class="mobile-link text-lg font-medium">Projects</a>
-                <a href="#about" class="mobile-link text-lg font-medium">About</a>
-                <a href="#services" class="mobile-link text-lg font-medium">Services</a>
-                <a href="#contact" class="mobile-link text-lg font-medium">Contact</a>
+                <a href="index.html" class="mobile-link text-lg font-medium">Home</a>
+                <a href="projects.html" class="mobile-link text-lg font-medium">Projects</a>
+                <a href="about.html" class="mobile-link text-lg font-medium">About</a>
+                <a href="services.html" class="mobile-link text-lg font-medium">Services</a>
+                <a href="contact.html" class="mobile-link text-lg font-medium">Contact</a>
             </div>
         </div>
+        </div>
     </nav>
+
+
 
     <!-- 2. HERO SECTION -->
     <section id="home" class="relative h-screen flex items-center justify-center">
@@ -182,7 +94,7 @@
         <div class="absolute inset-0 hero-overlay z-0"></div>
 
         <!-- Hero Content -->
-        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto text-white fade-in-up shrink">
+        <!-- <div class="relative z-10 text-center px-6 max-w-4xl mx-auto text-white fade-in-up shrink">
             <h1 class="font-serif text-2xl md:text-4xl font-bold mb-4 tracking-tight drop-shadow-lg" style="line-height: 1.8;" >ROB Architectural Studio</h1>
             <p class="text-xl md:text-3xl font-light mb-6 opacity-90 drop-shadow-md">Designing Spaces That Inspire</p>
             <p class="text-sm md:text-lg tracking-widest uppercase mb-10 opacity-80">Art + Architecture | Interior +
@@ -195,6 +107,30 @@
                 <a href="#contact"
                     class="px-8 py-3 bg-transparent border border-white hover:bg-white hover:text-brand-dark text-white font-medium rounded-sm transition-all duration-300 shadow-lg transform hover:-translate-y-1">Contact
                     Us</a>
+            </div>
+        </div> -->
+
+
+
+        <div class="max-w-7xl mx-auto">
+            <div class="fade-in-up pt-24 md:pt-32">
+                <!-- <h4 class="text-[10px] uppercase tracking-[0.5em] font-bold text-gray-400">What we do</h4> -->
+                <h1 class="font-serif text-4xl md:text-[44px] text-center text-white leading-[0.9] font-bold uppercase tracking-tighter mb-12 md:mb-4 pt-16 md:pt-0">
+                    ROB <br><span class="italic text-gray-400 ">Architectural</span><br> <span >Studio</span>
+                </h1>
+                <p class="text-xl md:text-lg text-gray-400 text-center max-w-2xl leading-relaxed font-light">
+                    Designing Spaces That Inspire
+                </p>
+                                    
+
+                <div class="flex sm:flex-row justify-center gap-4 mt-16">
+                <a href="#projects"
+                    class="px-6 py-2 bg-brand-accent hover:bg-brand-darkAccent text-white font-medium rounded-sm transition-all duration-300 shadow-lg transform hover:-translate-y-1">View
+                    Projects</a>
+                <a href="#contact"
+                    class="px-6 py-2 bg-transparent border border-white hover:bg-white hover:text-brand-dark text-white font-medium rounded-sm transition-all duration-300 shadow-lg transform hover:-translate-y-1">Contact
+                    Us</a>
+            </div>
             </div>
         </div>
     </section>
@@ -213,104 +149,192 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
                 <!-- Project 1 -->
-                <div class="project-card relative rounded-sm shadow-md cursor-pointer h-[400px] fade-in-up group">
-                    <img src="/assets/image1.jpg" alt="Modern Villa" class="w-full h-full object-cover">
-                    <div class="project-overlay absolute inset-0 flex flex-col justify-end p-8">
-                        <h3
-                            class="text-white font-serif text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                            Tropical Home</h3>
-                        <p
-                            class="text-brand-light mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                            Nature meets elegance ROB Architectural Studio’s stunning tropical design for Mr. Dhreej’s
-                            1950+ sqft home in Peravoor! Blending traditional charm with modern low-cost architecture,
-                            living in sync with nature. </p>
+                <div class="project-card relative rounded-sm shadow-md cursor-pointer h-[400px] fade-in-up group block overflow-hidden">
+                    <div class="project-image-container">
+                        <img src="/assets/image1.jpg" alt="Modern Villa" class="active-slide slide-1">
+                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=800" class="slide-2">
+                        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=800" class="slide-3">
+                    </div>
+
+                    <span class="absolute top-6 left-6 z-20 text-brand-light md:hidden text-xs font-bold uppercase tracking-widest px-3 py-1.5 shadow-sm rounded-sm">Click here</span>
+
+                    <span class="absolute top-6 right-6 z-20 text-brand-accent text-xs font-bold uppercase tracking-widest px-3 py-1.5 bg-white/90 shadow-sm rounded-sm">Architecture</span>
+                    <div class="project-dots">
+                        <div class="dot dot-1"></div>
+                        <div class="dot dot-2"></div>
+                        <div class="dot dot-3"></div>
+                    </div>
+                    <div class="project-overlay absolute inset-0 z-30 flex flex-col justify-end p-8">
+                        <h3 class="text-white font-serif text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Tropical Home</h3>
+                        <p class="text-brand-light mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                            Nature meets elegance in this stunning tropical design blending traditional charm with modern architecture.
+                        </p>
+                        <div class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
+                            <span class="inline-flex items-center text-white text-xs font-bold uppercase tracking-[0.2em] group/btn">
+                                View Details 
+                                <span class="ml-2 transform group-hover/btn:translate-x-2 transition-transform duration-300">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </span>
+                            </span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Project 2 -->
-                <div class="project-card relative rounded-sm shadow-md cursor-pointer h-[400px] fade-in-up group"
-                    style="transition-delay: 100ms;">
-                    <img src="/assets/image2.jpg" alt="Urban Residence" class="w-full h-full object-cover">
-                    <div class="project-overlay absolute inset-0 flex flex-col justify-end p-8">
-                        <h3
-                            class="text-white font-serif text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                            CURVE Residence</h3>
-                        <p
-                            class="text-brand-light mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                            Designed over 4,950 sqft, Curve is a futuristic residence shaped by fluid forms and organic
-                            geometry. The client’s vision was to create a unique architectural identity that blends
-                            seamlessly with nature, and the design responds through soft sculptural curves that flow
-                            naturally within the lush tropical landscape.</p>
+                <div class="project-card relative rounded-sm shadow-md cursor-pointer h-[400px] fade-in-up group block overflow-hidden" style="transition-delay: 100ms;">
+                    <div class="project-image-container">
+                        <img src="/assets/image2.jpg" alt="Urban Residence" class="active-slide slide-1">
+                        <img src="https://images.unsplash.com/photo-1481437156560-3205f6a55735?auto=format&fit=crop&q=80&w=800" class="slide-2">
+                        <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&q=80&w=800" class="slide-3">
+                    </div>
+                    <span class="absolute top-6 left-6 z-20 text-brand-light md:hidden text-xs font-bold uppercase tracking-widest px-3 py-1.5 shadow-sm rounded-sm">Click here</span>
+                    <span class="absolute top-6 right-6 z-20 text-brand-accent text-xs font-bold uppercase tracking-widest px-3 py-1.5 bg-white/90 shadow-sm rounded-sm">Architecture</span>
+                    <div class="project-dots">
+                        <div class="dot dot-1"></div>
+                        <div class="dot dot-2 ="></div>
+                        <div class="dot dot-3"></div>
+                    </div>
+                    <div class="project-overlay absolute inset-0 z-30 flex flex-col justify-end p-8">
+                        <h3 class="text-white font-serif text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">CURVE Residence</h3>
+                        <p class="text-brand-light mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                            A futuristic residence shaped by fluid forms and organic geometry, blending seamlessly with nature.
+                        </p>
+                        <div class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
+                            <span class="inline-flex items-center text-white text-xs font-bold uppercase tracking-[0.2em] group/btn">
+                                View Details 
+                                <span class="ml-2 transform group-hover/btn:translate-x-2 transition-transform duration-300">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </span>
+                            </span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Project 3 -->
-                <div class="project-card relative rounded-sm shadow-md cursor-pointer h-[400px] fade-in-up group"
-                    style="transition-delay: 200ms;">
-                    <img src="/assets/image3.jpg" alt="Landscape Retreat" class="w-full h-full object-cover">
-                    <div class="project-overlay absolute inset-0 flex flex-col justify-end p-8">
-                        <h3
-                            class="text-white font-serif text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                            Contemporary Home</h3>
-                        <p
-                            class="text-brand-light mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                            A stunning 4953 sqft contemporary home blending modern design with Kerala’s tropical charm
-                            Clean lines, warm wood, and expansive glass create a perfect balance of style and nature.
+                <div class="project-card relative rounded-sm shadow-md cursor-pointer h-[400px] fade-in-up group block overflow-hidden" style="transition-delay: 200ms;">
+                    <div class="project-image-container">
+                        <img src="/assets/image3.jpg" alt="Landscape Retreat" class="active-slide slide-1">
+                        <img src="https://images.unsplash.com/photo-1513584684374-8bdb7489feef?auto=format&fit=crop&q=80&w=800" class="slide-2">
+                        <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80&w=800" class="slide-3">
+                    </div>
+                    <span class="absolute top-6 left-6 z-20 text-brand-light md:hidden text-xs font-bold uppercase tracking-widest px-3 py-1.5 shadow-sm rounded-sm">Click here</span>
+                    <span class="absolute top-6 right-6 z-20 text-brand-accent text-xs font-bold uppercase tracking-widest px-3 py-1.5 bg-white/90 shadow-sm rounded-sm">Architecture</span>
+                    <div class="project-dots">
+                        <div class="dot dot-1"></div>
+                        <div class="dot dot-2"></div>
+                        <div class="dot dot-3"></div>
+                    </div>
+                    <div class="project-overlay absolute inset-0 z-30 flex flex-col justify-end p-8">
+                        <h3 class="text-white font-serif text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Contemporary Home</h3>
+                        <p class="text-brand-light mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                            A stunning contemporary home blending modern design with Kerala’s tropical charm.
                         </p>
+                        <div class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
+                            <span class="inline-flex items-center text-white text-xs font-bold uppercase tracking-[0.2em] group/btn">
+                                View Details 
+                                <span class="ml-2 transform group-hover/btn:translate-x-2 transition-transform duration-300">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </span>
+                            </span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Project 4 -->
-                <div class="project-card relative rounded-sm shadow-md cursor-pointer h-[400px] fade-in-up group">
-                    <img src="/assets/image4.jpg" alt="Luxury Interior" class="w-full h-full object-cover">
-                    <div class="project-overlay absolute inset-0 flex flex-col justify-end p-8">
-                        <h3
-                            class="text-white font-serif text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                            Future Design</h3>
-                        <p
-                            class="text-brand-light mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                            Designing the future, one project at a time Check out our latest architectural masterpiece!
+                <div class="project-card relative rounded-sm shadow-md cursor-pointer h-[400px] fade-in-up group block overflow-hidden">
+                    <div class="project-image-container">
+                        <img src="/assets/image4.jpg" alt="Luxury Interior" class="active-slide slide-1">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800" class="slide-2">
+                        <img src="https://images.unsplash.com/photo-1541829081725-6f1c93bb3c66?auto=format&fit=crop&q=80&w=800" class="slide-3">
+                    </div>
+                    <span class="absolute top-6 left-6 z-20 text-brand-light md:hidden text-xs font-bold uppercase tracking-widest px-3 py-1.5 shadow-sm rounded-sm">Click here</span>
+                    <span class="absolute top-6 right-6 z-20 text-brand-accent text-xs font-bold uppercase tracking-widest px-3 py-1.5 bg-white/90 shadow-sm rounded-sm">Architecture</span>
+                    <div class="project-dots">
+                        <div class="dot dot-1"></div>
+                        <div class="dot dot-2"></div>
+                        <div class="dot dot-3"></div>
+                    </div>
+                    <div class="project-overlay absolute inset-0 z-30 flex flex-col justify-end p-8">
+                        <h3 class="text-white font-serif text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Future Design</h3>
+                        <p class="text-brand-light mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                            Designing the future, one project at a time with cutting-edge architectural masterpieces.
                         </p>
+                        <div class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
+                            <span class="inline-flex items-center text-white text-xs font-bold uppercase tracking-[0.2em] group/btn">
+                                View Details 
+                                <span class="ml-2 transform group-hover/btn:translate-x-2 transition-transform duration-300">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </span>
+                            </span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Project 5 -->
-                <div class="project-card relative rounded-sm shadow-md cursor-pointer h-[400px] fade-in-up group"
-                    style="transition-delay: 100ms;">
-                    <img src="/assets/image5.jpg" alt="Corporate Headquarters" class="w-full h-full object-cover">
-                    <div class="project-overlay absolute inset-0 flex flex-col justify-end p-8">
-                        <h3
-                            class="text-white font-serif text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                            Modern Villa</h3>
-                        <p
-                            class="text-brand-light mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                            Modern vibes in Peravoor! Just designed this stunning project that’s all about sleek lines,
-                            minimalist charm, and seamless integration with nature. Can’t wait to see it come to life!
+                <div class="project-card relative rounded-sm shadow-md cursor-pointer h-[400px] fade-in-up group block overflow-hidden" style="transition-delay: 100ms;">
+                    <div class="project-image-container">
+                        <img src="/assets/image5.jpg" alt="Corporate Headquarters" class="active-slide slide-1">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800" class="slide-2">
+                        <img src="https://images.unsplash.com/photo-1616489953149-755e74f2e928?auto=format&fit=crop&q=80&w=800" class="slide-3">
+                    </div>
+                    <span class="absolute top-6 left-6 z-20 text-brand-light md:hidden text-xs font-bold uppercase tracking-widest px-3 py-1.5 shadow-sm rounded-sm">Click here</span>
+                    <span class="absolute top-6 right-6 z-20 text-brand-accent text-xs font-bold uppercase tracking-widest px-3 py-1.5 bg-white/90 shadow-sm rounded-sm">Interior</span>
+                    <div class="project-dots">
+                        <div class="dot dot-1"></div>
+                        <div class="dot dot-2"></div>
+                        <div class="dot dot-3"></div>
+                    </div>
+                    <div class="project-overlay absolute inset-0 z-30 flex flex-col justify-end p-8">
+                        <h3 class="text-white font-serif text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Modern Villa</h3>
+                        <p class="text-brand-light mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                            Sleek lines and minimalist charm, focusing on seamless integration with the natural environment.
                         </p>
+                        <div class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
+                            <span class="inline-flex items-center text-white text-xs font-bold uppercase tracking-[0.2em] group/btn">
+                                View Details 
+                                <span class="ml-2 transform group-hover/btn:translate-x-2 transition-transform duration-300">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </span>
+                            </span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Project 6 -->
-                <div class="project-card relative rounded-sm shadow-md cursor-pointer h-[400px] fade-in-up group"
-                    style="transition-delay: 200ms;">
-                    <img src="/assets/image6.jpg" alt="Residencial Project" class="w-full h-full object-cover">
-                    <div class="project-overlay absolute inset-0 flex flex-col justify-end p-8">
-                        <h3
-                            class="text-white font-serif text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                            Residencial Project</h3>
-                        <p
-                            class="text-brand-light mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                            Blending tradition with modernity, our 2800 sqft Kerala home design redefines contemporary
-                            living. Inspired by traditional Kerala architecture, this home seamlessly integrates modern
-                            elements, creating a unique and harmonious space.</p>
+                <div class="project-card relative rounded-sm shadow-md cursor-pointer h-[400px] fade-in-up group block overflow-hidden" style="transition-delay: 200ms;">
+                    <div class="project-image-container">
+                        <img src="/assets/image6.jpg" alt="Residencial Project" class="active-slide slide-1">
+                        <img src="https://images.unsplash.com/photo-1600585154526-990dcea42e49?auto=format&fit=crop&q=80&w=800" class="slide-2">
+                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=800" class="slide-3">
+                    </div>
+                    <span class="absolute top-6 left-6 z-20 text-brand-light md:hidden text-xs font-bold uppercase tracking-widest px-3 py-1.5 shadow-sm rounded-sm">Click here</span>
+                    <span class="absolute top-6 right-6 z-20 text-brand-accent text-xs font-bold uppercase tracking-widest px-3 py-1.5 bg-white/90 shadow-sm rounded-sm">Architecture</span>
+                    <div class="project-dots">
+                        <div class="dot dot-1"></div>
+                        <div class="dot dot-2"></div>
+                        <div class="dot dot-3"></div>
+                    </div>
+                    <div class="project-overlay absolute inset-0 z-30 flex flex-col justify-end p-8">
+                        <h3 class="text-white font-serif text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Residencial Project</h3>
+                        <p class="text-brand-light mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                            Blending tradition with modernity, redefining contemporary living through Kerala-inspired design.
+                        </p>
+                        <div class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
+                            <span class="inline-flex items-center text-white text-xs font-bold uppercase tracking-[0.2em] group/btn">
+                                View Details 
+                                <span class="ml-2 transform group-hover/btn:translate-x-2 transition-transform duration-300">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </span>
+                            </span>
+                        </div>
                     </div>
                 </div>
 
             </div>
 
-            <!-- <div class="text-center mt-12 fade-in-up">
-                <a href="#" class="inline-block px-8 py-3 bg-brand-dark text-white font-medium rounded-sm hover:bg-brand-accent transition-colors duration-300">View All Projects</a>
-            </div> -->
+            <div class="text-center mt-12 fade-in-up">
+                <a href="projects.html" class="inline-block px-8 py-3 bg-brand-dark text-white font-medium rounded-sm hover:bg-brand-accent transition-colors duration-300">View All Projects</a>
+            </div>
         </div>
     </section>
 
@@ -322,7 +346,7 @@
                 <div
                     class="relative p-4 before:absolute before:inset-0 before:bg-brand-accent before:opacity-20 before:-translate-x-4 before:-translate-y-4 before:-z-10 before:rounded-sm">
                     <img src="/assets/about-image.png" alt="Our Studio"
-                        class="w-full h-[450px] object-cover rounded-sm shadow-xl ">
+                        class="w-full h-[450px] object-cover rounded-sm shadow-xl grayscale hover:grayscale-0 transition-all duration-300">
                 </div>
             </div>
             <!-- Text -->
@@ -510,73 +534,36 @@
     </section>
 
     <!-- 8. FOOTER -->
-    <footer class="bg-brand-dark text-gray-400 py-16 px-6 md:px-12 border-t-4 border-brand-accent text-sm">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+    <footer class="bg-black text-white py-20 px-10">
+        <div class="max-w-7xl mx-auto flex flex-col items-center">
+            <h2 style="line-height: 1.8;" class="font-serif text-xl md:text-2xl tracking-wider font-bold tracking-tighter uppercase mb-6 text-white leading-none">ROB Architectural Studio</h2>
+            <div class="h-1 w-20 bg-white mb-10"></div>
+            <div class="flex space-x-12 text-[10px] font-bold uppercase tracking-[0.3em] mb-4">
+                <a href="index.html" class="hover:opacity-60">Home</a>
+                <a href="projects.html" class="hover:opacity-60">Projects</a>
+                <a href="about.html" class="hover:opacity-60">About</a>
+                <a href="contact.html" class="hover:opacity-60">Contact</a>
+            </div>
+            
 
-            <!-- Brand -->
             <div>
-                <a href="#" class="flex items-center gap-2 mb-6">
-                    <img src="logo.png" alt="R.O.B Logo" class="h-6 w-auto brightness-0 invert opacity-90"
-                        id="footer-img-logo"
-                        onerror="this.style.display='none'; document.getElementById('footer-text-logo').classList.remove('hidden');">
-
-                </a>
-                <p class="leading-relaxed mb-6">We create meaningful spaces that enrich human lives and connect people
-                    to their environments through thoughtful architecture.</p>
                 <!-- Social -->
-                <div class="flex gap-4">
+                <div class="flex gap-4 mx-auto mb-4" style="max-width: fit-content;">
                     <a href="#"
-                        class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:bg-brand-accent hover:text-white hover:border-brand-accent transition-all duration-300">
-                        <i class="fa-brands fa-instagram text-lg"></i>
+                        class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-brand-accent hover:text-white transition-all duration-300">
+                        <i class="fa-brands fa-instagram text-md"></i>
                     </a>
                     <a href="#"
-                        class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:bg-brand-accent hover:text-white hover:border-brand-accent transition-all duration-300">
-                        <i class="fa-brands fa-facebook-f text-lg"></i>
+                        class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-brand-accent hover:text-white transition-all duration-300">
+                        <i class="fa-brands fa-facebook-f text-md"></i>
                     </a>
                     <a href="#"
-                        class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:bg-brand-accent hover:text-white hover:border-brand-accent transition-all duration-300">
-                        <i class="fa-brands fa-pinterest-p text-lg"></i>
+                        class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-brand-accent hover:text-white transition-all duration-300">
+                        <i class="fa-brands fa-pinterest-p text-md"></i>
                     </a>
                 </div>
-            </div>
 
-            <!-- Quick Links -->
-            <div>
-                <h4 class="text-white font-serif text-md font-bold mb-6">Quick Links</h4>
-                <ul class="space-y-3">
-                    <li><a href="#home" class="hover:text-brand-accent transition-colors">Home</a></li>
-                    <li><a href="#projects" class="hover:text-brand-accent transition-colors">Featured Projects</a></li>
-                    <li><a href="#about" class="hover:text-brand-accent transition-colors">About Us</a></li>
-                    <li><a href="#services" class="hover:text-brand-accent transition-colors">Our Services</a></li>
-                    <li><a href="#contact" class="hover:text-brand-accent transition-colors">Contact</a></li>
-                </ul>
-            </div>
-
-            <!-- Contact -->
-            <div>
-                <h4 class="text-white font-serif text-md font-bold mb-6">Contact Us</h4>
-                <ul class="space-y-4">
-                    <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-location-dot mt-1 text-brand-accent"></i>
-                        <span>123 Architecture Blvd,<br>City Center, Design District</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <i class="fa-solid fa-phone text-brand-accent"></i>
-                        <span>+91 8921533894</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <i class="fa-solid fa-envelope text-brand-accent"></i>
-                        <span>hello@robarchitects.com</span>
-                    </li>
-                </ul>
-            </div>
-
-        </div>
-
-        <div
-            class="max-w-7xl mx-auto mt-16 pt-8 border-t border-gray-800 text-center flex flex-col md:flex-row justify-between items-center gap-4">
-            <p>&copy; 2026 R.O.B Architectural Studio. All rights reserved.</p>
-            <p class="text-xs">Designed with <i class="fa-solid fa-heart text-brand-accent mx-1"></i> depoXstudio</p>
+                <p class="text-gray-600 text-[10px] uppercase tracking-widest">&copy; 2026 R.O.B ARCHITECTURAL STUDIO</p>
         </div>
     </footer>
 
@@ -595,27 +582,7 @@
     <!-- JavaScript for Interactions -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // 1. Scrolled Navbar Effect
-            const navbar = document.getElementById('navbar');
-            const logo = document.getElementById('img-logo');
-
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('nav-scrolled');
-                    navbar.classList.remove('text-white', 'py-4');
-                    navbar.classList.add('py-4'); // shrink slightly
-                    if (logo) {
-                        logo.classList.remove('brightness-0', 'invert', 'opacity-90');
-                    }
-                } else {
-                    navbar.classList.remove('nav-scrolled');
-                    navbar.classList.add('text-white', 'py-4');
-                    navbar.classList.remove('py-4');
-                    if (logo) {
-                        logo.classList.add('brightness-0', 'invert', 'opacity-90');
-                    }
-                }
-            });
+            
 
             // 2. Mobile Menu Toggle
             const mobileBtn = document.getElementById('mobile-toggle');

@@ -1,0 +1,160 @@
+/* Custom Styles */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Scroll Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Navbar Transition */
+        #navbar {
+            transition: all 0.3s ease;
+        }
+
+        .nav-scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            color: #0f172a !important;
+        }
+
+        .nav-scrolled #nav-logo {
+            color: #0f172a;
+        }
+
+        .nav-scrolled .mobile-menu-btn {
+            color: #0f172a;
+        }
+        
+        
+        /* Hero Overlay Gradient */
+        .hero-overlay {
+            background: linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(0, 0, 0, 0.6));
+        }
+
+        /* Project Card Hover */
+        .project-card {
+            overflow: hidden;
+        }
+
+        .project-card img {
+            transition: transform 0.7s ease-in-out;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        /* Floating WhatsApp Bounce */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .wa-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Project Hover Image Slider */
+        .project-image-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .project-image-container img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.8s ease, transform 0.7s ease, filter 0.8s ease;
+            z-index: 1;
+            filter: grayscale(100%);
+        }
+
+        .project-image-container img.active-slide {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        .project-card:hover .project-image-container img,
+        .project-item:hover .project-image-container img {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+
+        /* Animation for 3 images - Synchronized 9s cycle (3s per image) */
+        .project-card:hover .slide-1, .project-item:hover .slide-1 { animation: slideFade 9s infinite; }
+        .project-card:hover .slide-2, .project-item:hover .slide-2 { animation: slideFade 9s infinite 3s; }
+        .project-card:hover .slide-3, .project-item:hover .slide-3 { animation: slideFade 9s infinite 6s; }
+
+        @keyframes slideFade {
+            0%, 28% { opacity: 1; z-index: 10; }
+            33%, 100% { opacity: 0; z-index: 1; }
+        }
+
+        /* Dotted Scroll/Pagination Indicators */
+        .project-dots {
+            position: absolute;
+            bottom: 25px;
+            left: 32px; /* Aligned with left padding */
+            display: flex;
+            gap: 6px;
+            z-index: 40;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .project-card:hover .project-dots, 
+        .project-item:hover .project-dots {
+            opacity: 1;
+        }
+
+        .dot {
+            width: 6px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover .dot-1, .project-item:hover .dot-1 { animation: dotActive 9s infinite; }
+        .project-card:hover .dot-2, .project-item:hover .dot-2 { animation: dotActive 9s infinite 3s; }
+        .project-card:hover .dot-3, .project-item:hover .dot-3 { animation: dotActive 9s infinite 6s; }
+
+        @keyframes dotActive {
+            0%, 28% { background: #E2E8F0; width: 20px; opacity: 1; }
+            33%, 100% { background: rgba(255, 255, 255, 0.3); width: 6px; opacity: 0.5; }
+        }

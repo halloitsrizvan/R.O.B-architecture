@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth overflow-x-hidden">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | R.O.B ARCHITECTURAL STUDIO</title>
+    <meta name="description"
+        content="R.O.B Architectural Studio blends creativity and functionality. Learn more about our vision and legacy.">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts (Poppins) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom Font (Agraham) -->
+    <link href="https://fonts.cdnfonts.com/css/agraham" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            accent: '#000000', // Black
+                            darkAccent: '#1f2937', // Gray-800
+                            dark: '#0f172a',
+                            light: '#f8fafc',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Agraham', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="font-sans text-gray-800 bg-brand-light overflow-x-hidden relative w-full">
+
+    <!-- 1. NAVBAR -->
+    <nav id="navbar" class="fixed w-full z-50 py-5 px-6 md:px-12 text-white transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="logo.png" alt="R.O.B Logo"
+                    class="h-8 object-contain transition-all duration-300 brightness-0 invert opacity-90" id="img-logo"
+                    onerror="this.style.display='none'; document.getElementById('text-logo').classList.remove('hidden');">
+                <span id="text-logo" class="hidden font-sans font-bold text-2xl tracking-wider uppercase">R.O.B</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 text-sm font-medium tracking-wide">
+                <a href="index.html" class="transition-colors duration-300">Home</a>
+                <a href="projects.html" class="transition-colors duration-300">Projects</a>
+                <a href="about.html" class="text-gray-400 pointer-events-none">About</a>
+                <a href="services.html" class="transition-colors duration-300">Services</a>
+                <a href="contact.html" class="transition-colors duration-300">Contact</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden mobile-menu-btn text-2xl focus:outline-none" id="mobile-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden absolute top-full left-0 w-full bg-white text-brand-dark shadow-lg border-t">
+            <div class="flex flex-col py-4 px-6 space-y-4">
+                <a href="index.html" class="mobile-link text-lg font-medium">Home</a>
+                <a href="projects.html" class="mobile-link text-lg font-medium">Projects</a>
+                <a href="about.html" class="mobile-link text-lg font-medium text-gray-400">About</a>
+                <a href="services.html" class="mobile-link text-lg font-medium">Services</a>
+                <a href="contact.html" class="mobile-link text-lg font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. HERO SECTION -->
+    <section class="relative h-screen flex items-center justify-center">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000"
+                alt="About R.O.B" class="w-full h-full object-cover grayscale opacity-60" />
+        </div>
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 hero-overlay z-0 bg-black/50"></div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto text-white fade-in-up">
+            <h1 class="font-serif text-5xl md:text-7xl font-bold mb-6 tracking-tight drop-shadow-2xl uppercase">Our
+                <span class="italic text-gray-300">Story</span></h1>
+            <p class="text-lg md:text-xl font-light tracking-[0.2em] uppercase opacity-90">Crafting Legacies Since 2012
+            </p>
+        </div>
+    </section>
+
+    <!-- Our Philosophy -->
+    <section class="py-24 px-10 bg-white">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div class="fade-in-up">
+                <span
+                    class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-4 block underline decoration-brand-dark underline-offset-8">Our
+                    Philosophy</span>
+                <h2 class="text-4xl md:text-6xl font-serif font-bold uppercase leading-[1.1] mb-8">Minimalism Meets
+                    <span class="text-gray-400">Meaning</span></h2>
+                <p class="text-gray-600 leading-relaxed mb-6">
+                    At R.O.B Architectural Studio, we believe that space is not just about walls and ceilings; it's
+                    about the life that happens within them. Founded with a vision to marry traditional Kerala charm
+                    with futuristic utility, we have spent over a decade redefining what "home" looks like.
+                </p>
+                <div class="grid grid-cols-2 gap-8 mt-12">
+                    <div>
+                        <h4 class="font-serif text-3xl font-bold uppercase text-brand-dark">150+</h4>
+                        <p class="text-gray-400 text-xs uppercase font-bold tracking-widest mt-1">Projects Delivered</p>
+                    </div>
+                    <div>
+                        <h4 class="font-serif text-3xl font-bold uppercase text-brand-dark">12</h4>
+                        <p class="text-gray-400 text-xs uppercase font-bold tracking-widest mt-1">Design Awards</p>
+                    </div>
+                </div>
+            </div>
+            <div class="relative fade-in-up group" style="transition-delay: 200ms;">
+                <img src="https://images.unsplash.com/photo-1541829081725-6f1c93bb3c66?auto=format&fit=crop&q=80&w=1000"
+                    alt="Philosophy"
+                    class="w-full rounded-sm grayscale group-hover:grayscale-0 transition-all duration-1000 shadow-2xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- The Founder -->
+    <section class="bg-gray-900 text-white py-24 px-10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-20">
+            <div class="w-full md:w-1/3 fade-in-up">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800"
+                    alt="Rahul O.B." class="w-full grayscale rounded-sm border border-gray-800 shadow-xl">
+            </div>
+            <div class="w-full md:w-2/3 fade-in-up" style="transition-delay: 200ms;">
+                <h3 class="font-serif text-4xl font-bold mb-2 uppercase">Ar. Rahul O.B.</h3>
+                <p class="text-gray-400 uppercase text-xs tracking-widest font-bold mb-8">Principal Architect & Founder
+                </p>
+                <p class="text-gray-300 leading-relaxed text-lg italic font-light max-w-3xl">
+                    "Architecture should speak of its time and place, but yearn for timelessness. We don't just design
+                    houses; we curate experiences that linger in the memory of those who dwell in them."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-accent text-white py-16 px-6 sm:px-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <h2 class="font-serif text-3xl font-bold tracking-tighter uppercase mb-6">R.O.B Studio</h2>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed">Defining modern elegance through
+                        avant-garde architecture and meaningful spaces. Art + Architecture | Interior + Landscape.</p>
+                </div>
+                <div>
+                    <h4 class="text-xs uppercase tracking-widest font-bold mb-6 text-gray-500">Quick Links</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="index.html" class="hover:text-gray-400 transition-colors">Home</a></li>
+                        <li><a href="projects.html" class="hover:text-gray-400 transition-colors">Projects</a></li>
+                        <li><a href="services.html" class="hover:text-gray-400 transition-colors">Services</a></li>
+                        <li><a href="contact.html" class="hover:text-gray-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xs uppercase tracking-widest font-bold mb-6 text-gray-500">Contact</h4>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Peravoor, Kannur, Kerala, 670673<br>
+                        robarchstudio@gmail.com<br>
+                        +91 0000 000 000
+                    </p>
+                </div>
+            </div>
+            <div
+                class="pt-10 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest font-bold text-gray-600">
+                <p>&copy; 2026 R.O.B Architectural Studio. All Rights Reserved.</p>
+                <div class="mt-4 md:mt-0 flex space-x-6">
+                    <a href="#" class="hover:text-white transition-colors">Instagram</a>
+                    <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
+                    <a href="#" class="hover:text-white transition-colors">Pinterest</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Mobile Toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>
