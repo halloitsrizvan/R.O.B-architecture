@@ -1,705 +1,245 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth overflow-x-hidden">
-
+<html lang="en" id="top">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects | R.O.B ARCHITECTURAL STUDIO</title>
-    <meta name="description"
-        content="Explore the portfolio of R.O.B Architectural Studio - a collection of our finest architecture, interior, and landscape designs.">
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Google Fonts (Poppins) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-
-    <!-- Custom Font (Agraham) -->
-    <link href="https://fonts.cdnfonts.com/css/agraham" rel="stylesheet">
-
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            accent: '#000000',
-                            darkAccent: '#1f2937',
-                            dark: '#0f172a',
-                            light: '#f8fafc',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Poppins', 'sans-serif'],
-                        serif: ['Agraham', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Projects — R.O.B Studio</title>
+<meta name="description" content="R.O.B Architectural Studio, Kerala. Considered architecture, interior design, and landscape rooted in place.">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Manrope:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="projects-data.js" defer>
+</script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js" defer></script>
+<script src="motion.js" defer></script>
+<script src="script.js" defer>
+</script>
 </head>
+<body class="">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<a href="index.html" class="brand" aria-label="R.O.B Architectural Studio home">
+<img src="logo.png" alt="R.O.B">
+<span>ARCHITECTURAL<br>STUDIO</span>
+</a>
+<button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navigation"><span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span></button>
+<nav id="navigation" aria-label="Main navigation">
+<a href="index.html" >Home</a>
+<a href="projects.html" aria-current="page">Projects</a>
+<a href="about.html" >Studio</a>
+<a href="services.html" >Expertise</a>
+<a href="contact.html" >Contact</a>
+</nav>
+<a class="cta header-cta" href="https://wa.me/918921533894" target="_blank" rel="noopener noreferrer">Start a project<span aria-hidden="true">&#8599;</span></a>
+</header>
+<main id="main">
+<section class="page-heading">
+<span class="eyebrow reveal">Selected work / Portfolio</span>
+<h1 class="reveal">Considered spaces.<br>
+<em>Distinct perspectives.</em>
+</h1>
+<p class="reveal">An exploration of architecture, interiors, and landscape. Each project begins with its own context and a new conversation.</p>
+</section>
+<section class="portfolio section-pad">
+<div class="filters" aria-label="Filter projects">
+<button data-filter="all" aria-pressed="true">All work</button>
+<button data-filter="architecture" aria-pressed="false">Architecture</button>
+<button data-filter="interior" aria-pressed="false">Interiors</button>
+<button data-filter="landscape" aria-pressed="false">Landscape</button>
+<span id="project-total">12 projects</span>
+</div>
+<div class="project-grid">
+<a class="project-card reveal" data-project="0" data-category="architecture" href="project-tropical-home.html">
+<span class="project-image">
+<img src="assets/image1.jpg" alt="Tropical Home" loading="lazy">
+<span class="project-open" aria-hidden="true">↗</span>
+</span>
+<span class="project-caption">
+<span>
+<small>01 / architecture</small>
+<span class="project-title">Tropical Home</span>
+</span>
+<span class="project-caption-arrow">↗</span>
+</span>
+</a>
+<a class="project-card reveal" data-project="1" data-category="architecture" href="project-curve-residence.html">
+<span class="project-image">
+<img src="assets/image2.jpg" alt="CURVE Residence" loading="lazy">
+<span class="project-open" aria-hidden="true">↗</span>
+</span>
+<span class="project-caption">
+<span>
+<small>02 / architecture</small>
+<span class="project-title">CURVE Residence</span>
+</span>
+<span class="project-caption-arrow">↗</span>
+</span>
+</a>
+<a class="project-card reveal" data-project="2" data-category="architecture" href="project-contemporary-home.html">
+<span class="project-image">
+<img src="assets/image3.jpg" alt="Contemporary Home" loading="lazy">
+<span class="project-open" aria-hidden="true">↗</span>
+</span>
+<span class="project-caption">
+<span>
+<small>03 / architecture</small>
+<span class="project-title">Contemporary Home</span>
+</span>
+<span class="project-caption-arrow">↗</span>
+</span>
+</a>
+<a class="project-card reveal" data-project="3" data-category="architecture" href="project-future-design.html">
+<span class="project-image">
+<img src="assets/image4.jpg" alt="Future Design" loading="lazy">
+<span class="project-open" aria-hidden="true">↗</span>
+</span>
+<span class="project-caption">
+<span>
+<small>04 / architecture</small>
+<span class="project-title">Future Design</span>
+</span>
+<span class="project-caption-arrow">↗</span>
+</span>
+</a>
+<a class="project-card reveal" data-project="4" data-category="interior architecture" href="project-modern-villa.html">
+<span class="project-image">
+<img src="assets/image5.jpg" alt="Modern Villa" loading="lazy">
+<span class="project-open" aria-hidden="true">↗</span>
+</span>
+<span class="project-caption">
+<span>
+<small>05 / interior + architecture</small>
+<span class="project-title">Modern Villa</span>
+</span>
+<span class="project-caption-arrow">↗</span>
+</span>
+</a>
+<a class="project-card reveal" data-project="5" data-category="architecture" href="project-residencial-project.html">
+<span class="project-image">
+<img src="assets/image6.jpg" alt="Residencial Project" loading="lazy">
+<span class="project-open" aria-hidden="true">↗</span>
+</span>
+<span class="project-caption">
+<span>
+<small>06 / architecture</small>
+<span class="project-title">Residencial Project</span>
+</span>
+<span class="project-caption-arrow">↗</span>
+</span>
+</a>
+<a class="project-card reveal" data-project="6" data-category="landscape" href="project-zen-garden-retreat.html">
+<span class="project-image">
+<img src="https://images.unsplash.com/photo-1558438832-521f7c166444?auto=format&fit=crop&q=80&w=800" alt="Zen Garden Retreat" loading="lazy">
+<span class="project-open" aria-hidden="true">↗</span>
+</span>
+<span class="project-caption">
+<span>
+<small>07 / landscape</small>
+<span class="project-title">Zen Garden Retreat</span>
+</span>
+<span class="project-caption-arrow">↗</span>
+</span>
+</a>
+<a class="project-card reveal" data-project="7" data-category="interior" href="project-minimalist-loft.html">
+<span class="project-image">
+<img src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format&fit=crop&q=80&w=800" alt="Minimalist Loft" loading="lazy">
+<span class="project-open" aria-hidden="true">↗</span>
+</span>
+<span class="project-caption">
+<span>
+<small>08 / interior</small>
+<span class="project-title">Minimalist Loft</span>
+</span>
+<span class="project-caption-arrow">↗</span>
+</span>
+</a>
+<a class="project-card reveal" data-project="8" data-category="architecture" href="project-the-glass-house.html">
+<span class="project-image">
+<img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800" alt="The Glass House" loading="lazy">
+<span class="project-open" aria-hidden="true">↗</span>
+</span>
+<span class="project-caption">
+<span>
+<small>09 / architecture</small>
+<span class="project-title">The Glass House</span>
+</span>
+<span class="project-caption-arrow">↗</span>
+</span>
+</a>
+<a class="project-card reveal" data-project="9" data-category="landscape" href="project-urban-plaza.html">
+<span class="project-image">
+<img src="https://images.unsplash.com/photo-1596435308110-85888243ed16?auto=format&fit=crop&q=80&w=800" alt="Urban Plaza" loading="lazy">
+<span class="project-open" aria-hidden="true">↗</span>
+</span>
+<span class="project-caption">
+<span>
+<small>10 / landscape</small>
+<span class="project-title">Urban Plaza</span>
+</span>
+<span class="project-caption-arrow">↗</span>
+</span>
+</a>
+<a class="project-card reveal" data-project="10" data-category="interior" href="project-scandinavian-kitchen.html">
+<span class="project-image">
+<img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=800" alt="Scandinavian Kitchen" loading="lazy">
+<span class="project-open" aria-hidden="true">↗</span>
+</span>
+<span class="project-caption">
+<span>
+<small>11 / interior</small>
+<span class="project-title">Scandinavian Kitchen</span>
+</span>
+<span class="project-caption-arrow">↗</span>
+</span>
+</a>
+<a class="project-card reveal" data-project="11" data-category="architecture" href="project-mountain-escape.html">
+<span class="project-image">
+<img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=800" alt="Mountain Escape" loading="lazy">
+<span class="project-open" aria-hidden="true">↗</span>
+</span>
+<span class="project-caption">
+<span>
+<small>12 / architecture</small>
+<span class="project-title">Mountain Escape</span>
+</span>
+<span class="project-caption-arrow">↗</span>
+</span>
+</a>
+</div>
+</section>
+</main>
+<section class="inquiry reveal">
+<span class="eyebrow">A conversation is where it begins</span>
+<a class="inquiry-title" href="https://wa.me/918921533894" target="_blank" rel="noopener noreferrer">Let’s make room<br>for <em>something meaningful.</em>
+<span class="inquiry-arrow">↗</span>
+</a>
 
-<body class="font-sans text-gray-800 bg-brand-light overflow-x-hidden relative w-full">
+<a class="cta " href="https://wa.me/918921533894" target="_blank" rel="noopener noreferrer">Start a project<span aria-hidden="true">&#8599;</span></a>
+</section>
+<footer>
+<div class="footer-top">
+<a class="footer-name" href="index.html">R.O.B<span>ARCHITECTURAL STUDIO</span>
+</a>
+<div>
+<span class="eyebrow">Visit the studio</span>
+<p>Peravoor, Kannur, Kerala<br>India, 670673</p>
+</div>
+<div>
+<span class="eyebrow">New inquiries</span>
+<a href="mailto:robarchstudio@gmail.com">robarchstudio@gmail.com ↗</a>
+</div>
+</div>
+<div class="footer-wordmark" aria-hidden="true"><span>R</span><span>O</span><span>B</span></div>
+<div class="footer-bottom">
+<span>© 2026 R.O.B Architectural Studio</span>
+<span>Art + Architecture · Interior + Landscape</span>
+<a href="#top">Back to top ↑</a>
+</div>
 
-    <!-- 1. NAVBAR -->
-    <nav id="navbar" class="fixed w-full z-50 py-5 px-6 md:px-12 text-black bg-white/60 backdrop-blur-xl shadow-sm">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-3">
-                <img src="logo.png" alt="R.O.B Logo" class="h-8 object-contain" id="img-logo">
-                <span id="text-logo" class="hidden font-sans font-bold text-2xl tracking-wider uppercase">R.O.B</span>
-            </a>
-
-            <div class="hidden md:flex space-x-12 text-xs font-bold uppercase tracking-[0.2em] items-center">
-                <a href="index.html" class="hover:text-gray-400 transition-colors">Home</a>
-                <a href="projects.html" class="border-b-2 border-black pb-1">Projects</a>
-                <a href="about.html" class="hover:text-gray-400 transition-colors">About</a>
-                <a href="services.html" class="hover:text-gray-400 transition-colors">Services</a>
-                <a href="contact.html" class="hover:text-gray-400 transition-colors">Contact</a>
-            </div>
-
-            <button class="md:hidden text-2xl focus:outline-none" id="mobile-toggle">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-
-
-            <!-- Mobile Menu -->
-        <div id="mobile-menu"
-            class="hidden absolute top-full left-0 w-full bg-white text-brand-dark shadow-lg border-t">
-            <div class="flex flex-col py-4 px-6 space-y-4">
-                <a href="index.html" class="mobile-link text-lg font-medium">Home</a>
-                <a href="projects.html" class="mobile-link text-lg font-medium">Projects</a>
-                <a href="about.html" class="mobile-link text-lg font-medium">About</a>
-                <a href="services.html" class="mobile-link text-lg font-medium">Services</a>
-                <a href="contact.html" class="mobile-link text-lg font-medium">Contact</a>
-            </div>
-        </div>
-        </div>
-    </nav>
-
-    <!-- HEADER SECTION -->
-    <section class="relative pt-48 pb-20 px-6 md:px-12 bg-black overflow-hidden">
-        <!-- Background Image with Overlay -->
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000" 
-                 alt="Architectural Background" 
-                 class="w-full h-full object-cover opacity-50 scale-105 transform group-hover:scale-110 transition-transform duration-1000">
-            <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/90"></div>
-        </div>
-        
-        <div class="max-w-7xl mx-auto relative z-10">    
-            <div class="fade-in-up">
-                <h1 class="font-serif text-5xl md:text-4xl font-bold text-white mb-6 uppercase tracking-tight">Our Portfolio</h1>
-                <div class="h-1.5 w-24 bg-white mb-8"></div>
-                <p class="text-md text-gray-300 max-w-3xl leading-relaxed font-light">
-                    A curated collection of architectural excellence, interior refinement, and landscape harmony.
-                    Every project at R.O.B Studio tells a unique story of space and spirit.
-                </p>
-            </div>
-
-            <!-- FILTERS -->
-            <div class="mt-12 flex flex-wrap gap-4 fade-in-up" style="transition-delay: 100ms;">
-                <button
-                    class="filter-btn active px-6 py-2 rounded-full border border-white bg-white text-black text-sm font-bold uppercase tracking-widest transition-all duration-300"
-                    data-filter="all">All Projects</button>
-                <button
-                    class="filter-btn px-6 py-2 rounded-full border border-white/20 hover:border-white text-white text-sm font-bold uppercase tracking-widest transition-all duration-300"
-                    data-filter="architecture">Architecture</button>
-                <button
-                    class="filter-btn px-6 py-2 rounded-full border border-white/20 hover:border-white text-white text-sm font-bold uppercase tracking-widest transition-all duration-300"
-                    data-filter="interior">Interior</button>
-                <button
-                    class="filter-btn px-6 py-2 rounded-full border border-white/20 hover:border-white text-white text-sm font-bold uppercase tracking-widest transition-all duration-300"
-                    data-filter="landscape">Landscape</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROJECTS GRID -->
-    <section class="py-12 px-6 md:px-12 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
-
-                <!-- Project 1 -->
-                <div class="project-item architecture relative rounded-sm shadow-md h-[400px] overflow-hidden group fade-in-up">
-                    <div class="project-image-container">
-                        <img src="/assets/image1.jpg" alt="Tropical Home" class="active-slide slide-1">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800" alt="Detail 1" class="slide-2">
-                        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=800" alt="Detail 2" class="slide-3">
-                    </div>
-                    <span class="absolute top-6 right-6 z-20 text-brand-accent text-xs font-bold uppercase tracking-widest px-3 py-1.5 bg-white/90 shadow-sm rounded-sm">Architecture</span>
-                    <div class="project-dots">
-                        <div class="dot dot-1"></div>
-                        <div class="dot dot-2"></div>
-                        <div class="dot dot-3"></div>
-                    </div>
-                    <div class="absolute inset-0 z-30 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex flex-col justify-end p-8">
-                        <h3 class="text-white font-serif text-2xl font-bold">Tropical Home</h3>
-                        <p class="text-gray-300 text-sm mt-2 line-clamp-2 mb-6">Nature meets elegance in this stunning tropical design in Peravoor.</p>
-                        <a href="project-details.html" class="mt-6 inline-flex absolute bottom-6 right-6  text-white text-xs font-bold uppercase tracking-[0.2em] group/btn">
-                            View Details 
-                            <span class="ml-2 transform group-hover/btn:translate-x-2 transition-transform duration-300">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-item architecture relative rounded-sm shadow-md h-[400px] overflow-hidden group fade-in-up" style="transition-delay: 100ms;">
-                    <div class="project-image-container">
-                        <img src="/assets/image2.jpg" alt="CURVE Residence" class="active-slide slide-1">
-                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800" alt="Detail 1" class="slide-2">
-                        <img src="https://images.unsplash.com/photo-1481437156560-3205f6a55735?auto=format&fit=crop&q=80&w=800" alt="Detail 2" class="slide-3">
-                    </div>
-                    <span class="absolute top-6 right-6 z-20 text-brand-accent text-xs font-bold uppercase tracking-widest px-3 py-1.5 bg-white/90 shadow-sm rounded-sm">Architecture</span>
-                    <div class="project-dots">
-                        <div class="dot dot-1"></div>
-                        <div class="dot dot-2"></div>
-                        <div class="dot dot-3"></div>
-                    </div>
-                    <div class="absolute inset-0 z-30 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex flex-col justify-end p-8">
-                        <h3 class="text-white font-serif text-2xl font-bold">CURVE Residence</h3>
-                        <p class="text-gray-300 text-sm mt-2 line-clamp-2 mb-6">A futuristic residence shaped by fluid forms and organic geometry.</p>
-                        <a href="project-details.html" class="mt-6 inline-flex absolute bottom-6 right-6  text-white text-xs font-bold uppercase tracking-[0.2em] group/btn">
-                            View Details 
-                            <span class="ml-2 transform group-hover/btn:translate-x-2 transition-transform duration-300">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </span>
-                        </a>
-                        
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-item architecture relative rounded-sm shadow-md h-[400px] overflow-hidden group fade-in-up" style="transition-delay: 200ms;">
-                    <div class="project-image-container">
-                        <img src="/assets/image3.jpg" alt="Contemporary Home" class="active-slide slide-1">
-                        <img src="https://images.unsplash.com/photo-1513584684374-8bdb7489feef?auto=format&fit=crop&q=80&w=800" alt="Detail 1" class="slide-2">
-                        <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80&w=800" alt="Detail 2" class="slide-3">
-                    </div>
-                    <span class="absolute top-6 right-6 z-20 text-brand-accent text-xs font-bold uppercase tracking-widest px-3 py-1.5 bg-white/90 shadow-sm rounded-sm">Architecture</span>
-                    <div class="project-dots">
-                        <div class="dot dot-1"></div>
-                        <div class="dot dot-2"></div>
-                        <div class="dot dot-3"></div>
-                    </div>
-                    <div class="absolute inset-0 z-30 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex flex-col justify-end p-8">
-                        <h3 class="text-white font-serif text-2xl font-bold">Contemporary Home</h3>
-                        <p class="text-gray-300 text-sm mt-2 line-clamp-2 mb-6">Blending modern design with Kerala’s tropical charm.</p>
-                        <a href="project-details.html" class="mt-6 inline-flex absolute bottom-6 right-6  text-white text-xs font-bold uppercase tracking-[0.2em] group/btn">
-                            View Details 
-                            <span class="ml-2 transform group-hover/btn:translate-x-2 transition-transform duration-300">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="project-item architecture relative rounded-sm shadow-md h-[400px] overflow-hidden group fade-in-up">
-                    <div class="project-image-container">
-                        <img src="/assets/image4.jpg" alt="Future Design" class="active-slide slide-1">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800" alt="Detail 1" class="slide-2">
-                        <img src="https://images.unsplash.com/photo-1541829081725-6f1c93bb3c66?auto=format&fit=crop&q=80&w=800" alt="Detail 2" class="slide-3">
-                    </div>
-                    <span class="absolute top-6 right-6 z-20 text-brand-accent text-xs font-bold uppercase tracking-widest px-3 py-1.5 bg-white/90 shadow-sm rounded-sm">Architecture</span>
-                    <div class="project-dots">
-                        <div class="dot dot-1"></div>
-                        <div class="dot dot-2"></div>
-                        <div class="dot dot-3"></div>
-                    </div>
-                    <div class="absolute inset-0 z-30 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex flex-col justify-end p-8">
-                        <h3 class="text-white font-serif text-2xl font-bold">Future Design</h3>
-                        <p class="text-gray-300 text-sm mt-2 line-clamp-2 mb-6">Designing the future, one project at a time.</p>
-                        <a href="project-details.html" class="mt-6 inline-flex absolute bottom-6 right-6  text-white text-xs font-bold uppercase tracking-[0.2em] group/btn">
-                            View Details 
-                            <span class="ml-2 transform group-hover/btn:translate-x-2 transition-transform duration-300">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 5 -->
-                <div class="project-item interior architecture relative rounded-sm shadow-md h-[400px] overflow-hidden group fade-in-up" style="transition-delay: 100ms;">
-                    <div class="project-image-container">
-                        <img src="/assets/image5.jpg" alt="Modern Villa" class="active-slide slide-1">
-                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800" alt="Detail 1" class="slide-2">
-                        <img src="https://images.unsplash.com/photo-1616489953149-755e74f2e928?auto=format&fit=crop&q=80&w=800" alt="Detail 2" class="slide-3">
-                    </div>
-                    <span class="absolute top-6 right-6 z-20 text-brand-accent text-xs font-bold uppercase tracking-widest px-3 py-1.5 bg-white/90 shadow-sm rounded-sm">Interior</span>
-                    <div class="project-dots">
-                        <div class="dot dot-1"></div>
-                        <div class="dot dot-2"></div>
-                        <div class="dot dot-3"></div>
-                    </div>
-                    <div class="absolute inset-0 z-30 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex flex-col justify-end p-8">
-                        <h3 class="text-white font-serif text-2xl font-bold">Modern Villa</h3>
-                        <p class="text-gray-300 text-sm mt-2 line-clamp-2 mb-6">Sleek lines and minimalist charm in Peravoor.</p>
-                        <a href="project-details.html" class="mt-6 inline-flex absolute bottom-6 right-6  text-white text-xs font-bold uppercase tracking-[0.2em] group/btn">
-                            View Details 
-                            <span class="ml-2 transform group-hover/btn:translate-x-2 transition-transform duration-300">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 6 -->
-                <div class="project-item architecture relative rounded-sm shadow-md h-[400px] overflow-hidden group fade-in-up" style="transition-delay: 200ms;">
-                    <div class="project-image-container">
-                        <img src="/assets/image6.jpg" alt="Residencial Project" class="active-slide slide-1">
-                        <img src="https://images.unsplash.com/photo-1600585154526-990dcea42e49?auto=format&fit=crop&q=80&w=800" alt="Detail 1" class="slide-2">
-                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=800" alt="Detail 2" class="slide-3">
-                    </div>
-                    <span class="absolute top-6 right-6 z-20 text-brand-accent text-xs font-bold uppercase tracking-widest px-3 py-1.5 bg-white/90 shadow-sm rounded-sm">Architecture</span>
-                    <div class="project-dots">
-                        <div class="dot dot-1"></div>
-                        <div class="dot dot-2"></div>
-                        <div class="dot dot-3"></div>
-                    </div>
-                    <div class="absolute inset-0 z-30 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex flex-col justify-end p-8">
-                        <h3 class="text-white font-serif text-2xl font-bold">Residencial Project</h3>
-                        <p class="text-gray-300 text-sm mt-2 line-clamp-2 mb-6">Blending tradition with modernity in Kerala home design.</p>
-                        <a href="project-details.html" class="mt-6 inline-flex absolute bottom-6 right-6 text-white text-xs font-bold uppercase tracking-[0.2em] group/btn">
-                            View Details 
-                            <span class="ml-2 transform group-hover/btn:translate-x-2 transition-transform duration-300">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 7 -->
-                <div class="project-item landscape relative rounded-sm shadow-md h-[400px] overflow-hidden group fade-in-up">
-                    <div class="project-image-container">
-                        <img src="https://images.unsplash.com/photo-1558438832-521f7c166444?auto=format&fit=crop&q=80&w=800" alt="Zen Garden" class="active-slide slide-1">
-                        <img src="https://images.unsplash.com/photo-1590059132718-2ee76310037b?auto=format&fit=crop&q=80&w=800" alt="Detail 1" class="slide-2">
-                        <img src="https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?auto=format&fit=crop&q=80&w=800" alt="Detail 2" class="slide-3">
-                    </div>
-                    <span class="absolute top-6 right-6 z-20 text-brand-accent text-xs font-bold uppercase tracking-widest px-3 py-1.5 bg-white/90 shadow-sm rounded-sm">Landscape</span>
-                    <div class="project-dots">
-                        <div class="dot dot-1"></div>
-                        <div class="dot dot-2"></div>
-                        <div class="dot dot-3"></div>
-                    </div>
-                    <div class="absolute inset-0 z-30 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex flex-col justify-end p-8">
-                        <h3 class="text-white font-serif text-2xl font-bold">Zen Garden Retreat</h3>
-                        <p class="text-gray-300 text-sm mt-2 line-clamp-2">A tranquil escape designed for meditation and harmony with nature.</p>
-                        <a href="project-details.html" class="mt-6 inline-flex absolute bottom-6 right-6 text-white text-xs font-bold uppercase tracking-[0.2em] group/btn">
-                            View Details 
-                            <span class="ml-2 transform group-hover/btn:translate-x-2 transition-transform duration-300">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 8 -->
-                <div class="project-item interior relative rounded-sm shadow-md h-[400px] overflow-hidden group fade-in-up" style="transition-delay: 100ms;">
-                    <div class="project-image-container">
-                        <img src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format&fit=crop&q=80&w=800" alt="Minimalist Loft" class="active-slide slide-1">
-                        <img src="https://images.unsplash.com/photo-1505691938895-1758d7eaa511?auto=format&fit=crop&q=80&w=800" alt="Detail 1" class="slide-2">
-                        <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&q=80&w=800" alt="Detail 2" class="slide-3">
-                    </div>
-                    <span class="absolute top-6 right-6 z-20 text-brand-accent text-xs font-bold uppercase tracking-widest px-3 py-1.5 bg-white/90 shadow-sm rounded-sm">Interior</span>
-                    <div class="project-dots">
-                        <div class="dot dot-1"></div>
-                        <div class="dot dot-2"></div>
-                        <div class="dot dot-3"></div>
-                    </div>
-                    <div class="absolute inset-0 z-30 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex flex-col justify-end p-8">
-                        <h3 class="text-white font-serif text-2xl font-bold">Minimalist Loft</h3>
-                        <p class="text-gray-300 text-sm mt-2 line-clamp-2">Monochromatic tones and industrial elements in a modern loft.</p>
-                        <a href="project-details.html" class="mt-6 inline-flex items-center text-white text-xs font-bold uppercase tracking-[0.2em] group/btn">
-                            View Details 
-                            <span class="ml-2 transform group-hover/btn:translate-x-2 transition-transform duration-300">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 9 -->
-                <div class="project-item architecture relative rounded-sm shadow-md h-[400px] overflow-hidden group fade-in-up" style="transition-delay: 200ms;">
-                    <div class="project-image-container">
-                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800" alt="Glass House" class="active-slide slide-1">
-                        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=800" alt="Detail 1" class="slide-2">
-                        <img src="https://images.unsplash.com/photo-1448630360428-6e2148912950?auto=format&fit=crop&q=80&w=800" alt="Detail 2" class="slide-3">
-                    </div>
-                    <span class="absolute top-6 right-6 z-20 text-brand-accent text-xs font-bold uppercase tracking-widest px-3 py-1.5 bg-white/90 shadow-sm rounded-sm">Architecture</span>
-                    <div class="project-dots">
-                        <div class="dot dot-1"></div>
-                        <div class="dot dot-2"></div>
-                        <div class="dot dot-3"></div>
-                    </div>
-                    <div class="absolute inset-0 z-30 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex flex-col justify-end p-8">
-                        <h3 class="text-white font-serif text-2xl font-bold">The Glass House</h3>
-                        <p class="text-gray-300 text-sm mt-2 line-clamp-2">Blurring the lines between interior comfort and the great outdoors.</p>
-                        <a href="project-details.html" class="mt-6 inline-flex items-center text-white text-xs font-bold uppercase tracking-[0.2em] group/btn">
-                            View Details 
-                            <span class="ml-2 transform group-hover/btn:translate-x-2 transition-transform duration-300">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 10 -->
-                <div class="project-item landscape relative rounded-sm shadow-md h-[400px] overflow-hidden group fade-in-up">
-                    <div class="project-image-container">
-                        <img src="https://images.unsplash.com/photo-1596435308110-85888243ed16?auto=format&fit=crop&q=80&w=800" alt="Urban Plaza" class="active-slide slide-1">
-                        <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&q=80&w=800" alt="Detail 1" class="slide-2">
-                        <img src="https://images.unsplash.com/photo-1472224371017-08207f84aaae?auto=format&fit=crop&q=80&w=800" alt="Detail 2" class="slide-3">
-                    </div>
-                    <span class="absolute top-6 right-6 z-20 text-brand-accent text-xs font-bold uppercase tracking-widest px-3 py-1.5 bg-white/90 shadow-sm rounded-sm">Landscape</span>
-                    <div class="project-dots">
-                        <div class="dot dot-1"></div>
-                        <div class="dot dot-2"></div>
-                        <div class="dot dot-3"></div>
-                    </div>
-                    <div class="absolute inset-0 z-30 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex flex-col justify-end p-8">
-                        <h3 class="text-white font-serif text-2xl font-bold">Urban Plaza</h3>
-                        <p class="text-gray-300 text-sm mt-2 line-clamp-2">Revitalizing city centers with green spaces and social hubs.</p>
-                        <a href="project-details.html" class="mt-6 inline-flex items-center text-white text-xs font-bold uppercase tracking-[0.2em] group/btn">
-                            View Details 
-                            <span class="ml-2 transform group-hover/btn:translate-x-2 transition-transform duration-300">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 11 -->
-                <div class="project-item interior relative rounded-sm shadow-md h-[400px] overflow-hidden group fade-in-up" style="transition-delay: 100ms;">
-                    <div class="project-image-container">
-                        <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=800" alt="Kitchen" class="active-slide slide-1">
-                        <img src="https://images.unsplash.com/photo-1556909190-eccf4a8bf97a?auto=format&fit=crop&q=80&w=800" alt="Detail 1" class="slide-2">
-                        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&q=80&w=800" alt="Detail 2" class="slide-3">
-                    </div>
-                    <span class="absolute top-6 right-6 z-20 text-brand-accent text-xs font-bold uppercase tracking-widest px-3 py-1.5 bg-white/90 shadow-sm rounded-sm">Interior</span>
-                    <div class="project-dots">
-                        <div class="dot dot-1"></div>
-                        <div class="dot dot-2"></div>
-                        <div class="dot dot-3"></div>
-                    </div>
-                    <div class="absolute inset-0 z-30 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex flex-col justify-end p-8">
-                        <h3 class="text-white font-serif text-2xl font-bold">Scandinavian Kitchen</h3>
-                        <p class="text-gray-300 text-sm mt-2 line-clamp-2">Functional beauty meeting clean, Nordic aesthetics.</p>
-                        <a href="project-details.html" class="mt-6 inline-flex items-center text-white text-xs font-bold uppercase tracking-[0.2em] group/btn">
-                            View Details 
-                            <span class="ml-2 transform group-hover/btn:translate-x-2 transition-transform duration-300">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 12 -->
-                <div class="project-item architecture relative rounded-sm shadow-md h-[400px] overflow-hidden group fade-in-up" style="transition-delay: 200ms;">
-                    <div class="project-image-container">
-                        <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=800" alt="Cabin" class="active-slide slide-1">
-                        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=800" alt="Detail 1" class="slide-2">
-                        <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800" alt="Detail 2" class="slide-3">
-                    </div>
-                    <span class="absolute top-6 right-6 z-20 text-brand-accent text-xs font-bold uppercase tracking-widest px-3 py-1.5 bg-white/90 shadow-sm rounded-sm">Architecture</span>
-                    <div class="project-dots">
-                        <div class="dot dot-1"></div>
-                        <div class="dot dot-2"></div>
-                        <div class="dot dot-3"></div>
-                    </div>
-                    <div class="absolute inset-0 z-30 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex flex-col justify-end p-8">
-                        <h3 class="text-white font-serif text-2xl font-bold">Mountain Escape</h3>
-                        <p class="text-gray-300 text-sm mt-2 line-clamp-2">A rugged yet cozy residence perched on the slopes.</p>
-                        <a href="project-details.html" class="mt-6 inline-flex items-center text-white text-xs font-bold uppercase tracking-[0.2em] group/btn">
-                            View Details 
-                            <span class="ml-2 transform group-hover/btn:translate-x-2 transition-transform duration-300">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-black text-white py-20 px-10">
-        <div class="max-w-7xl mx-auto flex flex-col items-center">
-            <h2 style="line-height: 1.8;" class="font-serif text-xl md:text-2xl tracking-wider font-bold tracking-tighter uppercase mb-6 text-white leading-none">ROB Architectural Studio</h2>
-            <div class="h-1 w-20 bg-white mb-10"></div>
-            <div class="flex space-x-12 text-[10px] font-bold uppercase tracking-[0.3em] mb-4">
-                <a href="index.html" class="hover:opacity-60">Home</a>
-                <a href="projects.html" class="hover:opacity-60">Projects</a>
-                <a href="about.html" class="hover:opacity-60">About</a>
-                <a href="contact.html" class="hover:opacity-60">Contact</a>
-            </div>
-            
-
-            <div>
-                <!-- Social -->
-                <div class="flex gap-4 mx-auto mb-4" style="max-width: fit-content;">
-                    <a href="#"
-                        class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-brand-accent hover:text-white transition-all duration-300">
-                        <i class="fa-brands fa-instagram text-md"></i>
-                    </a>
-                    <a href="#"
-                        class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-brand-accent hover:text-white transition-all duration-300">
-                        <i class="fa-brands fa-facebook-f text-md"></i>
-                    </a>
-                    <a href="#"
-                        class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-brand-accent hover:text-white transition-all duration-300">
-                        <i class="fa-brands fa-pinterest-p text-md"></i>
-                    </a>
-                </div>
-
-                <p class="text-gray-600 text-[10px] uppercase tracking-widest">&copy; 2026 R.O.B ARCHITECTURAL STUDIO</p>
-        </div>
-    </footer>
-
-    <!-- PROJECT MODAL (POPOVER) -->
-    <div id="project-modal" class="fixed inset-0 z-[60] hidden flex items-center justify-center p-4 md:p-8">
-        <!-- Backdrop -->
-        <div id="modal-backdrop" class="absolute inset-0 bg-black/90 backdrop-blur-md opacity-0 transition-opacity duration-500"></div>
-        
-        <!-- Modal Content -->
-        <div id="modal-container" class="relative bg-white w-full max-w-6xl max-h-[90vh] overflow-y-auto rounded-sm shadow-2xl translate-y-20 opacity-0 transition-all duration-500 delay-100 flex flex-col md:flex-row">
-            <!-- Close Button -->
-            <button id="close-modal" class="absolute top-6 right-6 z-50 w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-brand-accent transition-colors">
-                <i class="fa-solid fa-xmark text-xl"></i>
-            </button>
-
-            <!-- Left: Image Gallery Slider -->
-            <div class="w-full md:w-1/2 h-[450px] md:h-auto bg-gray-100 overflow-hidden relative group/modal-slider">
-                <div id="modal-slides-container" class="absolute inset-0 flex transition-transform duration-700 ease-in-out">
-                    <!-- Images will be injected here -->
-                </div>
-                
-                <!-- Category Badge -->
-                <div class="absolute bottom-8 left-8 z-10">
-                    <span id="modal-category" class="px-4 py-2 bg-white/90 text-black text-[10px] font-bold uppercase tracking-widest shadow-lg">Architecture</span>
-                </div>
-
-                <!-- Slider Controls -->
-                <div class="absolute inset-y-0 left-0 right-0 flex items-center justify-between px-4 opacity-0 group-hover/modal-slider:opacity-100 transition-opacity">
-                    <button id="modal-prev-slide" class="w-10 h-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-black transition-colors">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </button>
-                    <button id="modal-next-slide" class="w-10 h-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-black transition-colors">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </button>
-                </div>
-
-                <!-- Slider Indicators -->
-                <div id="modal-indicators" class="absolute bottom-8 right-8 z-10 flex gap-2">
-                    <!-- Dots will be injected here -->
-                </div>
-            </div>
-
-            <!-- Right: Details -->
-            <div class="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center">
-                <h2 id="modal-title" class="font-serif text-xl md:text-xl font-bold text-black mb-6 uppercase leading-tight">Project Title</h2>
-                <div class="h-1.5 w-20 bg-black mb-10"></div>
-                
-                <div class="grid grid-cols-2 gap-8 mb-10">
-                    <div>
-                        <h4 class="text-[10px] uppercase tracking-widest font-bold text-gray-400 mb-2">Location</h4>
-                        <p id="modal-location" class="text-sm font-medium">Kerala, India</p>
-                    </div>
-                    <div>
-                        <h4 class="text-[10px] uppercase tracking-widest font-bold text-gray-400 mb-2">Year</h4>
-                        <p id="modal-year" class="text-sm font-medium">2023</p>
-                    </div>
-                </div>
-
-                <p id="modal-description" class="text-gray-500 leading-relaxed text-lg mb-6 font-light">
-                    Detailed project description will go here. Every project at R.O.B Studio is a unique response to its context, blending program, climate, and site into a cohesive architectural statement.
-                </p>
-
-                
-            </div>
-        </div>
-    </div>
-
-    <!-- Scripts -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Filter Functionality
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const projectItems = document.querySelectorAll('.project-item');
-
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // Update active button
-                    filterBtns.forEach(b => {
-                        b.classList.remove('active', 'bg-white', 'text-black', 'border-white');
-                        b.classList.add('text-white', 'border-white/20');
-                    });
-                    
-                    btn.classList.add('active', 'bg-white', 'text-black', 'border-white');
-                    btn.classList.remove('text-white', 'border-white/20');
-
-                    const filter = btn.getAttribute('data-filter');
-
-                    projectItems.forEach(item => {
-                        if (filter === 'all' || item.classList.contains(filter)) {
-                            item.style.display = 'block';
-                            setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'translateY(0)'; }, 10);
-                        } else {
-                            item.style.opacity = '0';
-                            item.style.transform = 'translateY(20px)';
-                            setTimeout(() => { item.style.display = 'none'; }, 300);
-                        }
-                    });
-                });
-            });
-
-            // Intersection Observer
-            const fadeElements = document.querySelectorAll('.fade-in-up');
-            const observerOptions = { threshold: 0.1 };
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                    }
-                });
-            }, observerOptions);
-
-            fadeElements.forEach(el => observer.observe(el));
-
-            // Mobile Menu
-            const mobileBtn = document.getElementById('mobile-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-
-            // PROJECT MODAL LOGIC
-            const modal = document.getElementById('project-modal');
-            const modalBackdrop = document.getElementById('modal-backdrop');
-            const modalContainer = document.getElementById('modal-container');
-            const closeModal = document.getElementById('close-modal');
-            
-            const modalSlidesContainer = document.getElementById('modal-slides-container');
-            const modalIndicators = document.getElementById('modal-indicators');
-            const modalTitle = document.getElementById('modal-title');
-            const modalDesc = document.getElementById('modal-description');
-            const modalCat = document.getElementById('modal-category');
-
-            const prevSlideBtn = document.getElementById('modal-prev-slide');
-            const nextSlideBtn = document.getElementById('modal-next-slide');
-
-            let currentModalSlide = 0;
-            let totalModalSlides = 0;
-
-            const updateModalSlider = () => {
-                modalSlidesContainer.style.transform = `translateX(-${currentModalSlide * 100}%)`;
-                
-                // Update dots
-                const dots = modalIndicators.querySelectorAll('.modal-dot');
-                dots.forEach((dot, index) => {
-                    if (index === currentModalSlide) {
-                        dot.classList.add('bg-black', 'w-8');
-                        dot.classList.remove('bg-black/20', 'w-2');
-                    } else {
-                        dot.classList.add('bg-black/20', 'w-2');
-                        dot.classList.remove('bg-black', 'w-8');
-                    }
-                });
-            };
-
-            prevSlideBtn.addEventListener('click', () => {
-                currentModalSlide = (currentModalSlide > 0) ? currentModalSlide - 1 : totalModalSlides - 1;
-                updateModalSlider();
-            });
-
-            nextSlideBtn.addEventListener('click', () => {
-                currentModalSlide = (currentModalSlide < totalModalSlides - 1) ? currentModalSlide + 1 : 0;
-                updateModalSlider();
-            });
-
-            const viewDetailsBtns = document.querySelectorAll('.group\\/btn');
-
-            viewDetailsBtns.forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    
-                    const projectItem = btn.closest('.project-item');
-                    if (!projectItem) return;
-
-                    const title = projectItem.querySelector('h3').textContent;
-                    const description = projectItem.querySelector('p').textContent;
-                    const category = projectItem.querySelector('span.absolute').textContent;
-                    
-                    // Get all images from original container
-                    const images = Array.from(projectItem.querySelectorAll('.project-image-container img')).map(img => img.src);
-                    totalModalSlides = images.length;
-                    currentModalSlide = 0;
-
-                    // Reset Slider
-                    modalSlidesContainer.innerHTML = '';
-                    modalIndicators.innerHTML = '';
-
-                    // Create Slides and Dots
-                    images.forEach((src, index) => {
-                        const img = document.createElement('img');
-                        img.src = src;
-                        img.className = 'w-full h-full object-cover shrink-0';
-                        modalSlidesContainer.appendChild(img);
-
-                        const dot = document.createElement('button');
-                        dot.className = 'modal-dot h-1.5 transition-all duration-300 rounded-full bg-black/20 w-2';
-                        dot.addEventListener('click', () => {
-                            currentModalSlide = index;
-                            updateModalSlider();
-                        });
-                        modalIndicators.appendChild(dot);
-                    });
-
-                    // Populate Details
-                    modalTitle.textContent = title;
-                    modalDesc.textContent = description + " This architectural masterpiece exemplifies the studio's commitment to pushing the boundaries of spatial design, creating environments that are as functional as they are breathtaking.";
-                    modalCat.textContent = category;
-
-                    // Open Modal
-                    modal.classList.remove('hidden');
-                    updateModalSlider();
-
-                    setTimeout(() => {
-                        modalBackdrop.classList.remove('opacity-0');
-                        modalContainer.classList.remove('opacity-0', 'translate-y-20');
-                    }, 10);
-                    
-                    document.body.classList.add('overflow-hidden');
-                });
-            });
-
-            const closeProjectModal = () => {
-                modalBackdrop.classList.add('opacity-0');
-                modalContainer.classList.add('opacity-0', 'translate-y-20');
-                setTimeout(() => {
-                    modal.classList.add('hidden');
-                    document.body.classList.remove('overflow-hidden');
-                }, 500);
-            };
-
-            closeModal.addEventListener('click', closeProjectModal);
-            modalBackdrop.addEventListener('click', closeProjectModal);
-
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-                    closeProjectModal();
-                }
-            });
-        });
-    </script>
+</footer>
+<a class="whatsapp-float" href="https://wa.me/918921533894" target="_blank" rel="noopener noreferrer" aria-label="Chat with R.O.B Studio on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.47 0 .11 5.36.1 11.95c0 2.1.55 4.16 1.6 5.98L0 24l6.24-1.64a11.95 11.95 0 0 0 5.81 1.48h.01C18.65 23.84 24 18.48 24 11.89c0-3.19-1.24-6.18-3.48-8.41ZM12.06 21.82a9.92 9.92 0 0 1-5.06-1.38l-.36-.21-3.7.97.99-3.61-.24-.37a9.9 9.9 0 0 1-1.52-5.27c0-5.48 4.46-9.94 9.95-9.94a9.88 9.88 0 0 1 7.03 2.91 9.88 9.88 0 0 1 2.91 7.03c0 5.48-4.46 9.94-9.94 9.94Zm5.45-7.45c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.21 5.08 4.5.71.3 1.27.48 1.7.62.71.23 1.36.2 1.88.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35Z"/></svg></a>
 </body>
-
 </html>

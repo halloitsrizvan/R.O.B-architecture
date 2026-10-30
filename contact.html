@@ -1,173 +1,109 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth overflow-x-hidden">
-
+<html lang="en" id="top">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | R.O.B ARCHITECTURAL STUDIO</title>
-    <meta name="description"
-        content="Contact R.O.B Architectural Studio for your next project. Architecture, Interior, and Landscape design inquiries.">
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Google Fonts (Poppins) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-
-    <!-- Custom Font (Agraham) -->
-    <link href="https://fonts.cdnfonts.com/css/agraham" rel="stylesheet">
-
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            accent: '#000000', // Black
-                            darkAccent: '#1f2937', // Gray-800
-                            dark: '#0f172a',
-                            light: '#f8fafc',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Poppins', 'sans-serif'],
-                        serif: ['Agraham', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact — R.O.B Studio</title>
+<meta name="description" content="R.O.B Architectural Studio, Kerala. Considered architecture, interior design, and landscape rooted in place.">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Manrope:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="projects-data.js" defer>
+</script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js" defer></script>
+<script src="motion.js" defer></script>
+<script src="script.js" defer>
+</script>
 </head>
+<body class="contact-page">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<a href="index.html" class="brand" aria-label="R.O.B Architectural Studio home">
+<img src="logo.png" alt="R.O.B">
+<span>ARCHITECTURAL<br>STUDIO</span>
+</a>
+<button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navigation"><span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span></button>
+<nav id="navigation" aria-label="Main navigation">
+<a href="index.html" >Home</a>
+<a href="projects.html" >Projects</a>
+<a href="about.html" >Studio</a>
+<a href="services.html" >Expertise</a>
+<a href="contact.html" aria-current="page">Contact</a>
+</nav>
+<a class="cta header-cta" href="https://wa.me/918921533894" target="_blank" rel="noopener noreferrer">Start a project<span aria-hidden="true">&#8599;</span></a>
+</header>
+<main id="main">
+<section class="page-heading">
+<span class="eyebrow reveal">Contact / Start a conversation</span>
+<h1 class="reveal">Good spaces start<br>with <em>a conversation.</em>
+</h1>
+<!-- <p class="reveal">Tell us what you have in mind. A place to live, a space to work, or an idea waiting to take shape.</p> -->
+</section>
+<section class="contact-grid section-pad">
+<div class="contact-info reveal">
+<span class="eyebrow">Find us</span>
+<p>R.O.B Architectural Studio<br>Peravoor, Kannur, Kerala<br>India, 670673</p>
+<span class="eyebrow">Write to us</span>
+<a href="mailto:robarchstudio@gmail.com">robarchstudio@gmail.com ↗</a>
+<p class="contact-note">Architecture · Interiors · Landscape</p>
+</div>
+<form id="contact-form" class="reveal">
+<div class="form-pair">
+<label>Your name<input name="name" autocomplete="name" required placeholder="Full name">
+</label>
+<label>Email address<input type="email" name="email" autocomplete="email" required placeholder="you@example.com">
+</label>
+</div>
+<label>What are you planning?<select name="service" required>
+<option value="">Select an area of interest</option>
+<option>Architecture</option>
+<option>Interior design</option>
+<option>Landscape design</option>
+</select>
+</label>
+<label>A little about your project<textarea name="message" rows="4" required placeholder="Your idea, location, and anything else you’d like to share…">
+</textarea>
+</label>
+<p class="form-note">This opens WhatsApp with your project details ready to send.</p>
+<button class="submit-button" type="submit">Continue to WhatsApp <span>↗</span>
+</button>
+<p id="form-status" role="status">
+</p>
+</form>
+</section>
+</main>
+<section class="inquiry reveal">
+<span class="eyebrow">A conversation is where it begins</span>
+<a class="inquiry-title" href="https://wa.me/918921533894" target="_blank" rel="noopener noreferrer">Let’s make room<br>for <em>something meaningful.</em>
+<span class="inquiry-arrow">↗</span>
+</a>
 
-<body class="font-sans text-gray-800 bg-brand-light overflow-x-hidden relative w-full">
+<a class="cta " href="https://wa.me/918921533894" target="_blank" rel="noopener noreferrer">Chat on WhatsApp<span aria-hidden="true">&#8599;</span></a>
+</section>
+<footer>
+<div class="footer-top">
+<a class="footer-name" href="index.html">R.O.B<span>ARCHITECTURAL STUDIO</span>
+</a>
+<div>
+<span class="eyebrow">Visit the studio</span>
+<p>Peravoor, Kannur, Kerala<br>India, 670673</p>
+</div>
+<div>
+<span class="eyebrow">New inquiries</span>
+<a href="mailto:robarchstudio@gmail.com">robarchstudio@gmail.com ↗</a>
+</div>
+</div>
+<div class="footer-wordmark" aria-hidden="true"><span>R</span><span>O</span><span>B</span></div>
+<div class="footer-bottom">
+<span>© 2026 R.O.B Architectural Studio</span>
+<span>Art + Architecture · Interior + Landscape</span>
+<a href="#top">Back to top ↑</a>
+</div>
 
-    <!-- 1. NAVBAR -->
-    <nav id="navbar" class="fixed w-full z-50 py-5 px-6 md:px-12 text-black transition-all duration-300 bg-white shadow-sm">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <!-- Logo -->
-            <a href="index.html" class="flex items-center gap-3">
-                <img src="logo.png" alt="R.O.B Logo"
-                    class="h-8 object-contain transition-all duration-300" id="img-logo"
-                    onerror="this.style.display='none'; document.getElementById('text-logo').classList.remove('hidden');">
-                <span id="text-logo" class="hidden font-sans font-bold text-2xl tracking-wider uppercase">R.O.B</span>
-            </a>
-
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-8 text-sm font-medium tracking-wide">
-                <a href="index.html" class="transition-colors duration-300 hover:text-gray-500">Home</a>
-                <a href="projects.html" class="transition-colors duration-300 hover:text-gray-500">Projects</a>
-                <a href="about.html" class="transition-colors duration-300 hover:text-gray-500">About</a>
-                <a href="services.html" class="transition-colors duration-300 hover:text-gray-500">Services</a>
-                <a href="contact.html" class="text-black font-bold pointer-events-none">Contact</a>
-            </div>
-
-            <!-- Mobile Menu Button -->
-            <button class="md:hidden mobile-menu-btn text-2xl focus:outline-none" id="mobile-toggle">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu"
-            class="hidden absolute top-full left-0 w-full bg-white text-brand-dark shadow-lg border-t">
-            <div class="flex flex-col py-4 px-6 space-y-4">
-                <a href="index.html" class="mobile-link text-lg font-medium">Home</a>
-                <a href="projects.html" class="mobile-link text-lg font-medium">Projects</a>
-                <a href="about.html" class="mobile-link text-lg font-medium">About</a>
-                <a href="services.html" class="mobile-link text-lg font-medium">Services</a>
-                <a href="contact.html" class="mobile-link text-lg font-medium font-bold">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- 2. MAIN CONTENT -->
-    <section class="pt-40 pb-24 px-10 bg-white min-h-screen">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-20">
-            
-            <!-- Contact Info -->
-            <div class="lg:col-span-12 mb-12 fade-in-up">
-                <h1 class="font-serif text-6xl md:text-8xl font-bold uppercase tracking-tighter leading-none mb-4">Start a <span class="italic text-gray-400">Project</span></h1>
-                <p class="text-gray-400 uppercase tracking-[0.4em] text-xs font-bold">Collaborate with R.O.B Studio</p>
-            </div>
-
-            <!-- Left Info -->
-            <div class="lg:col-span-5 fade-in-up">
-                <div class="space-y-12">
-                    <div>
-                        <h4 class="text-xs uppercase tracking-[0.3em] font-bold text-gray-400 mb-4">Our Office</h4>
-                        <p class="text-lg font-medium leading-relaxed font-serif">
-                            R.O.B Architectural Studio<br>
-                            Peravoor, Kannur, Kerala<br>
-                            India, 670673
-                        </p>
-                    </div>
-
-                    <div>
-                        <h4 class="text-xs uppercase tracking-[0.3em] font-bold text-gray-400 mb-4">Inquiries</h4>
-                        <p class="text-2xl font-serif font-bold hover:text-gray-400 transition-colors underline underline-offset-8 decoration-1 decoration-gray-300">
-                            <a href="mailto:robarchstudio@gmail.com">robarchstudio@gmail.com</a>
-                        </p>
-                    </div>
-
-                    <div>
-                        <h4 class="text-xs uppercase tracking-[0.3em] font-bold text-gray-400 mb-4">Follow Us</h4>
-                        <div class="flex space-x-8 text-[10px] uppercase font-bold tracking-widest text-brand-dark">
-                            <a href="#" class="border-b border-black">Instagram</a>
-                            <a href="#" class="border-b border-black">LinkedIn</a>
-                            <a href="#" class="border-b border-black">WhatsApp</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contact Form -->
-            <div class="lg:col-span-7 fade-in-up" style="transition-delay: 200ms;">
-                <form class="space-y-8">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <input type="text" placeholder="FULL NAME" required class="w-full bg-transparent border-b border-gray-200 py-4 focus:outline-none focus:border-black transition-colors text-xs font-bold tracking-widest">
-                        <input type="email" placeholder="EMAIL ADDRESS" required class="w-full bg-transparent border-b border-gray-200 py-4 focus:outline-none focus:border-black transition-colors text-xs font-bold tracking-widest">
-                    </div>
-                    
-                    <select class="w-full bg-transparent border-b border-gray-200 py-4 focus:outline-none focus:border-black transition-colors text-xs font-bold tracking-widest text-gray-400">
-                        <option value="">SERVICE INTEREST</option>
-                        <option value="architecture">ARCHITECTURE</option>
-                        <option value="interior">INTERIOR DESIGN</option>
-                        <option value="landscape">LANDSCAPE DESIGN</option>
-                    </select>
-
-                    <textarea rows="5" placeholder="TELL US ABOUT YOUR PROJECT" required class="w-full bg-transparent border-b border-gray-200 py-4 focus:outline-none focus:border-black transition-colors text-xs font-bold tracking-widest resize-none"></textarea>
-
-                    <button type="submit" class="inline-block px-12 py-5 bg-black text-white text-[10px] font-bold uppercase tracking-[0.4em] hover:bg-gray-800 transition-all duration-300 rounded-sm">Send Message</button>
-                </form>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-brand-accent text-white py-16 px-6 sm:px-12 border-t border-gray-800">
-        <div class="max-w-7xl mx-auto text-center">
-            <h2 class="font-serif text-3xl font-bold tracking-tighter uppercase mb-6">R.O.B Studio</h2>
-            <p>&copy; 2026 R.O.B Architectural Studio. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-    <script>
-        // Mobile Toggle
-        const mobileToggle = document.getElementById('mobile-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileToggle) {
-            mobileToggle.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
-    </script>
+</footer>
+<a class="whatsapp-float" href="https://wa.me/918921533894" target="_blank" rel="noopener noreferrer" aria-label="Chat with R.O.B Studio on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.47 0 .11 5.36.1 11.95c0 2.1.55 4.16 1.6 5.98L0 24l6.24-1.64a11.95 11.95 0 0 0 5.81 1.48h.01C18.65 23.84 24 18.48 24 11.89c0-3.19-1.24-6.18-3.48-8.41ZM12.06 21.82a9.92 9.92 0 0 1-5.06-1.38l-.36-.21-3.7.97.99-3.61-.24-.37a9.9 9.9 0 0 1-1.52-5.27c0-5.48 4.46-9.94 9.95-9.94a9.88 9.88 0 0 1 7.03 2.91 9.88 9.88 0 0 1 2.91 7.03c0 5.48-4.46 9.94-9.94 9.94Zm5.45-7.45c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.21 5.08 4.5.71.3 1.27.48 1.7.62.71.23 1.36.2 1.88.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35Z"/></svg></a>
 </body>
 </html>
