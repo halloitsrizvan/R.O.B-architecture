@@ -1,0 +1,10 @@
+{
+  "name": "rob-architects",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "seo": "node scripts/seo.cjs",
+    "build": "node scripts/build.cjs",
+    "check": "node scripts/check.cjs"
+  }
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rob-architects.vercel.app/sitemap.xml
