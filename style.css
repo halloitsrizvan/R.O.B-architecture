@@ -432,8 +432,8 @@ footer {
   right: max(24px, env(safe-area-inset-right));
   bottom: calc(94px + env(safe-area-inset-bottom));
   z-index: 90;
-  width: min(300px, calc(100vw - 48px));
-  padding: 20px;
+  width: min(250px, calc(100vw - 48px));
+  padding: 15px;
   border: 1px solid #dce6dd;
   border-radius: 14px;
   background: #fff;
@@ -448,8 +448,8 @@ footer {
   transform: rotate(45deg);
 }
 .whatsapp-popup strong { display: block; padding-right: 24px; font-size: 12px; color: #187d46; }
-.whatsapp-popup p { margin: 10px 0 14px; font-size: 13px; line-height: 1.6; color: #53594f; }
-.whatsapp-popup > a { display: inline-flex; align-items: center; min-height: 36px; font-size: 12px; font-weight: 500; color: #187d46; }
+.whatsapp-popup p { margin: 7px 0 8px; font-size: 12px; line-height: 1.5; color: #53594f; }
+.whatsapp-popup > a { display: inline-flex; align-items: center; min-height: 30px; font-size: 11px; font-weight: 500; color: #187d46; }
 .whatsapp-popup-close {
   position: absolute; top: 6px; right: 6px; width: 36px; height: 36px;
   border: 0; background: transparent; font-size: 22px; color: #73746c;
@@ -531,4 +531,88 @@ footer {
   .project-grid > .project-card:nth-child(n) { grid-row: auto; }
   .project-grid .project-image { height: auto; aspect-ratio: 1.1; }
   .project-grid > .project-card:nth-child(odd) .project-image { aspect-ratio: .8; }
+}
+
+/* Smaller hero typography while retaining the bottom alignment. */
+.hero h1 { font-size: clamp(38px, 4.6vw, 74px); }
+.hero-content > .eyebrow { font-size: 9px; }
+.hero-bottom .hero-cta { font-size: 11px; }
+@media (max-width: 540px) {
+  .hero h1 { font-size: clamp(32px, 8.5vw, 42px); }
+  .hero-content > .eyebrow { font-size: 7px; }
+}
+
+/* A three-line greeting that opens gently from the WhatsApp shortcut. */
+.whatsapp-popup {
+  width: min(222px, calc(100vw - 32px));
+  padding: 12px 14px;
+  border-radius: 12px;
+  box-shadow: 0 12px 36px rgba(18, 42, 29, .12), 0 2px 6px rgba(18, 42, 29, .04);
+  transform-origin: calc(100% - 28px) bottom;
+  animation: whatsapp-premium-in .65s cubic-bezier(.16, 1, .3, 1) both;
+}
+.whatsapp-popup strong { font-size: 11px; line-height: 16px; padding-right: 24px; }
+.whatsapp-popup p { margin: 4px 0; font-size: 12px; line-height: 18px; }
+.whatsapp-popup > a { min-height: 0; font-size: 11px; line-height: 18px; }
+.whatsapp-popup-close { top: 2px; right: 2px; width: 32px; height: 32px; font-size: 18px; }
+@keyframes whatsapp-premium-in {
+  from { opacity: 0; transform: translateY(16px) scale(.88); filter: blur(3px); }
+  to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-popup { animation: none; }
+}
+
+/* Clip fixed hero photographs to the hero as the page scrolls over them. */
+.hero { clip-path: inset(0); }
+.hero .hero-image {
+  position: fixed;
+  top: var(--header-height);
+  right: 0;
+  bottom: auto;
+  left: 0;
+  width: 100%;
+  height: calc(100svh - var(--header-height));
+  object-fit: cover;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero .hero-image { position: absolute; inset: 0; height: 100%; }
+}
+
+/* An architectural invitation, drawn as a floating spatial study. */
+.chapter-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 5vw, 80px);
+  position: relative;
+  overflow: hidden;
+  background: #273229;
+  color: #f2f1e7;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  border-bottom: 0;
+}
+.chapter-copy { position: relative; z-index: 1; }
+.chapter-copy > .eyebrow { color: #c6d1a5; letter-spacing: .2em; }
+.chapter-section h2 { font-size: clamp(40px, 4.6vw, 74px); line-height: 1.06; margin: 30px 0 24px; letter-spacing: -.045em; }
+.chapter-section h2 em { color: #dce4b4; }
+.chapter-copy > p { max-width: 340px; font-size: 13px; line-height: 1.8; color: #bfc8bc; margin-bottom: 30px; }
+.chapter-section .chapter-link { background: #dce4b4; color: #273229; border-color: #dce4b4; padding: 16px 24px; gap: 44px; }
+.chapter-section .chapter-link:hover { background: #edf2d5; border-color: #edf2d5; }
+.chapter-link span { transition: transform .3s; }
+.chapter-link:hover span { transform: translate(3px, -3px); }
+.chapter-footnote { display: block; margin-top: 28px; color: #96a48f; font-size: 9px; letter-spacing: .08em; }
+.chapter-art { position: relative; color: #dce4b4; width: 100%; max-width: 620px; justify-self: center; }
+.chapter-art svg { display: block; width: 100%; overflow: visible; }
+.chapter-art-label { position: absolute; top: 0; left: 0; font: italic 22px var(--serif); color: #dce4b4; }
+.chapter-art-index { font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: #a9b69c; }
+.chapter-art-note { position: absolute; right: 0; bottom: 0; font: italic 22px var(--serif); }
+.chapter-orbit { transform-origin: 300px 300px; animation: chapter-orbit 90s linear infinite; }
+.chapter-plan { animation: chapter-float 7s ease-in-out infinite; }
+@keyframes chapter-orbit { to { transform: rotate(360deg); } }
+@keyframes chapter-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@media (max-width: 800px) {
+  .chapter-section { grid-template-columns: 1fr; padding-top: 40px; padding-bottom: 40px; gap: 40px; }
+  .chapter-art { max-width: 460px; }
+  .chapter-section .chapter-link { width: auto; }
 }

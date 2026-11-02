@@ -28,8 +28,7 @@
             .fromTo('.hero-image', { scale: 1 }, { scale: 1.1, duration: 7, ease: 'sine.in' }, 0)
             .from('.hero-content > .eyebrow', { autoAlpha: 0, y: 16 }, .15)
             .from('.hero h1', { autoAlpha: 0, y: 45, duration: 1.25 }, .25)
-            .from('.hero-bottom > *', { autoAlpha: 0, y: 22, stagger: .12 }, .65)
-            .from('.draft-line', { autoAlpha: 0, duration: 1.4 }, .6);
+            .from('.hero-bottom > *', { autoAlpha: 0, y: 22, stagger: .12 }, .65);
         }
         const selectedCards = gsap.utils.toArray('.selected .project-card');
         if (selectedCards.length) {
