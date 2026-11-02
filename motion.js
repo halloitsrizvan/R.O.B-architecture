@@ -25,13 +25,27 @@
         const entrance = gsap.timeline({ defaults: { ease: 'power3.out', duration: 1 } });
         if (hero) {
           entrance
-            .from('.hero-image', { scale: 1.07, duration: 1.8, ease: 'power2.out' }, 0)
+            .fromTo('.hero-image', { scale: 1 }, { scale: 1.1, duration: 7, ease: 'sine.in' }, 0)
             .from('.hero-content > .eyebrow', { autoAlpha: 0, y: 16 }, .15)
             .from('.hero h1', { autoAlpha: 0, y: 45, duration: 1.25 }, .25)
             .from('.hero-bottom > *', { autoAlpha: 0, y: 22, stagger: .12 }, .65)
             .from('.draft-line', { autoAlpha: 0, duration: 1.4 }, .6);
         }
+        const selectedCards = gsap.utils.toArray('.selected .project-card');
+        if (selectedCards.length) {
+          gsap.set(selectedCards, { autoAlpha: 0, y: 40 });
+          ScrollTrigger.batch(selectedCards, {
+            start: 'top 90%',
+            once: true,
+            interval: .12,
+            onEnter: cards => gsap.to(cards, {
+              autoAlpha: 1, y: 0, duration: .9, stagger: .14,
+              ease: 'power3.out', clearProps: 'opacity,visibility,transform'
+            })
+          });
+        }
         document.querySelectorAll('.reveal').forEach(el => {
+          if (el.matches('.selected .project-card')) return;
           gsap.from(el, {
             autoAlpha: 0, y: el.classList.contains('project-card') ? 36 : 26,
             duration: 1, ease: 'power3.out', clearProps: 'opacity,visibility,transform',
