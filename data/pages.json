@@ -1,0 +1,1247 @@
+{
+  "about.html": {
+    "component": "About",
+    "title": "Our Studio | R.O.B Architects, Kerala",
+    "description": "Meet R.O.B Architectural Studio in Peravoor, Kannur. Discover our approach to architecture, honest materials, natural light, and everyday living.",
+    "image": "https://www.robarchstudio.com/assets/hero-image.png",
+    "bodyClass": "",
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://www.robarchstudio.com/#studio",
+          "name": "R.O.B Architectural Studio",
+          "url": "https://www.robarchstudio.com/",
+          "logo": "https://www.robarchstudio.com/logo.png",
+          "image": "https://www.robarchstudio.com/assets/hero-image.png",
+          "telephone": "+918921533894",
+          "email": "robarchstudio@gmail.com",
+          "description": "Architecture, interior design, and landscape design studio in Peravoor, Kannur, Kerala.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Peravoor, Kannur",
+            "addressRegion": "Kerala",
+            "postalCode": "670673",
+            "addressCountry": "IN"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.robarchstudio.com/#website",
+          "url": "https://www.robarchstudio.com/",
+          "name": "R.O.B Architectural Studio",
+          "publisher": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          }
+        },
+        {
+          "@type": "AboutPage",
+          "@id": "https://www.robarchstudio.com/about.html#page",
+          "url": "https://www.robarchstudio.com/about.html",
+          "name": "Our Studio | R.O.B Architects, Kerala",
+          "description": "Meet R.O.B Architectural Studio in Peravoor, Kannur. Discover our approach to architecture, honest materials, natural light, and everyday living.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://www.robarchstudio.com/#website"
+          },
+          "about": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.robarchstudio.com/assets/hero-image.png"
+          }
+        }
+      ]
+    }
+  },
+  "contact.html": {
+    "component": "Contact",
+    "title": "Contact R.O.B Architects | Peravoor, Kannur, Kerala",
+    "description": "Contact R.O.B Architectural Studio in Peravoor, Kannur, Kerala. Share your architecture, interior, or landscape project and connect on WhatsApp at +91 89215 33894.",
+    "image": "https://www.robarchstudio.com/assets/hero-image.png",
+    "bodyClass": "contact-page",
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://www.robarchstudio.com/#studio",
+          "name": "R.O.B Architectural Studio",
+          "url": "https://www.robarchstudio.com/",
+          "logo": "https://www.robarchstudio.com/logo.png",
+          "image": "https://www.robarchstudio.com/assets/hero-image.png",
+          "telephone": "+918921533894",
+          "email": "robarchstudio@gmail.com",
+          "description": "Architecture, interior design, and landscape design studio in Peravoor, Kannur, Kerala.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Peravoor, Kannur",
+            "addressRegion": "Kerala",
+            "postalCode": "670673",
+            "addressCountry": "IN"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.robarchstudio.com/#website",
+          "url": "https://www.robarchstudio.com/",
+          "name": "R.O.B Architectural Studio",
+          "publisher": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          }
+        },
+        {
+          "@type": "ContactPage",
+          "@id": "https://www.robarchstudio.com/contact.html#page",
+          "url": "https://www.robarchstudio.com/contact.html",
+          "name": "Contact R.O.B Architects | Peravoor, Kannur, Kerala",
+          "description": "Contact R.O.B Architectural Studio in Peravoor, Kannur, Kerala. Share your architecture, interior, or landscape project and connect on WhatsApp at +91 89215 33894.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://www.robarchstudio.com/#website"
+          },
+          "about": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.robarchstudio.com/assets/hero-image.png"
+          }
+        }
+      ]
+    }
+  },
+  "": {
+    "component": "Index",
+    "title": "R.O.B Architects in Kannur, Kerala | Architecture & Interiors",
+    "description": "R.O.B Architectural Studio in Peravoor, Kannur, Kerala. Explore considered architecture, interior design, and landscape design. Discuss your project with us.",
+    "image": "https://www.robarchstudio.com/assets/hero-image.png",
+    "bodyClass": "home-page",
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://www.robarchstudio.com/#studio",
+          "name": "R.O.B Architectural Studio",
+          "url": "https://www.robarchstudio.com/",
+          "logo": "https://www.robarchstudio.com/logo.png",
+          "image": "https://www.robarchstudio.com/assets/hero-image.png",
+          "telephone": "+918921533894",
+          "email": "robarchstudio@gmail.com",
+          "description": "Architecture, interior design, and landscape design studio in Peravoor, Kannur, Kerala.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Peravoor, Kannur",
+            "addressRegion": "Kerala",
+            "postalCode": "670673",
+            "addressCountry": "IN"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.robarchstudio.com/#website",
+          "url": "https://www.robarchstudio.com/",
+          "name": "R.O.B Architectural Studio",
+          "publisher": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.robarchstudio.com/#page",
+          "url": "https://www.robarchstudio.com/",
+          "name": "R.O.B Architects in Kannur, Kerala | Architecture & Interiors",
+          "description": "R.O.B Architectural Studio in Peravoor, Kannur, Kerala. Explore considered architecture, interior design, and landscape design. Discuss your project with us.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://www.robarchstudio.com/#website"
+          },
+          "about": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.robarchstudio.com/assets/hero-image.png"
+          }
+        }
+      ]
+    }
+  },
+  "project-contemporary-home.html": {
+    "component": "ProjectContemporaryHome",
+    "title": "Contemporary Home | R.O.B Architectural Studio",
+    "description": "Blending modern design with Kerala’s tropical charm.",
+    "image": "https://www.robarchstudio.com/assets/image3.jpg",
+    "bodyClass": "",
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://www.robarchstudio.com/#studio",
+          "name": "R.O.B Architectural Studio",
+          "url": "https://www.robarchstudio.com/",
+          "logo": "https://www.robarchstudio.com/logo.png",
+          "image": "https://www.robarchstudio.com/assets/hero-image.png",
+          "telephone": "+918921533894",
+          "email": "robarchstudio@gmail.com",
+          "description": "Architecture, interior design, and landscape design studio in Peravoor, Kannur, Kerala.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Peravoor, Kannur",
+            "addressRegion": "Kerala",
+            "postalCode": "670673",
+            "addressCountry": "IN"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.robarchstudio.com/#website",
+          "url": "https://www.robarchstudio.com/",
+          "name": "R.O.B Architectural Studio",
+          "publisher": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.robarchstudio.com/project-contemporary-home.html#page",
+          "url": "https://www.robarchstudio.com/project-contemporary-home.html",
+          "name": "Contemporary Home | R.O.B Architectural Studio",
+          "description": "Blending modern design with Kerala’s tropical charm.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://www.robarchstudio.com/#website"
+          },
+          "about": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.robarchstudio.com/assets/image3.jpg"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.robarchstudio.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Projects",
+              "item": "https://www.robarchstudio.com/projects.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Contemporary Home",
+              "item": "https://www.robarchstudio.com/project-contemporary-home.html"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "project-curve-residence.html": {
+    "component": "ProjectCurveResidence",
+    "title": "CURVE Residence | R.O.B Architectural Studio",
+    "description": "A futuristic residence shaped by fluid forms and organic geometry.",
+    "image": "https://www.robarchstudio.com/assets/image2.jpg",
+    "bodyClass": "",
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://www.robarchstudio.com/#studio",
+          "name": "R.O.B Architectural Studio",
+          "url": "https://www.robarchstudio.com/",
+          "logo": "https://www.robarchstudio.com/logo.png",
+          "image": "https://www.robarchstudio.com/assets/hero-image.png",
+          "telephone": "+918921533894",
+          "email": "robarchstudio@gmail.com",
+          "description": "Architecture, interior design, and landscape design studio in Peravoor, Kannur, Kerala.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Peravoor, Kannur",
+            "addressRegion": "Kerala",
+            "postalCode": "670673",
+            "addressCountry": "IN"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.robarchstudio.com/#website",
+          "url": "https://www.robarchstudio.com/",
+          "name": "R.O.B Architectural Studio",
+          "publisher": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.robarchstudio.com/project-curve-residence.html#page",
+          "url": "https://www.robarchstudio.com/project-curve-residence.html",
+          "name": "CURVE Residence | R.O.B Architectural Studio",
+          "description": "A futuristic residence shaped by fluid forms and organic geometry.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://www.robarchstudio.com/#website"
+          },
+          "about": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.robarchstudio.com/assets/image2.jpg"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.robarchstudio.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Projects",
+              "item": "https://www.robarchstudio.com/projects.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "CURVE Residence",
+              "item": "https://www.robarchstudio.com/project-curve-residence.html"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "project-future-design.html": {
+    "component": "ProjectFutureDesign",
+    "title": "Future Design | R.O.B Architectural Studio",
+    "description": "Designing the future, one project at a time.",
+    "image": "https://www.robarchstudio.com/assets/image4.jpg",
+    "bodyClass": "",
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://www.robarchstudio.com/#studio",
+          "name": "R.O.B Architectural Studio",
+          "url": "https://www.robarchstudio.com/",
+          "logo": "https://www.robarchstudio.com/logo.png",
+          "image": "https://www.robarchstudio.com/assets/hero-image.png",
+          "telephone": "+918921533894",
+          "email": "robarchstudio@gmail.com",
+          "description": "Architecture, interior design, and landscape design studio in Peravoor, Kannur, Kerala.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Peravoor, Kannur",
+            "addressRegion": "Kerala",
+            "postalCode": "670673",
+            "addressCountry": "IN"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.robarchstudio.com/#website",
+          "url": "https://www.robarchstudio.com/",
+          "name": "R.O.B Architectural Studio",
+          "publisher": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.robarchstudio.com/project-future-design.html#page",
+          "url": "https://www.robarchstudio.com/project-future-design.html",
+          "name": "Future Design | R.O.B Architectural Studio",
+          "description": "Designing the future, one project at a time.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://www.robarchstudio.com/#website"
+          },
+          "about": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.robarchstudio.com/assets/image4.jpg"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.robarchstudio.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Projects",
+              "item": "https://www.robarchstudio.com/projects.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Future Design",
+              "item": "https://www.robarchstudio.com/project-future-design.html"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "project-minimalist-loft.html": {
+    "component": "ProjectMinimalistLoft",
+    "title": "Minimalist Loft | R.O.B Architectural Studio",
+    "description": "Monochromatic tones and industrial elements in a modern loft.",
+    "image": "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format&fit=crop&q=80&w=800",
+    "bodyClass": "",
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://www.robarchstudio.com/#studio",
+          "name": "R.O.B Architectural Studio",
+          "url": "https://www.robarchstudio.com/",
+          "logo": "https://www.robarchstudio.com/logo.png",
+          "image": "https://www.robarchstudio.com/assets/hero-image.png",
+          "telephone": "+918921533894",
+          "email": "robarchstudio@gmail.com",
+          "description": "Architecture, interior design, and landscape design studio in Peravoor, Kannur, Kerala.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Peravoor, Kannur",
+            "addressRegion": "Kerala",
+            "postalCode": "670673",
+            "addressCountry": "IN"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.robarchstudio.com/#website",
+          "url": "https://www.robarchstudio.com/",
+          "name": "R.O.B Architectural Studio",
+          "publisher": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.robarchstudio.com/project-minimalist-loft.html#page",
+          "url": "https://www.robarchstudio.com/project-minimalist-loft.html",
+          "name": "Minimalist Loft | R.O.B Architectural Studio",
+          "description": "Monochromatic tones and industrial elements in a modern loft.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://www.robarchstudio.com/#website"
+          },
+          "about": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format&fit=crop&q=80&w=800"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.robarchstudio.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Projects",
+              "item": "https://www.robarchstudio.com/projects.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Minimalist Loft",
+              "item": "https://www.robarchstudio.com/project-minimalist-loft.html"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "project-modern-villa.html": {
+    "component": "ProjectModernVilla",
+    "title": "Modern Villa | R.O.B Architectural Studio",
+    "description": "Sleek lines and minimalist charm in Peravoor.",
+    "image": "https://www.robarchstudio.com/assets/image5.jpg",
+    "bodyClass": "",
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://www.robarchstudio.com/#studio",
+          "name": "R.O.B Architectural Studio",
+          "url": "https://www.robarchstudio.com/",
+          "logo": "https://www.robarchstudio.com/logo.png",
+          "image": "https://www.robarchstudio.com/assets/hero-image.png",
+          "telephone": "+918921533894",
+          "email": "robarchstudio@gmail.com",
+          "description": "Architecture, interior design, and landscape design studio in Peravoor, Kannur, Kerala.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Peravoor, Kannur",
+            "addressRegion": "Kerala",
+            "postalCode": "670673",
+            "addressCountry": "IN"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.robarchstudio.com/#website",
+          "url": "https://www.robarchstudio.com/",
+          "name": "R.O.B Architectural Studio",
+          "publisher": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.robarchstudio.com/project-modern-villa.html#page",
+          "url": "https://www.robarchstudio.com/project-modern-villa.html",
+          "name": "Modern Villa | R.O.B Architectural Studio",
+          "description": "Sleek lines and minimalist charm in Peravoor.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://www.robarchstudio.com/#website"
+          },
+          "about": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.robarchstudio.com/assets/image5.jpg"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.robarchstudio.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Projects",
+              "item": "https://www.robarchstudio.com/projects.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Modern Villa",
+              "item": "https://www.robarchstudio.com/project-modern-villa.html"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "project-mountain-escape.html": {
+    "component": "ProjectMountainEscape",
+    "title": "Mountain Escape | R.O.B Architectural Studio",
+    "description": "A rugged yet cozy residence perched on the slopes.",
+    "image": "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=800",
+    "bodyClass": "",
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://www.robarchstudio.com/#studio",
+          "name": "R.O.B Architectural Studio",
+          "url": "https://www.robarchstudio.com/",
+          "logo": "https://www.robarchstudio.com/logo.png",
+          "image": "https://www.robarchstudio.com/assets/hero-image.png",
+          "telephone": "+918921533894",
+          "email": "robarchstudio@gmail.com",
+          "description": "Architecture, interior design, and landscape design studio in Peravoor, Kannur, Kerala.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Peravoor, Kannur",
+            "addressRegion": "Kerala",
+            "postalCode": "670673",
+            "addressCountry": "IN"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.robarchstudio.com/#website",
+          "url": "https://www.robarchstudio.com/",
+          "name": "R.O.B Architectural Studio",
+          "publisher": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.robarchstudio.com/project-mountain-escape.html#page",
+          "url": "https://www.robarchstudio.com/project-mountain-escape.html",
+          "name": "Mountain Escape | R.O.B Architectural Studio",
+          "description": "A rugged yet cozy residence perched on the slopes.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://www.robarchstudio.com/#website"
+          },
+          "about": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=800"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.robarchstudio.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Projects",
+              "item": "https://www.robarchstudio.com/projects.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Mountain Escape",
+              "item": "https://www.robarchstudio.com/project-mountain-escape.html"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "project-residencial-project.html": {
+    "component": "ProjectResidencialProject",
+    "title": "Residencial Project | R.O.B Architectural Studio",
+    "description": "Blending tradition with modernity in Kerala home design.",
+    "image": "https://www.robarchstudio.com/assets/image6.jpg",
+    "bodyClass": "",
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://www.robarchstudio.com/#studio",
+          "name": "R.O.B Architectural Studio",
+          "url": "https://www.robarchstudio.com/",
+          "logo": "https://www.robarchstudio.com/logo.png",
+          "image": "https://www.robarchstudio.com/assets/hero-image.png",
+          "telephone": "+918921533894",
+          "email": "robarchstudio@gmail.com",
+          "description": "Architecture, interior design, and landscape design studio in Peravoor, Kannur, Kerala.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Peravoor, Kannur",
+            "addressRegion": "Kerala",
+            "postalCode": "670673",
+            "addressCountry": "IN"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.robarchstudio.com/#website",
+          "url": "https://www.robarchstudio.com/",
+          "name": "R.O.B Architectural Studio",
+          "publisher": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.robarchstudio.com/project-residencial-project.html#page",
+          "url": "https://www.robarchstudio.com/project-residencial-project.html",
+          "name": "Residencial Project | R.O.B Architectural Studio",
+          "description": "Blending tradition with modernity in Kerala home design.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://www.robarchstudio.com/#website"
+          },
+          "about": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.robarchstudio.com/assets/image6.jpg"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.robarchstudio.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Projects",
+              "item": "https://www.robarchstudio.com/projects.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Residencial Project",
+              "item": "https://www.robarchstudio.com/project-residencial-project.html"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "project-scandinavian-kitchen.html": {
+    "component": "ProjectScandinavianKitchen",
+    "title": "Scandinavian Kitchen | R.O.B Architectural Studio",
+    "description": "Functional beauty meeting clean, Nordic aesthetics.",
+    "image": "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=800",
+    "bodyClass": "",
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://www.robarchstudio.com/#studio",
+          "name": "R.O.B Architectural Studio",
+          "url": "https://www.robarchstudio.com/",
+          "logo": "https://www.robarchstudio.com/logo.png",
+          "image": "https://www.robarchstudio.com/assets/hero-image.png",
+          "telephone": "+918921533894",
+          "email": "robarchstudio@gmail.com",
+          "description": "Architecture, interior design, and landscape design studio in Peravoor, Kannur, Kerala.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Peravoor, Kannur",
+            "addressRegion": "Kerala",
+            "postalCode": "670673",
+            "addressCountry": "IN"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.robarchstudio.com/#website",
+          "url": "https://www.robarchstudio.com/",
+          "name": "R.O.B Architectural Studio",
+          "publisher": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.robarchstudio.com/project-scandinavian-kitchen.html#page",
+          "url": "https://www.robarchstudio.com/project-scandinavian-kitchen.html",
+          "name": "Scandinavian Kitchen | R.O.B Architectural Studio",
+          "description": "Functional beauty meeting clean, Nordic aesthetics.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://www.robarchstudio.com/#website"
+          },
+          "about": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=800"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.robarchstudio.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Projects",
+              "item": "https://www.robarchstudio.com/projects.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Scandinavian Kitchen",
+              "item": "https://www.robarchstudio.com/project-scandinavian-kitchen.html"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "project-the-glass-house.html": {
+    "component": "ProjectTheGlassHouse",
+    "title": "The Glass House | R.O.B Architectural Studio",
+    "description": "Blurring the lines between interior comfort and the great outdoors.",
+    "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800",
+    "bodyClass": "",
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://www.robarchstudio.com/#studio",
+          "name": "R.O.B Architectural Studio",
+          "url": "https://www.robarchstudio.com/",
+          "logo": "https://www.robarchstudio.com/logo.png",
+          "image": "https://www.robarchstudio.com/assets/hero-image.png",
+          "telephone": "+918921533894",
+          "email": "robarchstudio@gmail.com",
+          "description": "Architecture, interior design, and landscape design studio in Peravoor, Kannur, Kerala.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Peravoor, Kannur",
+            "addressRegion": "Kerala",
+            "postalCode": "670673",
+            "addressCountry": "IN"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.robarchstudio.com/#website",
+          "url": "https://www.robarchstudio.com/",
+          "name": "R.O.B Architectural Studio",
+          "publisher": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.robarchstudio.com/project-the-glass-house.html#page",
+          "url": "https://www.robarchstudio.com/project-the-glass-house.html",
+          "name": "The Glass House | R.O.B Architectural Studio",
+          "description": "Blurring the lines between interior comfort and the great outdoors.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://www.robarchstudio.com/#website"
+          },
+          "about": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.robarchstudio.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Projects",
+              "item": "https://www.robarchstudio.com/projects.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "The Glass House",
+              "item": "https://www.robarchstudio.com/project-the-glass-house.html"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "project-tropical-home.html": {
+    "component": "ProjectTropicalHome",
+    "title": "Tropical Home | R.O.B Architectural Studio",
+    "description": "Nature meets elegance in this stunning tropical design in Peravoor.",
+    "image": "https://www.robarchstudio.com/assets/image1.jpg",
+    "bodyClass": "",
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://www.robarchstudio.com/#studio",
+          "name": "R.O.B Architectural Studio",
+          "url": "https://www.robarchstudio.com/",
+          "logo": "https://www.robarchstudio.com/logo.png",
+          "image": "https://www.robarchstudio.com/assets/hero-image.png",
+          "telephone": "+918921533894",
+          "email": "robarchstudio@gmail.com",
+          "description": "Architecture, interior design, and landscape design studio in Peravoor, Kannur, Kerala.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Peravoor, Kannur",
+            "addressRegion": "Kerala",
+            "postalCode": "670673",
+            "addressCountry": "IN"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.robarchstudio.com/#website",
+          "url": "https://www.robarchstudio.com/",
+          "name": "R.O.B Architectural Studio",
+          "publisher": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.robarchstudio.com/project-tropical-home.html#page",
+          "url": "https://www.robarchstudio.com/project-tropical-home.html",
+          "name": "Tropical Home | R.O.B Architectural Studio",
+          "description": "Nature meets elegance in this stunning tropical design in Peravoor.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://www.robarchstudio.com/#website"
+          },
+          "about": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.robarchstudio.com/assets/image1.jpg"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.robarchstudio.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Projects",
+              "item": "https://www.robarchstudio.com/projects.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Tropical Home",
+              "item": "https://www.robarchstudio.com/project-tropical-home.html"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "project-urban-plaza.html": {
+    "component": "ProjectUrbanPlaza",
+    "title": "Urban Plaza | R.O.B Architectural Studio",
+    "description": "Revitalizing city centers with green spaces and social hubs.",
+    "image": "https://images.unsplash.com/photo-1596435308110-85888243ed16?auto=format&fit=crop&q=80&w=800",
+    "bodyClass": "",
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://www.robarchstudio.com/#studio",
+          "name": "R.O.B Architectural Studio",
+          "url": "https://www.robarchstudio.com/",
+          "logo": "https://www.robarchstudio.com/logo.png",
+          "image": "https://www.robarchstudio.com/assets/hero-image.png",
+          "telephone": "+918921533894",
+          "email": "robarchstudio@gmail.com",
+          "description": "Architecture, interior design, and landscape design studio in Peravoor, Kannur, Kerala.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Peravoor, Kannur",
+            "addressRegion": "Kerala",
+            "postalCode": "670673",
+            "addressCountry": "IN"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.robarchstudio.com/#website",
+          "url": "https://www.robarchstudio.com/",
+          "name": "R.O.B Architectural Studio",
+          "publisher": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.robarchstudio.com/project-urban-plaza.html#page",
+          "url": "https://www.robarchstudio.com/project-urban-plaza.html",
+          "name": "Urban Plaza | R.O.B Architectural Studio",
+          "description": "Revitalizing city centers with green spaces and social hubs.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://www.robarchstudio.com/#website"
+          },
+          "about": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://images.unsplash.com/photo-1596435308110-85888243ed16?auto=format&fit=crop&q=80&w=800"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.robarchstudio.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Projects",
+              "item": "https://www.robarchstudio.com/projects.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Urban Plaza",
+              "item": "https://www.robarchstudio.com/project-urban-plaza.html"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "project-zen-garden-retreat.html": {
+    "component": "ProjectZenGardenRetreat",
+    "title": "Zen Garden Retreat | R.O.B Architectural Studio",
+    "description": "A tranquil escape designed for meditation and harmony with nature.",
+    "image": "https://images.unsplash.com/photo-1558438832-521f7c166444?auto=format&fit=crop&q=80&w=800",
+    "bodyClass": "",
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://www.robarchstudio.com/#studio",
+          "name": "R.O.B Architectural Studio",
+          "url": "https://www.robarchstudio.com/",
+          "logo": "https://www.robarchstudio.com/logo.png",
+          "image": "https://www.robarchstudio.com/assets/hero-image.png",
+          "telephone": "+918921533894",
+          "email": "robarchstudio@gmail.com",
+          "description": "Architecture, interior design, and landscape design studio in Peravoor, Kannur, Kerala.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Peravoor, Kannur",
+            "addressRegion": "Kerala",
+            "postalCode": "670673",
+            "addressCountry": "IN"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.robarchstudio.com/#website",
+          "url": "https://www.robarchstudio.com/",
+          "name": "R.O.B Architectural Studio",
+          "publisher": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.robarchstudio.com/project-zen-garden-retreat.html#page",
+          "url": "https://www.robarchstudio.com/project-zen-garden-retreat.html",
+          "name": "Zen Garden Retreat | R.O.B Architectural Studio",
+          "description": "A tranquil escape designed for meditation and harmony with nature.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://www.robarchstudio.com/#website"
+          },
+          "about": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://images.unsplash.com/photo-1558438832-521f7c166444?auto=format&fit=crop&q=80&w=800"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.robarchstudio.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Projects",
+              "item": "https://www.robarchstudio.com/projects.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Zen Garden Retreat",
+              "item": "https://www.robarchstudio.com/project-zen-garden-retreat.html"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "projects.html": {
+    "component": "Projects",
+    "title": "Architecture & Interior Projects | R.O.B Studio",
+    "description": "Browse residential architecture, interior design, and landscape projects by R.O.B Architectural Studio. Explore each project through images and design details.",
+    "image": "https://www.robarchstudio.com/assets/hero-image.png",
+    "bodyClass": "",
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://www.robarchstudio.com/#studio",
+          "name": "R.O.B Architectural Studio",
+          "url": "https://www.robarchstudio.com/",
+          "logo": "https://www.robarchstudio.com/logo.png",
+          "image": "https://www.robarchstudio.com/assets/hero-image.png",
+          "telephone": "+918921533894",
+          "email": "robarchstudio@gmail.com",
+          "description": "Architecture, interior design, and landscape design studio in Peravoor, Kannur, Kerala.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Peravoor, Kannur",
+            "addressRegion": "Kerala",
+            "postalCode": "670673",
+            "addressCountry": "IN"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.robarchstudio.com/#website",
+          "url": "https://www.robarchstudio.com/",
+          "name": "R.O.B Architectural Studio",
+          "publisher": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          }
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://www.robarchstudio.com/projects.html#page",
+          "url": "https://www.robarchstudio.com/projects.html",
+          "name": "Architecture & Interior Projects | R.O.B Studio",
+          "description": "Browse residential architecture, interior design, and landscape projects by R.O.B Architectural Studio. Explore each project through images and design details.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://www.robarchstudio.com/#website"
+          },
+          "about": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.robarchstudio.com/assets/hero-image.png"
+          }
+        }
+      ]
+    }
+  },
+  "services.html": {
+    "component": "Services",
+    "title": "Architecture, Interiors & Landscape | R.O.B Studio",
+    "description": "Explore architecture, interior design, and landscape design by R.O.B Architectural Studio in Kannur, Kerala. Start a conversation about your project.",
+    "image": "https://www.robarchstudio.com/assets/hero-image.png",
+    "bodyClass": "",
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://www.robarchstudio.com/#studio",
+          "name": "R.O.B Architectural Studio",
+          "url": "https://www.robarchstudio.com/",
+          "logo": "https://www.robarchstudio.com/logo.png",
+          "image": "https://www.robarchstudio.com/assets/hero-image.png",
+          "telephone": "+918921533894",
+          "email": "robarchstudio@gmail.com",
+          "description": "Architecture, interior design, and landscape design studio in Peravoor, Kannur, Kerala.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Peravoor, Kannur",
+            "addressRegion": "Kerala",
+            "postalCode": "670673",
+            "addressCountry": "IN"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.robarchstudio.com/#website",
+          "url": "https://www.robarchstudio.com/",
+          "name": "R.O.B Architectural Studio",
+          "publisher": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.robarchstudio.com/services.html#page",
+          "url": "https://www.robarchstudio.com/services.html",
+          "name": "Architecture, Interiors & Landscape | R.O.B Studio",
+          "description": "Explore architecture, interior design, and landscape design by R.O.B Architectural Studio in Kannur, Kerala. Start a conversation about your project.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://www.robarchstudio.com/#website"
+          },
+          "about": {
+            "@id": "https://www.robarchstudio.com/#studio"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.robarchstudio.com/assets/hero-image.png"
+          }
+        }
+      ]
+    }
+  }
+}
