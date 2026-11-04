@@ -29,7 +29,8 @@
     "types/**/*.d.ts",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "next.config.ts"
+    "next.config.ts",
+    "proxy.ts"
   ],
   "exclude": ["node_modules", "legacy", "dist"]
 }

@@ -2327,14 +2327,17 @@ footer {
 /* An architectural invitation, drawn as a floating spatial study. */
 .chapter-section {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(24px, 5vw, 80px);
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 0.6fr);
+  align-items: center;
+  height: 40svh;
+  min-height: 280px;
+  gap: 24px;
   position: relative;
   overflow: hidden;
   background: #273229;
   color: #f2f1e7;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding-top: 24px;
+  padding-bottom: 24px;
   border-bottom: 0;
 }
 .chapter-copy {
@@ -2346,27 +2349,22 @@ footer {
   letter-spacing: 0.2em;
 }
 .chapter-section h2 {
-  font-size: clamp(40px, 4.6vw, 74px);
-  line-height: 1.06;
-  margin: 30px 0 24px;
+  font-size: clamp(28px, 3vw, 44px);
+  line-height: 1.08;
+  margin: 12px 0 18px;
   letter-spacing: -0.045em;
 }
 .chapter-section h2 em {
   color: #dce4b4;
 }
-.chapter-copy > p {
-  max-width: 340px;
-  font-size: 13px;
-  line-height: 1.8;
-  color: #bfc8bc;
-  margin-bottom: 30px;
-}
 .chapter-section .chapter-link {
   background: #dce4b4;
   color: #273229;
   border-color: #dce4b4;
-  padding: 16px 24px;
-  gap: 44px;
+  padding: 10px 20px;
+  min-height: 40px;
+  font-size: 11px;
+  gap: 32px;
 }
 .chapter-section .chapter-link:hover {
   background: #edf2d5;
@@ -2378,23 +2376,19 @@ footer {
 .chapter-link:hover span {
   transform: translate(3px, -3px);
 }
-.chapter-footnote {
-  display: block;
-  margin-top: 28px;
-  color: #96a48f;
-  font-size: 9px;
-  letter-spacing: 0.08em;
-}
 .chapter-art {
   position: relative;
   color: #dce4b4;
   width: 100%;
-  max-width: 620px;
+  max-width: 280px;
+  height: 100%;
+  min-height: 0;
   justify-self: center;
 }
 .chapter-art svg {
   display: block;
   width: 100%;
+  height: 100%;
   overflow: visible;
 }
 .chapter-art-label {
@@ -2439,13 +2433,20 @@ footer {
 }
 @media (max-width: 800px) {
   .chapter-section {
-    grid-template-columns: 1fr;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    gap: 40px;
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    gap: 0;
   }
   .chapter-art {
-    max-width: 460px;
+    position: absolute;
+    right: -55px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 220px;
+    height: 220px;
+    opacity: 0.22;
+    pointer-events: none;
   }
   .chapter-section .chapter-link {
     width: auto;

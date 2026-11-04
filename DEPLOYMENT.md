@@ -44,3 +44,7 @@ Production domain: https://www.robarchstudio.com. Add this domain to the Vercel 
 ## Supabase
 
 See [supabase/README.md](supabase/README.md) for migrations, seed content, environment variables, storage, and access rules. Until a hosted project is connected, the website uses bundled portfolio content and WhatsApp.
+
+## Studio administration
+
+The dashboard is at /admin and sign-in is at /admin/login. Configure ADMIN_EMAILS with approved, confirmed Supabase Auth email addresses. See supabase/README.md for activation and publishing details. Until connected, the dashboard is a read-only preview. Run npm run test:admin for admin UI and authentication-boundary checks.

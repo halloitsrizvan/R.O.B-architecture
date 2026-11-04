@@ -1,6 +1,6 @@
 import { createHmac } from 'node:crypto';
 import { NextResponse } from 'next/server';
-import { createInquiryClient } from '../../../lib/supabase/server';
+import { createServiceClient } from '../../../lib/supabase/server';
 
 export const runtime = 'nodejs';
 
@@ -56,7 +56,7 @@ export async function POST(request: Request) {
       { status: 400 },
     );
   }
-  const client = createInquiryClient();
+  const client = createServiceClient();
   const secret = process.env.SUPABASE_SECRET_KEY;
   if (!client || !secret)
     return NextResponse.json(

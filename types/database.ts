@@ -39,7 +39,11 @@ type Table<Row, Insert> = { Row: Row; Insert: Insert; Update: Partial<Insert>; R
 export interface Database {
   public: {
     Tables: {
-      projects: Table<ProjectRow, Omit<ProjectRow, 'created_at'> & { created_at?: string }>;
+      projects: Table<
+        ProjectRow,
+        Pick<ProjectRow, 'slug' | 'title' | 'sort_order'> &
+          Partial<Omit<ProjectRow, 'slug' | 'title' | 'sort_order'>>
+      >;
       project_images: Table<ProjectImageRow, Omit<ProjectImageRow, 'id'> & { id?: string }>;
       contact_inquiries: Table<
         InquiryRow,

@@ -64,17 +64,10 @@ export default function Index() {
         <div className="chapter-copy reveal">
           <span className="eyebrow">{'Your next chapter'}</span>
           <h2>
-            {'Every great space'}
-            <br />
-            {'starts with'}
+            {'Every great space starts with'}
             <br />
             <em>{'a little possibility.'}</em>
           </h2>
-          <p>
-            {
-              "A place to gather. A room to dream. A home that is entirely yours. Let's draw the first line together."
-            }
-          </p>
           <a
             className="cta chapter-link"
             href="https://wa.me/918921533894"
@@ -84,7 +77,6 @@ export default function Index() {
             {'Start your story '}
             <span aria-hidden="true">{'↗'}</span>
           </a>
-          <span className="chapter-footnote">{'Your vision. Our craft. A new beginning.'}</span>
         </div>
         <div className="chapter-art reveal" aria-hidden="true">
           <svg viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">

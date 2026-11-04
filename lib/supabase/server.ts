@@ -12,8 +12,8 @@ export function createPortfolioClient() {
   });
 }
 
-/** Privileged client is isolated to the server and used only for inquiry submissions. */
-export function createInquiryClient() {
+/** Server-only privileged client. Admin callers must verify their session before using it. */
+export function createServiceClient() {
   const url = process.env.SUPABASE_URL;
   const key = process.env.SUPABASE_SECRET_KEY;
   if (!url || !key) return null;

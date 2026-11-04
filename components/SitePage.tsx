@@ -1,4 +1,5 @@
 import type { PageSlug } from '../data/pages';
+import type { ReactNode } from 'react';
 import { pages } from '../data/pages';
 import SiteHeader from './SiteHeader';
 import SiteFooter from './SiteFooter';
@@ -9,7 +10,15 @@ import PageContent from './PageContent';
 import SiteRuntime from './SiteRuntime';
 import { pageSchema } from '../lib/metadata';
 
-export default function SitePage({ slug }: { slug: PageSlug }) {
+export default function SitePage({
+  slug,
+  content,
+  structuredData,
+}: {
+  slug: PageSlug;
+  content?: ReactNode;
+  structuredData?: string;
+}) {
   return (
     <>
       {slug === '' && <Intro />}
@@ -17,11 +26,14 @@ export default function SitePage({ slug }: { slug: PageSlug }) {
         Skip to content
       </a>
       <SiteHeader slug={slug} />
-      <PageContent name={pages[slug].component} />
+      {content ?? <PageContent name={pages[slug].component} />}
       <Inquiry />
       <SiteFooter />
       <WhatsApp />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: pageSchema(slug) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: structuredData ?? pageSchema(slug) }}
+      />
       <SiteRuntime key={slug} bodyClass={pages[slug].bodyClass} />
     </>
   );

@@ -26,6 +26,23 @@ Projects and galleries read from Supabase when configured, with a 60-second cach
 
 The contact form continues to open WhatsApp and also saves an inquiry when the server is connected. It never claims an inquiry was saved after a database failure. The API validates sizes and fields, checks same-origin requests, and rejects a honeypot field. Its secret client is protected by the `server-only` module boundary.
 
-The current page routes still come from the existing 12-project route registry. Adding a completely new project also requires adding its page/metadata entry; a full admin CMS and authentication are not part of this setup.
+The admin dashboard at /admin manages projects, images, publishing, and inquiry statuses. New published projects receive public detail pages, metadata, and sitemap entries automatically.
 
 `npm run test:database` runs against embedded PostgreSQL with minimal Supabase role/storage fixtures. It verifies SQL and access rules without changing a hosted project. It does not replace the final hosted connectivity and advisor checks.
+
+## Admin dashboard
+
+Open /admin for the read-only portfolio preview while the database is unconfigured. No private inquiry data is loaded in preview mode.
+
+To activate management:
+
+1. Complete the Supabase project, migration, seed, and API environment setup above.
+2. In Supabase Authentication, create a confirmed user with an email and a strong password. There is no public sign-up flow.
+3. Set ADMIN_EMAILS to that email in .env.local and Vercel. Multiple approved addresses may be comma-separated.
+4. Restart or redeploy, then sign in at /admin/login.
+
+Every privileged read and server action verifies the Supabase user with getUser and checks the server-side email allowlist. Session cookies are HTTP-only and refreshed by the admin-scoped Next.js proxy. Secret keys are never sent to the browser. All admin routes are dynamic and marked noindex; the public sitemap excludes them.
+
+Projects can be created as drafts, edited, featured, and published. Save a new draft before uploading its images. Publishing requires at least one image. Display order numbers must be unique; lower numbers appear first. New uploads accept JPG/PNG/WebP/AVIF files up to 10 MB and require alt text. Image descriptions and order can be edited. The inbox shows the latest 100 inquiries and supports new/contacted/archived statuses and email reply links.
+
+Run npm run test:admin against a production server (default http://localhost:3210, override with TEST_BASE_URL). The test checks desktop/mobile previews, filtering, keyboard dismissal, and verifies that configured admin routes redirect anonymous visitors before loading private data. Live sign-in, uploads, and database writes still require the hosted Supabase project to be connected.
