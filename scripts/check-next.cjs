@@ -8,7 +8,13 @@ for (const [slug, page] of Object.entries(pages)) {
   assert(!titles.has(page.title), `Duplicate title: ${slug}`);
   titles.add(page.title);
   assert(page.description && page.image && page.schema['@graph'].length >= 3);
-  const component = fs.readFileSync(path.join(root, 'components/pages', `${page.component}.jsx`), 'utf8');
+  let component = fs.readFileSync(
+    path.join(root, 'components/pages', `${page.component}.tsx`),
+    'utf8',
+  );
+  if (component.includes('<ProjectDetails')) {
+    component = fs.readFileSync(path.join(root, 'components/ProjectDetails.tsx'), 'utf8');
+  }
   assert.equal((component.match(/<h1\b/g) || []).length, 1, `Heading: ${slug}`);
   for (const [, asset] of component.matchAll(/(?:href|src)="(\/[^"#]*)"/g)) {
     if (asset === '/' || pages[asset.slice(1)] || asset === '/index.html') continue;

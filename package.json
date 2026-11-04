@@ -6,20 +6,36 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "check": "node scripts/check-next.cjs",
-    "test:browser": "node scripts/smoke-next.cjs"
+    "check": "npm run typecheck && npm run lint && npm run format:check && node scripts/check-next.cjs",
+    "test:browser": "node scripts/smoke-next.cjs",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --max-warnings=0",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test:database": "node scripts/test-database.cjs"
   },
   "dependencies": {
+    "@supabase/supabase-js": "2.118.0",
     "gsap": "^3.15.0",
     "next": "^16.4.4",
     "react": "^19.3.1",
-    "react-dom": "^19.3.1"
+    "react-dom": "^19.3.1",
+    "server-only": "0.0.1"
   },
   "engines": {
     "node": ">=20.9.0"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "0.5.14",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.4.4",
+    "parse5": "^8.1.0",
     "playwright-core": "^1.64.1",
-    "parse5": "^8.1.0"
+    "prettier": "^3.9.10",
+    "supabase": "3.0.0",
+    "typescript": "^6.0.3"
   }
 }

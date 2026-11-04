@@ -9,14 +9,14 @@ fs.mkdirSync('artifacts', { recursive: true });
   const executablePath = [
     'C:/Program Files/Google/Chrome/Application/chrome.exe',
     'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',
-    'C:/Program Files/Microsoft/Edge/Application/msedge.exe'
+    'C:/Program Files/Microsoft/Edge/Application/msedge.exe',
   ].find(fs.existsSync);
   assert(executablePath, 'Install Chrome or Edge to run the browser smoke test.');
   const browser = await chromium.launch({ executablePath, headless: true });
   try {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
     const errors = [];
-    page.on('pageerror', error => errors.push(error.message));
+    page.on('pageerror', (error) => errors.push(error.message));
     for (const [slug, data] of Object.entries(pages)) {
       const response = await page.goto(`${baseURL}/${slug}`);
       assert.equal(response.status(), 200, slug);
@@ -24,14 +24,24 @@ fs.mkdirSync('artifacts', { recursive: true });
       assert.equal(await page.locator('h1').count(), 1);
     }
     await page.goto(`${baseURL}/`);
-    await page.waitForFunction(() => !document.body.classList.contains('locked') && document.querySelectorAll('.hero-slide').length === 3);
+    await page.waitForFunction(
+      () =>
+        !document.body.classList.contains('locked') &&
+        document.querySelectorAll('.hero-slide').length === 3,
+    );
     await page.waitForTimeout(5100);
     assert(await page.locator('.whatsapp-popup').isVisible());
     await page.locator('.whatsapp-popup-close').click();
     assert(!(await page.locator('.whatsapp-popup').isVisible()));
     await page.locator('.selected').scrollIntoViewIfNeeded();
     await page.waitForTimeout(1500);
-    assert.equal(await page.locator('.selected .project-card').first().evaluate(el => getComputedStyle(el).opacity), '1');
+    assert.equal(
+      await page
+        .locator('.selected .project-card')
+        .first()
+        .evaluate((el) => getComputedStyle(el).opacity),
+      '1',
+    );
     await page.screenshot({ path: 'artifacts/next-desktop.png', fullPage: false });
     await page.goto(`${baseURL}/projects.html`);
     await page.locator('[data-filter="interior"]').click();
@@ -52,15 +62,59 @@ fs.mkdirSync('artifacts', { recursive: true });
     await page.locator('[name="email"]').fill('test@example.com');
     await page.locator('[name="service"]').selectOption({ label: 'Architecture' });
     await page.locator('[name="message"]').fill('Testing the migrated inquiry form.');
-    await page.evaluate(() => { window.open = url => { window.testWhatsAppURL = url; return null; }; });
+    await page.evaluate(() => {
+      window.open = (url) => {
+        window.testWhatsAppURL = url;
+        return null;
+      };
+    });
     await page.locator('.submit-button').click();
-    assert(await page.evaluate(() => window.testWhatsAppURL.includes('wa.me') && window.testWhatsAppURL.includes('Website%20test')));
+    assert(
+      await page.evaluate(
+        () =>
+          window.testWhatsAppURL.includes('wa.me') &&
+          window.testWhatsAppURL.includes('Website%20test'),
+      ),
+    );
+    const inquiryURL = baseURL + '/api/inquiries';
+    const validInquiry = {
+      name: 'Website Test',
+      email: 'test@example.com',
+      service: 'Architecture',
+      message: 'A test project inquiry.',
+    };
+    assert.equal((await page.request.post(inquiryURL, { data: validInquiry })).status(), 403);
+    assert.equal(
+      (
+        await page.request.post(inquiryURL, {
+          headers: { Origin: baseURL },
+          data: { ...validInquiry, email: 'invalid' },
+        })
+      ).status(),
+      400,
+    );
+    assert.equal(
+      (
+        await page.request.post(inquiryURL, {
+          headers: { Origin: baseURL },
+          data: { ...validInquiry, website: 'bot' },
+        })
+      ).status(),
+      200,
+    );
     assert.equal((await page.goto(`${baseURL}/missing-page`)).status(), 404);
     const redirect = await page.request.get(`${baseURL}/index.html`, { maxRedirects: 0 });
     assert.equal(redirect.status(), 308);
     assert.equal((await page.request.get(`${baseURL}/sitemap.xml`)).status(), 200);
     assert.equal((await page.request.get(`${baseURL}/robots.txt`)).status(), 200);
     assert.deepEqual(errors, [], 'Browser errors');
-    console.log('Passed 17 routes, metadata, slideshow, popup, reveals, filters, mobile menu/layout, inquiry form, redirects, sitemap, robots, and 404 checks.');
-  } finally { await browser.close(); }
-})().catch(error => { console.error(error); process.exit(1); });
+    console.log(
+      'Passed 17 routes, metadata, slideshow, popup, reveals, filters, mobile menu/layout, inquiry form, redirects, sitemap, robots, and 404 checks.',
+    );
+  } finally {
+    await browser.close();
+  }
+})().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});

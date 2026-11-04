@@ -1,0 +1,566 @@
+{
+  "project-contemporary-home": {
+    "title": "Contemporary Home",
+    "label": "Selected work / 03",
+    "description": "Blending modern design with Kerala’s tropical charm.",
+    "facts": [
+      {
+        "label": "Discipline",
+        "value": "architecture"
+      },
+      {
+        "label": "In this collection",
+        "value": "03 project views"
+      },
+      {
+        "label": "Studio",
+        "value": "R.O.B Architectural Studio"
+      }
+    ],
+    "inquiryUrl": "https://wa.me/918921533894?text=Hello%20R.O.B%20Studio%2C%20I%20would%20like%20to%20discuss%20a%20project%20inspired%20by%20Contemporary%20Home.",
+    "images": [
+      {
+        "src": "/assets/image3.jpg",
+        "alt": "Contemporary Home - main project view"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1513584684374-8bdb7489feef?auto=format&fit=crop&q=80&w=800",
+        "alt": "Contemporary Home - additional view 1",
+        "srcSet": "https://images.unsplash.com/photo-1513584684374-8bdb7489feef?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1513584684374-8bdb7489feef?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80&w=800",
+        "alt": "Contemporary Home - additional view 2",
+        "srcSet": "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      }
+    ],
+    "previous": {
+      "href": "/project-curve-residence.html",
+      "title": "CURVE Residence"
+    },
+    "next": {
+      "href": "/project-future-design.html",
+      "title": "Future Design"
+    }
+  },
+  "project-curve-residence": {
+    "title": "CURVE Residence",
+    "label": "Selected work / 02",
+    "description": "A futuristic residence shaped by fluid forms and organic geometry.",
+    "facts": [
+      {
+        "label": "Discipline",
+        "value": "architecture"
+      },
+      {
+        "label": "In this collection",
+        "value": "03 project views"
+      },
+      {
+        "label": "Studio",
+        "value": "R.O.B Architectural Studio"
+      }
+    ],
+    "inquiryUrl": "https://wa.me/918921533894?text=Hello%20R.O.B%20Studio%2C%20I%20would%20like%20to%20discuss%20a%20project%20inspired%20by%20CURVE%20Residence.",
+    "images": [
+      {
+        "src": "/assets/image2.jpg",
+        "alt": "CURVE Residence - main project view"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800",
+        "alt": "CURVE Residence - additional view 1",
+        "srcSet": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1481437156560-3205f6a55735?auto=format&fit=crop&q=80&w=800",
+        "alt": "CURVE Residence - additional view 2",
+        "srcSet": "https://images.unsplash.com/photo-1481437156560-3205f6a55735?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1481437156560-3205f6a55735?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      }
+    ],
+    "previous": {
+      "href": "/project-tropical-home.html",
+      "title": "Tropical Home"
+    },
+    "next": {
+      "href": "/project-contemporary-home.html",
+      "title": "Contemporary Home"
+    }
+  },
+  "project-future-design": {
+    "title": "Future Design",
+    "label": "Selected work / 04",
+    "description": "Designing the future, one project at a time.",
+    "facts": [
+      {
+        "label": "Discipline",
+        "value": "architecture"
+      },
+      {
+        "label": "In this collection",
+        "value": "03 project views"
+      },
+      {
+        "label": "Studio",
+        "value": "R.O.B Architectural Studio"
+      }
+    ],
+    "inquiryUrl": "https://wa.me/918921533894?text=Hello%20R.O.B%20Studio%2C%20I%20would%20like%20to%20discuss%20a%20project%20inspired%20by%20Future%20Design.",
+    "images": [
+      {
+        "src": "/assets/image4.jpg",
+        "alt": "Future Design - main project view"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800",
+        "alt": "Future Design - additional view 1",
+        "srcSet": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1541829081725-6f1c93bb3c66?auto=format&fit=crop&q=80&w=800",
+        "alt": "Future Design - additional view 2",
+        "srcSet": "https://images.unsplash.com/photo-1541829081725-6f1c93bb3c66?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1541829081725-6f1c93bb3c66?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      }
+    ],
+    "previous": {
+      "href": "/project-contemporary-home.html",
+      "title": "Contemporary Home"
+    },
+    "next": {
+      "href": "/project-modern-villa.html",
+      "title": "Modern Villa"
+    }
+  },
+  "project-minimalist-loft": {
+    "title": "Minimalist Loft",
+    "label": "Selected work / 08",
+    "description": "Monochromatic tones and industrial elements in a modern loft.",
+    "facts": [
+      {
+        "label": "Discipline",
+        "value": "interior"
+      },
+      {
+        "label": "In this collection",
+        "value": "03 project views"
+      },
+      {
+        "label": "Studio",
+        "value": "R.O.B Architectural Studio"
+      }
+    ],
+    "inquiryUrl": "https://wa.me/918921533894?text=Hello%20R.O.B%20Studio%2C%20I%20would%20like%20to%20discuss%20a%20project%20inspired%20by%20Minimalist%20Loft.",
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format&fit=crop&q=80&w=800",
+        "alt": "Minimalist Loft - main project view",
+        "srcSet": "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1505691938895-1758d7eaa511?auto=format&fit=crop&q=80&w=800",
+        "alt": "Minimalist Loft - additional view 1",
+        "srcSet": "https://images.unsplash.com/photo-1505691938895-1758d7eaa511?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1505691938895-1758d7eaa511?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&q=80&w=800",
+        "alt": "Minimalist Loft - additional view 2",
+        "srcSet": "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      }
+    ],
+    "previous": {
+      "href": "/project-zen-garden-retreat.html",
+      "title": "Zen Garden Retreat"
+    },
+    "next": {
+      "href": "/project-the-glass-house.html",
+      "title": "The Glass House"
+    }
+  },
+  "project-modern-villa": {
+    "title": "Modern Villa",
+    "label": "Selected work / 05",
+    "description": "Sleek lines and minimalist charm in Peravoor.",
+    "facts": [
+      {
+        "label": "Discipline",
+        "value": "interior + architecture"
+      },
+      {
+        "label": "In this collection",
+        "value": "03 project views"
+      },
+      {
+        "label": "Studio",
+        "value": "R.O.B Architectural Studio"
+      }
+    ],
+    "inquiryUrl": "https://wa.me/918921533894?text=Hello%20R.O.B%20Studio%2C%20I%20would%20like%20to%20discuss%20a%20project%20inspired%20by%20Modern%20Villa.",
+    "images": [
+      {
+        "src": "/assets/image5.jpg",
+        "alt": "Modern Villa - main project view"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800",
+        "alt": "Modern Villa - additional view 1",
+        "srcSet": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1616489953149-755e74f2e928?auto=format&fit=crop&q=80&w=800",
+        "alt": "Modern Villa - additional view 2",
+        "srcSet": "https://images.unsplash.com/photo-1616489953149-755e74f2e928?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1616489953149-755e74f2e928?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      }
+    ],
+    "previous": {
+      "href": "/project-future-design.html",
+      "title": "Future Design"
+    },
+    "next": {
+      "href": "/project-residencial-project.html",
+      "title": "Residencial Project"
+    }
+  },
+  "project-mountain-escape": {
+    "title": "Mountain Escape",
+    "label": "Selected work / 12",
+    "description": "A rugged yet cozy residence perched on the slopes.",
+    "facts": [
+      {
+        "label": "Discipline",
+        "value": "architecture"
+      },
+      {
+        "label": "In this collection",
+        "value": "03 project views"
+      },
+      {
+        "label": "Studio",
+        "value": "R.O.B Architectural Studio"
+      }
+    ],
+    "inquiryUrl": "https://wa.me/918921533894?text=Hello%20R.O.B%20Studio%2C%20I%20would%20like%20to%20discuss%20a%20project%20inspired%20by%20Mountain%20Escape.",
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=800",
+        "alt": "Mountain Escape - main project view",
+        "srcSet": "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=800",
+        "alt": "Mountain Escape - additional view 1",
+        "srcSet": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800",
+        "alt": "Mountain Escape - additional view 2",
+        "srcSet": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      }
+    ],
+    "previous": {
+      "href": "/project-scandinavian-kitchen.html",
+      "title": "Scandinavian Kitchen"
+    },
+    "next": {
+      "href": "/project-tropical-home.html",
+      "title": "Tropical Home"
+    }
+  },
+  "project-residencial-project": {
+    "title": "Residencial Project",
+    "label": "Selected work / 06",
+    "description": "Blending tradition with modernity in Kerala home design.",
+    "facts": [
+      {
+        "label": "Discipline",
+        "value": "architecture"
+      },
+      {
+        "label": "In this collection",
+        "value": "03 project views"
+      },
+      {
+        "label": "Studio",
+        "value": "R.O.B Architectural Studio"
+      }
+    ],
+    "inquiryUrl": "https://wa.me/918921533894?text=Hello%20R.O.B%20Studio%2C%20I%20would%20like%20to%20discuss%20a%20project%20inspired%20by%20Residencial%20Project.",
+    "images": [
+      {
+        "src": "/assets/image6.jpg",
+        "alt": "Residencial Project - main project view"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1600585154526-990dcea42e49?auto=format&fit=crop&q=80&w=800",
+        "alt": "Residencial Project - additional view 1",
+        "srcSet": "https://images.unsplash.com/photo-1600585154526-990dcea42e49?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1600585154526-990dcea42e49?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=800",
+        "alt": "Residencial Project - additional view 2",
+        "srcSet": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      }
+    ],
+    "previous": {
+      "href": "/project-modern-villa.html",
+      "title": "Modern Villa"
+    },
+    "next": {
+      "href": "/project-zen-garden-retreat.html",
+      "title": "Zen Garden Retreat"
+    }
+  },
+  "project-scandinavian-kitchen": {
+    "title": "Scandinavian Kitchen",
+    "label": "Selected work / 11",
+    "description": "Functional beauty meeting clean, Nordic aesthetics.",
+    "facts": [
+      {
+        "label": "Discipline",
+        "value": "interior"
+      },
+      {
+        "label": "In this collection",
+        "value": "03 project views"
+      },
+      {
+        "label": "Studio",
+        "value": "R.O.B Architectural Studio"
+      }
+    ],
+    "inquiryUrl": "https://wa.me/918921533894?text=Hello%20R.O.B%20Studio%2C%20I%20would%20like%20to%20discuss%20a%20project%20inspired%20by%20Scandinavian%20Kitchen.",
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=800",
+        "alt": "Scandinavian Kitchen - main project view",
+        "srcSet": "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1556909190-eccf4a8bf97a?auto=format&fit=crop&q=80&w=800",
+        "alt": "Scandinavian Kitchen - additional view 1",
+        "srcSet": "https://images.unsplash.com/photo-1556909190-eccf4a8bf97a?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1556909190-eccf4a8bf97a?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&q=80&w=800",
+        "alt": "Scandinavian Kitchen - additional view 2",
+        "srcSet": "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      }
+    ],
+    "previous": {
+      "href": "/project-urban-plaza.html",
+      "title": "Urban Plaza"
+    },
+    "next": {
+      "href": "/project-mountain-escape.html",
+      "title": "Mountain Escape"
+    }
+  },
+  "project-the-glass-house": {
+    "title": "The Glass House",
+    "label": "Selected work / 09",
+    "description": "Blurring the lines between interior comfort and the great outdoors.",
+    "facts": [
+      {
+        "label": "Discipline",
+        "value": "architecture"
+      },
+      {
+        "label": "In this collection",
+        "value": "03 project views"
+      },
+      {
+        "label": "Studio",
+        "value": "R.O.B Architectural Studio"
+      }
+    ],
+    "inquiryUrl": "https://wa.me/918921533894?text=Hello%20R.O.B%20Studio%2C%20I%20would%20like%20to%20discuss%20a%20project%20inspired%20by%20The%20Glass%20House.",
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800",
+        "alt": "The Glass House - main project view",
+        "srcSet": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=800",
+        "alt": "The Glass House - additional view 1",
+        "srcSet": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1448630360428-6e2148912950?auto=format&fit=crop&q=80&w=800",
+        "alt": "The Glass House - additional view 2",
+        "srcSet": "https://images.unsplash.com/photo-1448630360428-6e2148912950?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1448630360428-6e2148912950?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      }
+    ],
+    "previous": {
+      "href": "/project-minimalist-loft.html",
+      "title": "Minimalist Loft"
+    },
+    "next": {
+      "href": "/project-urban-plaza.html",
+      "title": "Urban Plaza"
+    }
+  },
+  "project-tropical-home": {
+    "title": "Tropical Home",
+    "label": "Selected work / 01",
+    "description": "Nature meets elegance in this stunning tropical design in Peravoor.",
+    "facts": [
+      {
+        "label": "Discipline",
+        "value": "architecture"
+      },
+      {
+        "label": "In this collection",
+        "value": "03 project views"
+      },
+      {
+        "label": "Studio",
+        "value": "R.O.B Architectural Studio"
+      }
+    ],
+    "inquiryUrl": "https://wa.me/918921533894?text=Hello%20R.O.B%20Studio%2C%20I%20would%20like%20to%20discuss%20a%20project%20inspired%20by%20Tropical%20Home.",
+    "images": [
+      {
+        "src": "/assets/image1.jpg",
+        "alt": "Tropical Home - main project view"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800",
+        "alt": "Tropical Home - additional view 1",
+        "srcSet": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=800",
+        "alt": "Tropical Home - additional view 2",
+        "srcSet": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      }
+    ],
+    "previous": {
+      "href": "/project-mountain-escape.html",
+      "title": "Mountain Escape"
+    },
+    "next": {
+      "href": "/project-curve-residence.html",
+      "title": "CURVE Residence"
+    }
+  },
+  "project-urban-plaza": {
+    "title": "Urban Plaza",
+    "label": "Selected work / 10",
+    "description": "Revitalizing city centers with green spaces and social hubs.",
+    "facts": [
+      {
+        "label": "Discipline",
+        "value": "landscape"
+      },
+      {
+        "label": "In this collection",
+        "value": "03 project views"
+      },
+      {
+        "label": "Studio",
+        "value": "R.O.B Architectural Studio"
+      }
+    ],
+    "inquiryUrl": "https://wa.me/918921533894?text=Hello%20R.O.B%20Studio%2C%20I%20would%20like%20to%20discuss%20a%20project%20inspired%20by%20Urban%20Plaza.",
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1596435308110-85888243ed16?auto=format&fit=crop&q=80&w=800",
+        "alt": "Urban Plaza - main project view",
+        "srcSet": "https://images.unsplash.com/photo-1596435308110-85888243ed16?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1596435308110-85888243ed16?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&q=80&w=800",
+        "alt": "Urban Plaza - additional view 1",
+        "srcSet": "https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1472224371017-08207f84aaae?auto=format&fit=crop&q=80&w=800",
+        "alt": "Urban Plaza - additional view 2",
+        "srcSet": "https://images.unsplash.com/photo-1472224371017-08207f84aaae?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1472224371017-08207f84aaae?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      }
+    ],
+    "previous": {
+      "href": "/project-the-glass-house.html",
+      "title": "The Glass House"
+    },
+    "next": {
+      "href": "/project-scandinavian-kitchen.html",
+      "title": "Scandinavian Kitchen"
+    }
+  },
+  "project-zen-garden-retreat": {
+    "title": "Zen Garden Retreat",
+    "label": "Selected work / 07",
+    "description": "A tranquil escape designed for meditation and harmony with nature.",
+    "facts": [
+      {
+        "label": "Discipline",
+        "value": "landscape"
+      },
+      {
+        "label": "In this collection",
+        "value": "03 project views"
+      },
+      {
+        "label": "Studio",
+        "value": "R.O.B Architectural Studio"
+      }
+    ],
+    "inquiryUrl": "https://wa.me/918921533894?text=Hello%20R.O.B%20Studio%2C%20I%20would%20like%20to%20discuss%20a%20project%20inspired%20by%20Zen%20Garden%20Retreat.",
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1558438832-521f7c166444?auto=format&fit=crop&q=80&w=800",
+        "alt": "Zen Garden Retreat - main project view",
+        "srcSet": "https://images.unsplash.com/photo-1558438832-521f7c166444?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1558438832-521f7c166444?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1590059132718-2ee76310037b?auto=format&fit=crop&q=80&w=800",
+        "alt": "Zen Garden Retreat - additional view 1",
+        "srcSet": "https://images.unsplash.com/photo-1590059132718-2ee76310037b?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1590059132718-2ee76310037b?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?auto=format&fit=crop&q=80&w=800",
+        "alt": "Zen Garden Retreat - additional view 2",
+        "srcSet": "https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?auto=format&fit=crop&q=80&w=800 800w, https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?auto=format&fit=crop&q=80&w=1600 1600w",
+        "sizes": "(max-width: 600px) 90vw, (max-width: 1000px) 90vw, 1200px"
+      }
+    ],
+    "previous": {
+      "href": "/project-residencial-project.html",
+      "title": "Residencial Project"
+    },
+    "next": {
+      "href": "/project-minimalist-loft.html",
+      "title": "Minimalist Loft"
+    }
+  }
+}

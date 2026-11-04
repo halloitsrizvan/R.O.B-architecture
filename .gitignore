@@ -11,3 +11,7 @@ node_modules/
 out/
 
 artifacts/
+
+*.tsbuildinfo
+
+!.env.example

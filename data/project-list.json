@@ -1,0 +1,62 @@
+{
+  "project-tropical-home": {
+    "categories": ["architecture"],
+    "sortOrder": 0,
+    "featured": true
+  },
+  "project-curve-residence": {
+    "categories": ["architecture"],
+    "sortOrder": 1,
+    "featured": true
+  },
+  "project-contemporary-home": {
+    "categories": ["architecture"],
+    "sortOrder": 2,
+    "featured": true
+  },
+  "project-future-design": {
+    "categories": ["architecture"],
+    "sortOrder": 3,
+    "featured": true
+  },
+  "project-modern-villa": {
+    "categories": ["interior", "architecture"],
+    "sortOrder": 4,
+    "featured": false
+  },
+  "project-residencial-project": {
+    "categories": ["architecture"],
+    "sortOrder": 5,
+    "featured": false
+  },
+  "project-zen-garden-retreat": {
+    "categories": ["landscape"],
+    "sortOrder": 6,
+    "featured": false
+  },
+  "project-minimalist-loft": {
+    "categories": ["interior"],
+    "sortOrder": 7,
+    "featured": false
+  },
+  "project-the-glass-house": {
+    "categories": ["architecture"],
+    "sortOrder": 8,
+    "featured": false
+  },
+  "project-urban-plaza": {
+    "categories": ["landscape"],
+    "sortOrder": 9,
+    "featured": false
+  },
+  "project-scandinavian-kitchen": {
+    "categories": ["interior"],
+    "sortOrder": 10,
+    "featured": false
+  },
+  "project-mountain-escape": {
+    "categories": ["architecture"],
+    "sortOrder": 11,
+    "featured": false
+  }
+}
