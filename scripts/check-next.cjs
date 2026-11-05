@@ -5,6 +5,8 @@ const pages = require('../data/pages.json');
 const root = path.resolve(__dirname, '..');
 const titles = new Set();
 for (const [slug, page] of Object.entries(pages)) {
+  assert(!slug.includes('.html'), `Page URL must not include .html: ${slug}`);
+  assert(!JSON.stringify(page.schema).includes('.html'), `Outdated schema URL: ${slug}`);
   assert(!titles.has(page.title), `Duplicate title: ${slug}`);
   titles.add(page.title);
   assert(page.description && page.image && page.schema['@graph'].length >= 3);
@@ -17,7 +19,8 @@ for (const [slug, page] of Object.entries(pages)) {
   }
   assert.equal((component.match(/<h1\b/g) || []).length, 1, `Heading: ${slug}`);
   for (const [, asset] of component.matchAll(/(?:href|src)="(\/[^"#]*)"/g)) {
-    if (asset === '/' || pages[asset.slice(1)] || asset === '/index.html') continue;
+    assert(!asset.includes('.html'), `Outdated internal URL: ${asset}`);
+    if (asset === '/' || pages[asset.slice(1)]) continue;
     assert(fs.existsSync(path.join(root, 'public', asset)), `Missing asset: ${asset}`);
   }
 }

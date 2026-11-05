@@ -27,7 +27,7 @@ export default function AdminLogin({ configured }: { configured: boolean }) {
         <p>A quiet place to manage your studio’s work.</p>
         {!configured && (
           <div className="admin-notice">
-            Sign-in will be available after Supabase and an administrator are connected.{' '}
+            Sign-in will be available after Neon and an administrator are connected.{' '}
             <a href="/admin">
               Explore the read-only preview <ArrowUpRight size={13} />
             </a>

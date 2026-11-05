@@ -1,3 +1,6 @@
+import { sealInbox, inboxSQL, type LiveInquiry } from '../neon/realtime';
+import { query } from '../db';
+import type { ProjectRow, ProjectImageRow } from '../../types/database';
 import 'server-only';
 import { projects as bundled } from '../../data/projects';
 import listing from '../../data/project-list.json';
@@ -32,29 +35,25 @@ export async function getAdminData(): Promise<AdminData> {
         .sort((a, b) => a.sortOrder - b.sortOrder),
     };
   }
-  const { database, user } = await requireAdmin();
-  const [projects, images, inquiries] = await Promise.all([
-    database.from('projects').select('*').order('sort_order'),
-    database.from('project_images').select('*').order('sort_order'),
-    database
-      .from('contact_inquiries')
-      .select('id,name,email,service,message,status,created_at')
-      .order('created_at', { ascending: false })
-      .limit(100),
+  const { user } = await requireAdmin();
+  const [projectRows, imageRows, inquiryRows] = await Promise.all([
+    query<ProjectRow>(
+      'select slug,title,description,categories,featured,published,sort_order from public.projects order by sort_order',
+    ),
+    query<ProjectImageRow>(
+      'select id,project_slug,src,alt,sort_order from public.project_images order by sort_order',
+    ),
+    query<LiveInquiry>(inboxSQL, [user.id]),
   ]);
-  if (projects.error || images.error || inquiries.error)
-    return {
-      preview: false,
-      email: user.email ?? null,
-      projects: [],
-      inquiries: [],
-      error:
-        'Could not load studio content. Check the database connection and migrations, then reload.',
-    };
   return {
+    realtime: {
+      url: process.env.NEON_REALTIME_URL!,
+      userId: user.id,
+      sealedQuery: await sealInbox(user.id),
+    },
     preview: false,
     email: user.email ?? null,
-    projects: projects.data.map((project) => ({
+    projects: projectRows.map((project) => ({
       slug: project.slug,
       title: project.title,
       description: project.description,
@@ -62,7 +61,7 @@ export async function getAdminData(): Promise<AdminData> {
       published: project.published,
       featured: project.featured,
       sortOrder: project.sort_order,
-      images: images.data
+      images: imageRows
         .filter((image) => image.project_slug === project.slug)
         .map((image) => ({
           id: image.id,
@@ -71,7 +70,7 @@ export async function getAdminData(): Promise<AdminData> {
           sortOrder: image.sort_order,
         })),
     })),
-    inquiries: inquiries.data.map((inquiry) => ({
+    inquiries: inquiryRows.map((inquiry) => ({
       id: inquiry.id,
       name: inquiry.name,
       email: inquiry.email,

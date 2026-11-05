@@ -17,18 +17,17 @@ export function generateStaticParams() {
 }
 export async function generateMetadata({ params }: RouteProps) {
   const { slug } = await params;
-  if (/^project-[a-z0-9-]+\.html$/.test(slug))
-    return projectMetadata(await getProject(slug.slice(0, -5)));
+  if (/^project-[a-z0-9-]+$/.test(slug)) return projectMetadata(await getProject(slug));
   if (!isPageSlug(slug)) notFound();
   return pageMetadata(slug);
 }
 export default async function Page({ params }: RouteProps) {
   const { slug } = await params;
-  if (/^project-[a-z0-9-]+\.html$/.test(slug)) {
-    const project = await getProject(slug.slice(0, -5));
+  if (/^project-[a-z0-9-]+$/.test(slug)) {
+    const project = await getProject(slug);
     return (
       <SitePage
-        slug={isPageSlug(slug) ? slug : 'projects.html'}
+        slug={isPageSlug(slug) ? slug : 'projects'}
         content={<ProjectDetails project={project} />}
         structuredData={projectSchema(project)}
       />

@@ -1,15 +1,26 @@
 # R.O.B Architectural Studio
 
-Architecture portfolio built with Next.js App Router, strict TypeScript, React, and GSAP. Preserves the existing design, .html URLs, metadata, hero slideshow, animations, filters, inquiry form, and WhatsApp greeting.
+Next.js App Router, strict TypeScript, React, GSAP, and Neon.
+
+Public pages use extensionless URLs such as /projects, /about, /contact, and
+/project-urban-plaza. Previous .html URLs permanently redirect to their matching
+page; /index.html redirects to /.
 
 ## Development
 
-Run npm ci, then npm run dev.
+1. Install dependencies with npm ci.
+2. Link the existing Neon production project with neon init as described in DEPLOYMENT.md.
+3. Run neon deploy --env .env.local to provision the declared services and pull their variables.
+4. Set the application secrets and ADMIN_EMAILS shown in .env.example.
+5. Run npm run db:migrate, then npm run dev.
 
-- npm run check: type checking, linting, formatting, and content validation.
-- npm run format: format active source with Prettier.
-- npm run build: create the production build.
-- npm start: serve the production build.
-- npm run test:browser: test a running production server with Chrome or Edge.
+## Commands
 
-Shared project layouts live in components/ProjectDetails.tsx, with editable content in data/projects.json. All active React components are formatted .tsx files. See [DEPLOYMENT.md](DEPLOYMENT.md) for editing locations, browser checks, and deployment settings.
+- npm run check: TypeScript, lint, formatting, and local content checks.
+- npm run build: production build using the live Neon database.
+- npm start: production web server.
+- npm run test:database: isolated PostgreSQL schema and permission tests.
+- npm run test:browser: public website regression checks against TEST_BASE_URL.
+- npm run test:neon: live end-to-end checks for all five Neon services. Set ADMIN_TEST_EMAIL and ADMIN_TEST_PASSWORD in the invoking shell; these are never committed.
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) and [database/README.md](database/README.md).

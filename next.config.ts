@@ -3,7 +3,10 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   experimental: { serverActions: { bodySizeLimit: '12mb' } },
   async redirects() {
-    return [{ source: '/index.html', destination: '/', permanent: true }];
+    return [
+      { source: '/index.html', destination: '/', permanent: true },
+      { source: '/:slug.html', destination: '/:slug', permanent: true },
+    ];
   },
   async headers() {
     return [

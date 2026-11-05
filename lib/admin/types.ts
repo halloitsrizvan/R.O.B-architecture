@@ -32,6 +32,14 @@ export interface AdminData {
   projects: AdminProject[];
   inquiries: AdminInquiry[];
   error?: string;
+  realtime?: {
+    url: string;
+    userId: string;
+    sealedQuery: import('@neon/realtime/client').SealedLiveQuery<
+      import('../neon/realtime').LiveInquiry
+    >;
+  };
+  liveState?: 'live' | 'connecting' | 'error';
 }
 
 export type ActionResult = { ok: true; message: string } | { ok: false; error: string };

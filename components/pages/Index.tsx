@@ -45,7 +45,7 @@ export default function Index() {
                 'We are R.O.B, an architectural studio in Kerala exploring the connection between built spaces and everyday life. Through considered proportions, honest materials, and a sensitivity to context, we create places with a quiet sense of belonging.'
               }
             </p>
-            <a className="text-link" href="/about.html">
+            <a className="text-link" href="/about">
               {'Discover our studio ↗'}
             </a>
           </div>
@@ -54,7 +54,7 @@ export default function Index() {
       <section className="selected section-pad">
         <div className="section-heading reveal">
           <span className="eyebrow">{'02 / Selected work'}</span>
-          <a className="text-link" href="/projects.html">
+          <a className="text-link" href="/projects">
             {'All projects ↗'}
           </a>
         </div>
@@ -144,7 +144,7 @@ export default function Index() {
             <br />
             <em>{'Open to possibility.'}</em>
           </h2>
-          <a className="text-link" href="/services.html">
+          <a className="text-link" href="/services">
             {'Our expertise ↗'}
           </a>
         </div>

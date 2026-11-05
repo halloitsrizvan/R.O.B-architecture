@@ -12,7 +12,7 @@ export default async function ProjectGrid({ featured = false }: { featured?: boo
             key={project.slug}
             data-project={index}
             data-category={project.categories.join(' ')}
-            href={`/${project.slug}.html`}
+            href={`/${project.slug}`}
           >
             <span className="project-image">
               {cover && (

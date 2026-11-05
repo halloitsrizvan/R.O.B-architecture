@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import type { Viewport } from 'next';
 import './globals.css';
+import '../components/site-header.css';
 
 export const viewport: Viewport = { themeColor: '#232620' };
 

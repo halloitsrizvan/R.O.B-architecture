@@ -1,6 +1,5 @@
 import { createHmac } from 'node:crypto';
 import { NextResponse } from 'next/server';
-import { createServiceClient } from '../../../lib/supabase/server';
 
 export const runtime = 'nodejs';
 
@@ -56,38 +55,40 @@ export async function POST(request: Request) {
       { status: 400 },
     );
   }
-  const client = createServiceClient();
-  const secret = process.env.SUPABASE_SECRET_KEY;
-  if (!client || !secret)
+  const functionURL = process.env.NEON_FUNCTION_HELLO_BASE_URL;
+  const secret = process.env.STUDIO_FUNCTION_SECRET;
+  const hashSecret = process.env.INQUIRY_HASH_SECRET;
+  if (!functionURL || !secret || !hashSecret)
     return NextResponse.json(
-      {
-        error: 'The website inbox is not connected yet. Please send your message through WhatsApp.',
-      },
+      { error: 'The website inbox is unavailable. Please use WhatsApp.' },
       { status: 503 },
     );
-  // Trust Vercel's overwritten proxy header in production, never a client-supplied forwarded header.
   const source = process.env.VERCEL
     ? (request.headers.get('x-vercel-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown')
     : 'local';
-  const requestHash = createHmac('sha256', secret).update(source).digest('hex');
-  const { error } = await client.rpc('submit_contact_inquiry', {
-    p_name: name,
-    p_email: email,
-    p_service: service,
-    p_message: message,
-    p_request_hash: requestHash,
-  });
-  if (error) {
-    if (error.message.includes('RATE_LIMITED'))
-      return NextResponse.json(
-        { error: 'Please wait before submitting another inquiry.' },
-        { status: 429 },
-      );
-    console.error('Inquiry storage failed:', error.code);
+  const requestHash = createHmac('sha256', hashSecret).update(source).digest('hex');
+  try {
+    const response = await fetch(new URL('inquiries', functionURL), {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Secret': secret },
+      body: JSON.stringify({ name, email, service, message, requestHash }),
+      redirect: 'manual',
+      signal: AbortSignal.timeout(20000),
+    });
+    if (response.ok) return NextResponse.json({ ok: true }, { status: 201 });
+    return NextResponse.json(
+      {
+        error:
+          response.status === 429
+            ? 'Please wait before submitting another inquiry.'
+            : 'Could not save your inquiry. Please use WhatsApp.',
+      },
+      { status: response.status === 429 ? 429 : 502 },
+    );
+  } catch {
     return NextResponse.json(
       { error: 'Could not save your inquiry. Please use WhatsApp.' },
       { status: 502 },
     );
   }
-  return NextResponse.json({ ok: true }, { status: 201 });
 }

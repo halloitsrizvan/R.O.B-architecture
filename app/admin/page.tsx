@@ -1,4 +1,4 @@
-import AdminDashboard from '../../components/admin/AdminDashboard';
+import AdminDashboard from '../../components/admin/AdminLiveDashboard';
 import { getAdminData } from '../../lib/admin/data';
 
 export const dynamic = 'force-dynamic';

@@ -5,7 +5,8 @@ import { projects, type ProjectDetailsData } from '../data/projects';
 import rawListing from '../data/project-list.json';
 const listing: Record<string, { categories: string[]; sortOrder: number; featured: boolean }> =
   rawListing;
-import { createPortfolioClient } from './supabase/server';
+import { query } from './db';
+import type { ProjectRow, ProjectImageRow } from '../types/database';
 import type { Json } from '../types/database';
 
 export interface PortfolioProject extends ProjectDetailsData {
@@ -34,18 +35,16 @@ export const getPortfolio = cache(async (): Promise<PortfolioProject[]> => {
       featured: listing[slug].featured,
     }))
     .sort((a, b) => a.sortOrder - b.sortOrder);
-  const client = createPortfolioClient();
-  if (!client) return fallback;
-
+  if (!process.env.DATABASE_URL) return fallback;
   const [content, photos] = await Promise.all([
-    client.from('projects').select('*').order('sort_order'),
-    client.from('project_images').select('*').order('sort_order'),
+    query<ProjectRow>(
+      'select slug,title,description,categories,facts,sort_order,featured,published from public.projects where published order by sort_order',
+    ),
+    query<ProjectImageRow>(
+      'select i.id,i.project_slug,i.src,i.alt,i.src_set,i.sizes,i.sort_order from public.project_images i join public.projects p on p.slug=i.project_slug where p.published order by i.sort_order',
+    ),
   ]);
-  if (content.error || photos.error) {
-    console.error('Portfolio database unavailable; displaying bundled content.');
-    return fallback;
-  }
-  return content.data.map((project, index, all) => {
+  return content.map((project, index, all) => {
     const previous = all[(index - 1 + all.length) % all.length];
     const next = all[(index + 1) % all.length];
     return {
@@ -58,9 +57,9 @@ export const getPortfolio = cache(async (): Promise<PortfolioProject[]> => {
       sortOrder: project.sort_order,
       facts: parseFacts(project.facts),
       inquiryUrl: `https://wa.me/918921533894?text=${encodeURIComponent(`Hello R.O.B Studio, I would like to discuss a project inspired by ${project.title}.`)}`,
-      previous: { href: `/${previous.slug}.html`, title: previous.title },
-      next: { href: `/${next.slug}.html`, title: next.title },
-      images: photos.data
+      previous: { href: `/${previous.slug}`, title: previous.title },
+      next: { href: `/${next.slug}`, title: next.title },
+      images: photos
         .filter((image) => image.project_slug === project.slug)
         .map((image) => ({
           src: image.src,

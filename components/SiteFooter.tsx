@@ -2,7 +2,7 @@ export default function SiteFooter() {
   return (
     <footer>
       <div className="footer-top">
-        <a className="footer-name" href="/index.html">
+        <a className="footer-name" href="/">
           {'R.O.B'}
           <span>{'ARCHITECTURAL STUDIO'}</span>
         </a>

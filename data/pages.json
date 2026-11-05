@@ -1,5 +1,5 @@
 {
-  "about.html": {
+  "about": {
     "component": "About",
     "title": "Our Studio | R.O.B Architects, Kerala",
     "description": "Meet R.O.B Architectural Studio in Peravoor, Kannur. Discover our approach to architecture, honest materials, natural light, and everyday living.",
@@ -37,8 +37,8 @@
         },
         {
           "@type": "AboutPage",
-          "@id": "https://www.robarchstudio.com/about.html#page",
-          "url": "https://www.robarchstudio.com/about.html",
+          "@id": "https://www.robarchstudio.com/about#page",
+          "url": "https://www.robarchstudio.com/about",
           "name": "Our Studio | R.O.B Architects, Kerala",
           "description": "Meet R.O.B Architectural Studio in Peravoor, Kannur. Discover our approach to architecture, honest materials, natural light, and everyday living.",
           "inLanguage": "en",
@@ -56,7 +56,7 @@
       ]
     }
   },
-  "contact.html": {
+  "contact": {
     "component": "Contact",
     "title": "Contact R.O.B Architects | Peravoor, Kannur, Kerala",
     "description": "Contact R.O.B Architectural Studio in Peravoor, Kannur, Kerala. Share your architecture, interior, or landscape project and connect on WhatsApp at +91 89215 33894.",
@@ -94,8 +94,8 @@
         },
         {
           "@type": "ContactPage",
-          "@id": "https://www.robarchstudio.com/contact.html#page",
-          "url": "https://www.robarchstudio.com/contact.html",
+          "@id": "https://www.robarchstudio.com/contact#page",
+          "url": "https://www.robarchstudio.com/contact",
           "name": "Contact R.O.B Architects | Peravoor, Kannur, Kerala",
           "description": "Contact R.O.B Architectural Studio in Peravoor, Kannur, Kerala. Share your architecture, interior, or landscape project and connect on WhatsApp at +91 89215 33894.",
           "inLanguage": "en",
@@ -170,7 +170,7 @@
       ]
     }
   },
-  "project-contemporary-home.html": {
+  "project-contemporary-home": {
     "component": "ProjectContemporaryHome",
     "title": "Contemporary Home | R.O.B Architectural Studio",
     "description": "Blending modern design with Kerala’s tropical charm.",
@@ -208,8 +208,8 @@
         },
         {
           "@type": "WebPage",
-          "@id": "https://www.robarchstudio.com/project-contemporary-home.html#page",
-          "url": "https://www.robarchstudio.com/project-contemporary-home.html",
+          "@id": "https://www.robarchstudio.com/project-contemporary-home#page",
+          "url": "https://www.robarchstudio.com/project-contemporary-home",
           "name": "Contemporary Home | R.O.B Architectural Studio",
           "description": "Blending modern design with Kerala’s tropical charm.",
           "inLanguage": "en",
@@ -237,20 +237,20 @@
               "@type": "ListItem",
               "position": 2,
               "name": "Projects",
-              "item": "https://www.robarchstudio.com/projects.html"
+              "item": "https://www.robarchstudio.com/projects"
             },
             {
               "@type": "ListItem",
               "position": 3,
               "name": "Contemporary Home",
-              "item": "https://www.robarchstudio.com/project-contemporary-home.html"
+              "item": "https://www.robarchstudio.com/project-contemporary-home"
             }
           ]
         }
       ]
     }
   },
-  "project-curve-residence.html": {
+  "project-curve-residence": {
     "component": "ProjectCurveResidence",
     "title": "CURVE Residence | R.O.B Architectural Studio",
     "description": "A futuristic residence shaped by fluid forms and organic geometry.",
@@ -288,8 +288,8 @@
         },
         {
           "@type": "WebPage",
-          "@id": "https://www.robarchstudio.com/project-curve-residence.html#page",
-          "url": "https://www.robarchstudio.com/project-curve-residence.html",
+          "@id": "https://www.robarchstudio.com/project-curve-residence#page",
+          "url": "https://www.robarchstudio.com/project-curve-residence",
           "name": "CURVE Residence | R.O.B Architectural Studio",
           "description": "A futuristic residence shaped by fluid forms and organic geometry.",
           "inLanguage": "en",
@@ -317,20 +317,20 @@
               "@type": "ListItem",
               "position": 2,
               "name": "Projects",
-              "item": "https://www.robarchstudio.com/projects.html"
+              "item": "https://www.robarchstudio.com/projects"
             },
             {
               "@type": "ListItem",
               "position": 3,
               "name": "CURVE Residence",
-              "item": "https://www.robarchstudio.com/project-curve-residence.html"
+              "item": "https://www.robarchstudio.com/project-curve-residence"
             }
           ]
         }
       ]
     }
   },
-  "project-future-design.html": {
+  "project-future-design": {
     "component": "ProjectFutureDesign",
     "title": "Future Design | R.O.B Architectural Studio",
     "description": "Designing the future, one project at a time.",
@@ -368,8 +368,8 @@
         },
         {
           "@type": "WebPage",
-          "@id": "https://www.robarchstudio.com/project-future-design.html#page",
-          "url": "https://www.robarchstudio.com/project-future-design.html",
+          "@id": "https://www.robarchstudio.com/project-future-design#page",
+          "url": "https://www.robarchstudio.com/project-future-design",
           "name": "Future Design | R.O.B Architectural Studio",
           "description": "Designing the future, one project at a time.",
           "inLanguage": "en",
@@ -397,20 +397,20 @@
               "@type": "ListItem",
               "position": 2,
               "name": "Projects",
-              "item": "https://www.robarchstudio.com/projects.html"
+              "item": "https://www.robarchstudio.com/projects"
             },
             {
               "@type": "ListItem",
               "position": 3,
               "name": "Future Design",
-              "item": "https://www.robarchstudio.com/project-future-design.html"
+              "item": "https://www.robarchstudio.com/project-future-design"
             }
           ]
         }
       ]
     }
   },
-  "project-minimalist-loft.html": {
+  "project-minimalist-loft": {
     "component": "ProjectMinimalistLoft",
     "title": "Minimalist Loft | R.O.B Architectural Studio",
     "description": "Monochromatic tones and industrial elements in a modern loft.",
@@ -448,8 +448,8 @@
         },
         {
           "@type": "WebPage",
-          "@id": "https://www.robarchstudio.com/project-minimalist-loft.html#page",
-          "url": "https://www.robarchstudio.com/project-minimalist-loft.html",
+          "@id": "https://www.robarchstudio.com/project-minimalist-loft#page",
+          "url": "https://www.robarchstudio.com/project-minimalist-loft",
           "name": "Minimalist Loft | R.O.B Architectural Studio",
           "description": "Monochromatic tones and industrial elements in a modern loft.",
           "inLanguage": "en",
@@ -477,20 +477,20 @@
               "@type": "ListItem",
               "position": 2,
               "name": "Projects",
-              "item": "https://www.robarchstudio.com/projects.html"
+              "item": "https://www.robarchstudio.com/projects"
             },
             {
               "@type": "ListItem",
               "position": 3,
               "name": "Minimalist Loft",
-              "item": "https://www.robarchstudio.com/project-minimalist-loft.html"
+              "item": "https://www.robarchstudio.com/project-minimalist-loft"
             }
           ]
         }
       ]
     }
   },
-  "project-modern-villa.html": {
+  "project-modern-villa": {
     "component": "ProjectModernVilla",
     "title": "Modern Villa | R.O.B Architectural Studio",
     "description": "Sleek lines and minimalist charm in Peravoor.",
@@ -528,8 +528,8 @@
         },
         {
           "@type": "WebPage",
-          "@id": "https://www.robarchstudio.com/project-modern-villa.html#page",
-          "url": "https://www.robarchstudio.com/project-modern-villa.html",
+          "@id": "https://www.robarchstudio.com/project-modern-villa#page",
+          "url": "https://www.robarchstudio.com/project-modern-villa",
           "name": "Modern Villa | R.O.B Architectural Studio",
           "description": "Sleek lines and minimalist charm in Peravoor.",
           "inLanguage": "en",
@@ -557,20 +557,20 @@
               "@type": "ListItem",
               "position": 2,
               "name": "Projects",
-              "item": "https://www.robarchstudio.com/projects.html"
+              "item": "https://www.robarchstudio.com/projects"
             },
             {
               "@type": "ListItem",
               "position": 3,
               "name": "Modern Villa",
-              "item": "https://www.robarchstudio.com/project-modern-villa.html"
+              "item": "https://www.robarchstudio.com/project-modern-villa"
             }
           ]
         }
       ]
     }
   },
-  "project-mountain-escape.html": {
+  "project-mountain-escape": {
     "component": "ProjectMountainEscape",
     "title": "Mountain Escape | R.O.B Architectural Studio",
     "description": "A rugged yet cozy residence perched on the slopes.",
@@ -608,8 +608,8 @@
         },
         {
           "@type": "WebPage",
-          "@id": "https://www.robarchstudio.com/project-mountain-escape.html#page",
-          "url": "https://www.robarchstudio.com/project-mountain-escape.html",
+          "@id": "https://www.robarchstudio.com/project-mountain-escape#page",
+          "url": "https://www.robarchstudio.com/project-mountain-escape",
           "name": "Mountain Escape | R.O.B Architectural Studio",
           "description": "A rugged yet cozy residence perched on the slopes.",
           "inLanguage": "en",
@@ -637,20 +637,20 @@
               "@type": "ListItem",
               "position": 2,
               "name": "Projects",
-              "item": "https://www.robarchstudio.com/projects.html"
+              "item": "https://www.robarchstudio.com/projects"
             },
             {
               "@type": "ListItem",
               "position": 3,
               "name": "Mountain Escape",
-              "item": "https://www.robarchstudio.com/project-mountain-escape.html"
+              "item": "https://www.robarchstudio.com/project-mountain-escape"
             }
           ]
         }
       ]
     }
   },
-  "project-residencial-project.html": {
+  "project-residencial-project": {
     "component": "ProjectResidencialProject",
     "title": "Residencial Project | R.O.B Architectural Studio",
     "description": "Blending tradition with modernity in Kerala home design.",
@@ -688,8 +688,8 @@
         },
         {
           "@type": "WebPage",
-          "@id": "https://www.robarchstudio.com/project-residencial-project.html#page",
-          "url": "https://www.robarchstudio.com/project-residencial-project.html",
+          "@id": "https://www.robarchstudio.com/project-residencial-project#page",
+          "url": "https://www.robarchstudio.com/project-residencial-project",
           "name": "Residencial Project | R.O.B Architectural Studio",
           "description": "Blending tradition with modernity in Kerala home design.",
           "inLanguage": "en",
@@ -717,20 +717,20 @@
               "@type": "ListItem",
               "position": 2,
               "name": "Projects",
-              "item": "https://www.robarchstudio.com/projects.html"
+              "item": "https://www.robarchstudio.com/projects"
             },
             {
               "@type": "ListItem",
               "position": 3,
               "name": "Residencial Project",
-              "item": "https://www.robarchstudio.com/project-residencial-project.html"
+              "item": "https://www.robarchstudio.com/project-residencial-project"
             }
           ]
         }
       ]
     }
   },
-  "project-scandinavian-kitchen.html": {
+  "project-scandinavian-kitchen": {
     "component": "ProjectScandinavianKitchen",
     "title": "Scandinavian Kitchen | R.O.B Architectural Studio",
     "description": "Functional beauty meeting clean, Nordic aesthetics.",
@@ -768,8 +768,8 @@
         },
         {
           "@type": "WebPage",
-          "@id": "https://www.robarchstudio.com/project-scandinavian-kitchen.html#page",
-          "url": "https://www.robarchstudio.com/project-scandinavian-kitchen.html",
+          "@id": "https://www.robarchstudio.com/project-scandinavian-kitchen#page",
+          "url": "https://www.robarchstudio.com/project-scandinavian-kitchen",
           "name": "Scandinavian Kitchen | R.O.B Architectural Studio",
           "description": "Functional beauty meeting clean, Nordic aesthetics.",
           "inLanguage": "en",
@@ -797,20 +797,20 @@
               "@type": "ListItem",
               "position": 2,
               "name": "Projects",
-              "item": "https://www.robarchstudio.com/projects.html"
+              "item": "https://www.robarchstudio.com/projects"
             },
             {
               "@type": "ListItem",
               "position": 3,
               "name": "Scandinavian Kitchen",
-              "item": "https://www.robarchstudio.com/project-scandinavian-kitchen.html"
+              "item": "https://www.robarchstudio.com/project-scandinavian-kitchen"
             }
           ]
         }
       ]
     }
   },
-  "project-the-glass-house.html": {
+  "project-the-glass-house": {
     "component": "ProjectTheGlassHouse",
     "title": "The Glass House | R.O.B Architectural Studio",
     "description": "Blurring the lines between interior comfort and the great outdoors.",
@@ -848,8 +848,8 @@
         },
         {
           "@type": "WebPage",
-          "@id": "https://www.robarchstudio.com/project-the-glass-house.html#page",
-          "url": "https://www.robarchstudio.com/project-the-glass-house.html",
+          "@id": "https://www.robarchstudio.com/project-the-glass-house#page",
+          "url": "https://www.robarchstudio.com/project-the-glass-house",
           "name": "The Glass House | R.O.B Architectural Studio",
           "description": "Blurring the lines between interior comfort and the great outdoors.",
           "inLanguage": "en",
@@ -877,20 +877,20 @@
               "@type": "ListItem",
               "position": 2,
               "name": "Projects",
-              "item": "https://www.robarchstudio.com/projects.html"
+              "item": "https://www.robarchstudio.com/projects"
             },
             {
               "@type": "ListItem",
               "position": 3,
               "name": "The Glass House",
-              "item": "https://www.robarchstudio.com/project-the-glass-house.html"
+              "item": "https://www.robarchstudio.com/project-the-glass-house"
             }
           ]
         }
       ]
     }
   },
-  "project-tropical-home.html": {
+  "project-tropical-home": {
     "component": "ProjectTropicalHome",
     "title": "Tropical Home | R.O.B Architectural Studio",
     "description": "Nature meets elegance in this stunning tropical design in Peravoor.",
@@ -928,8 +928,8 @@
         },
         {
           "@type": "WebPage",
-          "@id": "https://www.robarchstudio.com/project-tropical-home.html#page",
-          "url": "https://www.robarchstudio.com/project-tropical-home.html",
+          "@id": "https://www.robarchstudio.com/project-tropical-home#page",
+          "url": "https://www.robarchstudio.com/project-tropical-home",
           "name": "Tropical Home | R.O.B Architectural Studio",
           "description": "Nature meets elegance in this stunning tropical design in Peravoor.",
           "inLanguage": "en",
@@ -957,20 +957,20 @@
               "@type": "ListItem",
               "position": 2,
               "name": "Projects",
-              "item": "https://www.robarchstudio.com/projects.html"
+              "item": "https://www.robarchstudio.com/projects"
             },
             {
               "@type": "ListItem",
               "position": 3,
               "name": "Tropical Home",
-              "item": "https://www.robarchstudio.com/project-tropical-home.html"
+              "item": "https://www.robarchstudio.com/project-tropical-home"
             }
           ]
         }
       ]
     }
   },
-  "project-urban-plaza.html": {
+  "project-urban-plaza": {
     "component": "ProjectUrbanPlaza",
     "title": "Urban Plaza | R.O.B Architectural Studio",
     "description": "Revitalizing city centers with green spaces and social hubs.",
@@ -1008,8 +1008,8 @@
         },
         {
           "@type": "WebPage",
-          "@id": "https://www.robarchstudio.com/project-urban-plaza.html#page",
-          "url": "https://www.robarchstudio.com/project-urban-plaza.html",
+          "@id": "https://www.robarchstudio.com/project-urban-plaza#page",
+          "url": "https://www.robarchstudio.com/project-urban-plaza",
           "name": "Urban Plaza | R.O.B Architectural Studio",
           "description": "Revitalizing city centers with green spaces and social hubs.",
           "inLanguage": "en",
@@ -1037,20 +1037,20 @@
               "@type": "ListItem",
               "position": 2,
               "name": "Projects",
-              "item": "https://www.robarchstudio.com/projects.html"
+              "item": "https://www.robarchstudio.com/projects"
             },
             {
               "@type": "ListItem",
               "position": 3,
               "name": "Urban Plaza",
-              "item": "https://www.robarchstudio.com/project-urban-plaza.html"
+              "item": "https://www.robarchstudio.com/project-urban-plaza"
             }
           ]
         }
       ]
     }
   },
-  "project-zen-garden-retreat.html": {
+  "project-zen-garden-retreat": {
     "component": "ProjectZenGardenRetreat",
     "title": "Zen Garden Retreat | R.O.B Architectural Studio",
     "description": "A tranquil escape designed for meditation and harmony with nature.",
@@ -1088,8 +1088,8 @@
         },
         {
           "@type": "WebPage",
-          "@id": "https://www.robarchstudio.com/project-zen-garden-retreat.html#page",
-          "url": "https://www.robarchstudio.com/project-zen-garden-retreat.html",
+          "@id": "https://www.robarchstudio.com/project-zen-garden-retreat#page",
+          "url": "https://www.robarchstudio.com/project-zen-garden-retreat",
           "name": "Zen Garden Retreat | R.O.B Architectural Studio",
           "description": "A tranquil escape designed for meditation and harmony with nature.",
           "inLanguage": "en",
@@ -1117,20 +1117,20 @@
               "@type": "ListItem",
               "position": 2,
               "name": "Projects",
-              "item": "https://www.robarchstudio.com/projects.html"
+              "item": "https://www.robarchstudio.com/projects"
             },
             {
               "@type": "ListItem",
               "position": 3,
               "name": "Zen Garden Retreat",
-              "item": "https://www.robarchstudio.com/project-zen-garden-retreat.html"
+              "item": "https://www.robarchstudio.com/project-zen-garden-retreat"
             }
           ]
         }
       ]
     }
   },
-  "projects.html": {
+  "projects": {
     "component": "Projects",
     "title": "Architecture & Interior Projects | R.O.B Studio",
     "description": "Browse residential architecture, interior design, and landscape projects by R.O.B Architectural Studio. Explore each project through images and design details.",
@@ -1168,8 +1168,8 @@
         },
         {
           "@type": "CollectionPage",
-          "@id": "https://www.robarchstudio.com/projects.html#page",
-          "url": "https://www.robarchstudio.com/projects.html",
+          "@id": "https://www.robarchstudio.com/projects#page",
+          "url": "https://www.robarchstudio.com/projects",
           "name": "Architecture & Interior Projects | R.O.B Studio",
           "description": "Browse residential architecture, interior design, and landscape projects by R.O.B Architectural Studio. Explore each project through images and design details.",
           "inLanguage": "en",
@@ -1187,7 +1187,7 @@
       ]
     }
   },
-  "services.html": {
+  "services": {
     "component": "Services",
     "title": "Architecture, Interiors & Landscape | R.O.B Studio",
     "description": "Explore architecture, interior design, and landscape design by R.O.B Architectural Studio in Kannur, Kerala. Start a conversation about your project.",
@@ -1225,8 +1225,8 @@
         },
         {
           "@type": "WebPage",
-          "@id": "https://www.robarchstudio.com/services.html#page",
-          "url": "https://www.robarchstudio.com/services.html",
+          "@id": "https://www.robarchstudio.com/services#page",
+          "url": "https://www.robarchstudio.com/services",
           "name": "Architecture, Interiors & Landscape | R.O.B Studio",
           "description": "Explore architecture, interior design, and landscape design by R.O.B Architectural Studio in Kannur, Kerala. Start a conversation about your project.",
           "inLanguage": "en",

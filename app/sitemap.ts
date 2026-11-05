@@ -10,6 +10,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...Object.keys(pages)
       .filter((slug) => !slug.startsWith('project-'))
       .map((slug) => ({ url: origin + '/' + slug })),
-    ...projects.map((project) => ({ url: origin + '/' + project.slug + '.html' })),
+    ...projects.map((project) => ({ url: origin + '/' + project.slug })),
   ];
 }

@@ -98,24 +98,40 @@ export function initInteractions() {
   const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
   const nav = document.querySelector<HTMLElement>('#navigation');
   const header = document.querySelector('.site-header');
-  const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 48);
+  const updateHeader = () => {
+    if (!header) return;
+    // Separate entry/exit thresholds prevent flicker when scrolling near the transition.
+    const threshold = header.classList.contains('is-scrolled') ? 24 : 64;
+    header.classList.toggle('is-scrolled', window.scrollY > threshold);
+  };
   on(window, 'scroll', updateHeader, { passive: true });
   on(window, 'pageshow', updateHeader);
   updateHeader();
   function closeMenu() {
     if (!nav || !toggle) return;
     nav.classList.remove('open');
+    header?.classList.remove('is-menu-open');
     toggle.setAttribute('aria-expanded', 'false');
   }
   on(toggle, 'click', () => {
     if (!nav || !toggle) return;
     const open = nav.classList.toggle('open');
+    header?.classList.toggle('is-menu-open', open);
     toggle.setAttribute('aria-expanded', String(open));
   });
   on(document, 'keydown', (e) => {
-    if (e.key === 'Escape') closeMenu();
+    if (e.key === 'Escape' && nav?.classList.contains('open')) {
+      closeMenu();
+      toggle?.focus();
+    }
   });
   nav?.querySelectorAll('a').forEach((a) => on(a, 'click', closeMenu));
+  on(window, 'resize', () => {
+    if (matchMedia('(min-width: 961px)').matches) closeMenu();
+  });
+  on(document, 'click', (event) => {
+    if (event.target instanceof Node && header && !header.contains(event.target)) closeMenu();
+  });
   if (!window.studioMotion?.available && 'IntersectionObserver' in window && !reduced) {
     document.documentElement.classList.add('motion-ready');
     const observer = new IntersectionObserver(

@@ -40,7 +40,7 @@ export default function ProjectDetails({ project }: { project: ProjectDetailsDat
   return (
     <main id="main">
       <section className="project-detail-heading section-pad">
-        <a className="text-link" href="/projects.html">
+        <a className="text-link" href="/projects">
           &larr; All projects
         </a>
         <div className="project-detail-title">

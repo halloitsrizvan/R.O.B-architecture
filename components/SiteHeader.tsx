@@ -1,18 +1,24 @@
+import { ArrowUpRight } from 'lucide-react';
 import type { PageSlug } from '../data/pages';
+
+const navigation = [
+  { slug: '', href: '/', label: 'Home' },
+  { slug: 'projects', href: '/projects', label: 'Projects' },
+  { slug: 'about', href: '/about', label: 'Studio' },
+  { slug: 'services', href: '/services', label: 'Expertise' },
+  { slug: 'contact', href: '/contact', label: 'Contact' },
+] as const;
+
 export default function SiteHeader({ slug }: { slug: PageSlug }) {
+  const activePage = slug.startsWith('project-') ? 'projects' : slug;
   return (
-    <header className="site-header">
-      <a
-        href="/"
-        aria-current={slug === '' ? 'page' : undefined}
-        className="brand"
-        aria-label="R.O.B Architectural Studio home"
-      >
+    <header className={slug === '' ? 'site-header site-header--overlay' : 'site-header'}>
+      <a href="/" className="brand" aria-label="R.O.B Architectural Studio home">
         <img src="/logo.png" alt="R.O.B" />
         <span>
-          {'ARCHITECTURAL'}
+          ARCHITECTURAL
           <br />
-          {'STUDIO'}
+          STUDIO
         </span>
       </a>
       <button
@@ -22,25 +28,21 @@ export default function SiteHeader({ slug }: { slug: PageSlug }) {
         aria-controls="navigation"
       >
         <span className="hamburger" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span />
+          <span />
+          <span />
         </span>
       </button>
-      <nav id="navigation" aria-label="Main navigation">
-        <a href="/index.html">{'Home'}</a>
-        <a href="/projects.html" aria-current={slug === 'projects.html' ? 'page' : undefined}>
-          {'Projects'}
-        </a>
-        <a href="/about.html" aria-current={slug === 'about.html' ? 'page' : undefined}>
-          {'Studio'}
-        </a>
-        <a href="/services.html" aria-current={slug === 'services.html' ? 'page' : undefined}>
-          {'Expertise'}
-        </a>
-        <a href="/contact.html" aria-current={slug === 'contact.html' ? 'page' : undefined}>
-          {'Contact'}
-        </a>
+      <nav id="navigation" className="primary-navigation" aria-label="Main navigation">
+        {navigation.map((item) => (
+          <a
+            key={item.href}
+            href={item.href}
+            aria-current={activePage === item.slug ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
+        ))}
       </nav>
       <a
         className="cta header-cta"
@@ -48,8 +50,7 @@ export default function SiteHeader({ slug }: { slug: PageSlug }) {
         target="_blank"
         rel="noopener noreferrer"
       >
-        {'Start a project'}
-        <span aria-hidden="true">{'↗'}</span>
+        Start a project <ArrowUpRight size={19} strokeWidth={1.3} aria-hidden="true" />
       </a>
     </header>
   );

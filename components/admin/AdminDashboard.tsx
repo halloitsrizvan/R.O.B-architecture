@@ -122,7 +122,7 @@ export default function AdminDashboard({ data }: { data: AdminData }) {
   }
   function run(task: () => Promise<ActionResult>, complete?: () => void) {
     if (data.preview) {
-      setNotice('Connect Supabase to make changes. This is a read-only preview.');
+      setNotice('Connect Neon to make changes. This is a read-only preview.');
       return;
     }
     startTransition(async () => {
@@ -215,7 +215,13 @@ export default function AdminDashboard({ data }: { data: AdminData }) {
           </a>
           <span className={`admin-connection ${data.preview ? 'preview' : ''}`}>
             <i />
-            {data.preview ? 'Preview mode' : 'Connected'}
+            {data.preview
+              ? 'Preview mode'
+              : data.liveState === 'live'
+                ? 'Live inbox'
+                : data.liveState === 'error'
+                  ? 'Live updates paused'
+                  : 'Connected'}
           </span>
         </header>
         <main className="admin-main" id="admin-main">
@@ -225,7 +231,7 @@ export default function AdminDashboard({ data }: { data: AdminData }) {
                 <Circle size={14} />
                 Read-only preview{' '}
                 <span className="admin-banner-detail">
-                  · Connect Supabase to publish changes and receive inquiries.
+                  · Connect Neon to publish changes and receive inquiries.
                 </span>
               </span>
               <button onClick={() => navigate('settings')}>
@@ -478,7 +484,7 @@ export default function AdminDashboard({ data }: { data: AdminData }) {
                     </h2>
                     <p>
                       {data.preview
-                        ? 'Connect Supabase to securely receive and manage website inquiries.'
+                        ? 'Connect Neon to securely receive and manage website inquiries.'
                         : 'New project inquiries will appear here when someone reaches out.'}
                     </p>
                     {data.preview && (
@@ -574,13 +580,13 @@ export default function AdminDashboard({ data }: { data: AdminData }) {
                   <p>
                     {data.preview
                       ? 'Complete these steps to enable publishing, image uploads, and your private inbox.'
-                      : 'Content changes are protected by verified Supabase sign-in and a server-side administrator allowlist.'}
+                      : 'Content changes are protected by verified Neon sign-in and a server-side administrator allowlist.'}
                   </p>
                   <ol className="admin-setup-list">
                     {[
-                      'Connect the Supabase project and run the portfolio migration.',
-                      'Set the Supabase URL, publishable key, and server-only secret.',
-                      'Create a confirmed Supabase user and add its email to ADMIN_EMAILS.',
+                      'Connect the Neon project and run the portfolio migration.',
+                      'Set the Neon URL, publishable key, and server-only secret.',
+                      'Create a confirmed Neon user and add its email to ADMIN_EMAILS.',
                     ].map((item, index) => (
                       <li key={item}>
                         <span>{data.preview ? index + 1 : <Check size={13} />}</span>
@@ -590,11 +596,15 @@ export default function AdminDashboard({ data }: { data: AdminData }) {
                   </ol>
                   <a
                     className="admin-button secondary"
-                    href={data.preview ? '/admin/login' : 'https://supabase.com/dashboard'}
+                    href={
+                      data.preview
+                        ? '/admin/login'
+                        : 'https://console.neon.tech/app/projects/floral-firefly-51122623'
+                    }
                     target={data.preview ? undefined : '_blank'}
                     rel={data.preview ? undefined : 'noopener noreferrer'}
                   >
-                    {data.preview ? 'Studio sign-in' : 'Open Supabase'} <ArrowUpRight size={14} />
+                    {data.preview ? 'Studio sign-in' : 'Open Neon'} <ArrowUpRight size={14} />
                   </a>
                 </section>
               </div>

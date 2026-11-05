@@ -1,4 +1,4 @@
-// Mirrors the checked-in migration. Regenerate from Supabase after connecting a hosted project.
+// Database row types for the Neon PostgreSQL migration.
 export type Json = string | number | boolean | null | { [key: string]: Json | undefined } | Json[];
 
 export type ProjectRow = {
@@ -33,41 +33,3 @@ export type InquiryRow = {
   request_hash: string;
   created_at: string;
 };
-
-type Table<Row, Insert> = { Row: Row; Insert: Insert; Update: Partial<Insert>; Relationships: [] };
-
-export interface Database {
-  public: {
-    Tables: {
-      projects: Table<
-        ProjectRow,
-        Pick<ProjectRow, 'slug' | 'title' | 'sort_order'> &
-          Partial<Omit<ProjectRow, 'slug' | 'title' | 'sort_order'>>
-      >;
-      project_images: Table<ProjectImageRow, Omit<ProjectImageRow, 'id'> & { id?: string }>;
-      contact_inquiries: Table<
-        InquiryRow,
-        Omit<InquiryRow, 'id' | 'created_at' | 'status'> & {
-          id?: string;
-          created_at?: string;
-          status?: string;
-        }
-      >;
-    };
-    Views: { [_ in never]: never };
-    Functions: {
-      submit_contact_inquiry: {
-        Args: {
-          p_name: string;
-          p_email: string;
-          p_service: string;
-          p_message: string;
-          p_request_hash: string;
-        };
-        Returns: undefined;
-      };
-    };
-    Enums: { [_ in never]: never };
-    CompositeTypes: { [_ in never]: never };
-  };
-}

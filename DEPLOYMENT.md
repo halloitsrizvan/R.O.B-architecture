@@ -1,50 +1,39 @@
-# Next.js deployment
+# Neon deployment
 
-This website uses Next.js App Router, TypeScript, React, and GSAP. Node.js 20.9 or newer is required.
+The frontend remains a Next.js app, suitable for Vercel. Its backend is Neon project floral-firefly-51122623, organization org-misty-field-06782675, branch production, in Singapore (ap-southeast-1).
 
-## Commands
+## Provision services
 
-- npm ci: install locked dependencies.
-- npm run dev: start development at http://localhost:3000.
-- npm run check: run strict TypeScript, ESLint, Prettier, and content/asset checks.
-- npm run typecheck: run TypeScript without emitting files.
-- npm run lint: check Next.js and TypeScript lint rules with zero warnings.
-- npm run format: format active source files with Prettier.
-- npm run format:check: check formatting without changing files.
-- npm run build: create the production build and prerender all 17 pages.
-- npm start: run the production server.
-- npm run test:browser: test a running server on port 3000 using locally installed Chrome or Edge. Screenshots are saved in the ignored artifacts/ directory.
+The linked project is in .neon. Infrastructure is declared in neon.ts. Keep .neon and neon.ts in version control; credentials belong only in ignored environment files.
 
-## Editing
+- neon init -y --org-id org-misty-field-06782675 --project-id floral-firefly-51122623 --branch production --services postgres,auth,object-storage,functions,realtime
+- neon deploy --env .env.local
+- npm run db:migrate
+- npm run check
+- npm run build
+- npm start
 
-- app/: routes, globals.css, sitemap, and robots metadata.
-- components/pages/: formatted TSX page components. Project pages use the shared components/ProjectDetails.tsx layout.
-- components/: shared header, footer, inquiry, WhatsApp shortcut, and client runtime.
-- lib/: animations, interactions, and metadata helpers.
-- data/pages.json: page titles, descriptions, structured data, and component mapping.
-- data/projects.json: descriptions, facts, images, and navigation for the 12 project details.
-- data/pages.ts and data/projects.ts: typed access to page and project data.
-- types/: browser integration declarations.
-- public/assets/ and public/logo.png: active public images.
+Use --update-existing on deploy only after reviewing the reported configuration differences. The current Realtime origin list includes the production website, localhost:3000, localhost:3240, and localhost:3241. Add any other frontend preview origin deliberately before using its live inbox.
 
-The existing .html page URLs are preserved; /index.html redirects permanently to /. Standard navigation links retain full-page intro and scroll behavior. GSAP is bundled locally through npm.
+## Environment
 
-## Vercel
+Neon deploy pulls DATABASE_URL, DATABASE_URL_UNPOOLED, Auth URLs, AWS storage credentials/endpoint/region, the function URL, and Realtime URL/secret into .env.local. This project additionally uses NEON_AUTH_COOKIE_SECRET, STUDIO_FUNCTION_SECRET, INQUIRY_HASH_SECRET, ADMIN_EMAILS, and SITE_URL. Generate each application secret with a cryptographic random generator. The same STUDIO_FUNCTION_SECRET must be present in the app host and the function declaration; deploy with --env .env.local to supply it.
 
-Vercel now uses the Next.js framework preset. Remove any dashboard Output Directory override pointing to dist before deploying. Next.js manages output in .next. Repository settings are in vercel.json and next.config.ts. Local builds do not deploy the site.
+Copy these variables securely into the Vercel project environment before deploying the frontend. Never use NEXT_PUBLIC_ for a database URL, Auth cookie secret, S3 credentials, function secret, or Realtime secret. The Realtime URL alone is safe to send to the admin browser. Local credentials were preserved in an ignored backup before migration.
 
-The public origin comes from site.config.json or the SITE_URL environment variable. Canonicals, social metadata, schemas, /robots.txt, and /sitemap.xml use that origin.
+Set SITE_URL=https://www.robarchstudio.com. The production origin is registered with Neon Auth and Realtime. Vercel must use the Next.js framework preset with no dist output-directory override. Neon deploy publishes the backend services; it does not publish the Next.js frontend to Vercel.
 
-The original HTML and scripts are retained under legacy/ for reference and are not served or built. Root assets/ remains an original asset backup; edit public/assets/ going forward. The one-time migration script in legacy/ records the original conversion and is not a build step.
+## Architecture
 
-Never place credentials or environment files in public/.
+- lib/db.ts: pooled node-postgres driver with Vercel pool lifecycle support. Runtime uses DATABASE_URL; migrations use the direct DATABASE_URL_UNPOOLED.
+- database/migrations/: tracked, checksummed PostgreSQL migrations. database/seed.sql imports the original 12 projects and 36 image references without overwriting existing records.
+- lib/neon/auth.ts and /api/auth/: Managed Neon Auth using its official Next.js adapter. /admin/login authenticates against Neon; admin reads and writes also require the server email allowlist and a matching studio_admins membership row.
+- lib/neon/storage.ts and /api/media/: private Neon S3-compatible assets bucket. Store object keys in PostgreSQL. Published images pass through a cacheable Next.js route; draft images require an authorized admin session. Original website assets remain in public/assets.
+- hello.ts: secured Neon Function handling inquiries next to PostgreSQL. Next.js validates incoming contact requests, hashes the request source, and calls the function with a server-only secret. The function validates again and uses a database-atomic rate limit.
+- lib/neon/realtime.ts: seals the private inbox query. Its membership join revokes live access when an administrator is removed. The React binding refreshes sealed queries through a session-checked route and opens one connection per dashboard instance.
 
-Production domain: https://www.robarchstudio.com. Add this domain to the Vercel project and configure the DNS records shown by Vercel. If SITE_URL is configured in Vercel, set it to this same domain before rebuilding.
+## Verification
 
-## Supabase
+Run npm run test:database and npm run check. Start a production server on port 3240 and run npm run test:neon with ADMIN_TEST_EMAIL and ADMIN_TEST_PASSWORD set in the shell. It exercises incorrect/correct login, cookie restoration, draft creation, real S3 upload and byte-for-byte download, publication, Function-backed inquiry creation, live inbox delivery without refresh, status updates, access denial, and logout. Temporary records and objects are cleaned up in a finally block.
 
-See [supabase/README.md](supabase/README.md) for migrations, seed content, environment variables, storage, and access rules. Until a hosted project is connected, the website uses bundled portfolio content and WhatsApp.
-
-## Studio administration
-
-The dashboard is at /admin and sign-in is at /admin/login. Configure ADMIN_EMAILS with approved, confirmed Supabase Auth email addresses. See supabase/README.md for activation and publishing details. Until connected, the dashboard is a read-only preview. Run npm run test:admin for admin UI and authentication-boundary checks.
+The old Supabase setup is archived under legacy/supabase and is no longer part of the app runtime.

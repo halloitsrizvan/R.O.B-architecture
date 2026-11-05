@@ -37,7 +37,7 @@ export function pageSchema(slug: PageSlug): string {
 }
 
 export function projectMetadata(project: PortfolioProject): Metadata {
-  const url = origin + '/' + project.slug + '.html';
+  const url = origin + '/' + project.slug;
   const image = project.images[0]
     ? new URL(project.images[0].src, origin).href
     : origin + '/assets/hero-image.png';
@@ -63,7 +63,7 @@ export function projectMetadata(project: PortfolioProject): Metadata {
   };
 }
 export function projectSchema(project: PortfolioProject): string {
-  const url = origin + '/' + project.slug + '.html';
+  const url = origin + '/' + project.slug;
   return JSON.stringify({
     '@context': 'https://schema.org',
     '@graph': [
@@ -78,7 +78,7 @@ export function projectSchema(project: PortfolioProject): string {
         '@type': 'BreadcrumbList',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: origin + '/' },
-          { '@type': 'ListItem', position: 2, name: 'Projects', item: origin + '/projects.html' },
+          { '@type': 'ListItem', position: 2, name: 'Projects', item: origin + '/projects' },
           { '@type': 'ListItem', position: 3, name: project.title, item: url },
         ],
       },

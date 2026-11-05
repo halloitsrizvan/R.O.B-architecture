@@ -43,7 +43,7 @@ export default function ProjectEditor({ editor, preview, pending, notice, onClos
         </div>
         {preview && (
           <div className="admin-notice">
-            Preview only. Connect Supabase to save changes and upload images.
+            Preview only. Connect Neon to save changes and upload images.
           </div>
         )}
         {notice && (
