@@ -1,12 +1,17 @@
 import ProjectGrid from '../ProjectGrid';
+import Image from 'next/image';
+import { heroImages } from '../../lib/hero-images';
+import philosophy from '../../public/assets/about-image.png';
 export default function Index() {
   return (
     <main id="main">
       <section className="hero">
-        <img
+        <Image
           className="hero-image"
-          src="/assets/hero-banner.jpg"
-          alt="Architectural exterior with tropical landscaping"
+          src={heroImages[0].image}
+          alt={heroImages[0].alt}
+          sizes="100vw"
+          loading="eager"
           fetchPriority="high"
         />
         <div className="hero-shade"></div>
@@ -132,8 +137,9 @@ export default function Index() {
         </div>
       </section>
       <section className="philosophy">
-        <img
-          src="/assets/about-image.png"
+        <Image
+          src={philosophy}
+          sizes="100vw"
           alt="Architecture and landscape in conversation"
           loading="lazy"
         />

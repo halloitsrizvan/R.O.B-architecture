@@ -1,3 +1,5 @@
+import PortfolioImage from '../PortfolioImage';
+
 export default function Services() {
   return (
     <main id="main">
@@ -33,7 +35,10 @@ export default function Services() {
               {'Discuss your project ↗'}
             </a>
           </div>
-          <img src="/assets/image2.jpg" alt="Architecture by R.O.B Studio" loading="lazy" />
+          <PortfolioImage
+            image={{ src: '/assets/image2.jpg', alt: 'Architecture by R.O.B Studio' }}
+            sizes="(max-width: 800px) 90vw, 45vw"
+          />
         </article>
         <article className="service-row reveal">
           <div>
@@ -53,7 +58,10 @@ export default function Services() {
               {'Discuss your project ↗'}
             </a>
           </div>
-          <img src="/assets/image5.jpg" alt="Interior design by R.O.B Studio" loading="lazy" />
+          <PortfolioImage
+            image={{ src: '/assets/image5.jpg', alt: 'Interior design by R.O.B Studio' }}
+            sizes="(max-width: 800px) 90vw, 45vw"
+          />
         </article>
         <article className="service-row reveal">
           <div>
@@ -73,7 +81,10 @@ export default function Services() {
               {'Discuss your project ↗'}
             </a>
           </div>
-          <img src="/assets/image1.jpg" alt="Landscape design by R.O.B Studio" loading="lazy" />
+          <PortfolioImage
+            image={{ src: '/assets/image1.jpg', alt: 'Landscape design by R.O.B Studio' }}
+            sizes="(max-width: 800px) 90vw, 45vw"
+          />
         </article>
       </section>
       <section className="process section-pad">

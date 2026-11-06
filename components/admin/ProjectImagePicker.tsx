@@ -78,7 +78,12 @@ export default function ProjectImagePicker({
         <div className="admin-image-previews">
           {previews.map((image, index) => (
             <figure key={image.url}>
-              <img src={image.url} alt={`Selected image: ${image.name}`} />
+              <img
+                loading="lazy"
+                decoding="async"
+                src={image.url}
+                alt={`Selected image: ${image.name}`}
+              />
               <figcaption>
                 {mode === 'create' && index === 0 ? 'Cover image' : `Image ${index + 1}`}
               </figcaption>

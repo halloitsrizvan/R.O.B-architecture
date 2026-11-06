@@ -40,7 +40,7 @@ export default function AdminProjectTable({
               <td>
                 <button className="admin-project-name" onClick={() => onEdit(project)}>
                   {project.images[0] ? (
-                    <img src={project.images[0].src} alt="" />
+                    <img loading="lazy" decoding="async" src={project.images[0].src} alt="" />
                   ) : (
                     <span className="admin-thumbnail">
                       <Images size={18} />

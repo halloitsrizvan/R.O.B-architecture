@@ -1,3 +1,6 @@
+import { getImageProps } from 'next/image';
+import { heroImages } from './hero-images';
+
 export function initInteractions() {
   const controller = new AbortController();
   const timers = new Set<number>();
@@ -31,33 +34,58 @@ export function initInteractions() {
   function startHeroSlideshow() {
     if (!firstHero || heroStarted) return;
     heroStarted = true;
-    const photos = [
-      { src: firstHero.src, alt: firstHero.alt },
-      { src: 'assets/hero-image.png', alt: 'Contemporary residence framed by tropical planting' },
-      { src: 'assets/image1.jpg', alt: 'Tropical Home architecture' },
-    ];
-    const slides = photos.map((photo, index) => {
-      const image = index === 0 ? firstHero : new Image();
+    firstHero.classList.add('hero-slide', 'is-active');
+    firstHero.removeAttribute('aria-hidden');
+    // Reduced-motion visitors only download the initial hero image.
+    if (reduced) return;
+    const slides = heroImages.map((photo, index) => {
+      if (index === 0) return firstHero;
+      const image = new Image();
       image.className = 'hero-image hero-slide';
       image.alt = photo.alt;
-      image.src = photo.src;
-      if (index !== 0) {
-        image.setAttribute('aria-hidden', 'true');
-        firstHero.after(image);
-      }
+      image.decoding = 'async';
+      image.fetchPriority = 'low';
+      image.width = photo.image.width;
+      image.height = photo.image.height;
+      image.setAttribute('aria-hidden', 'true');
+      firstHero.after(image);
       return image;
     });
     let current = 0;
-    slides[0].classList.add('is-active');
-    // Keep a still hero for visitors who request reduced motion.
-    if (reduced) return;
+    let heroVisible = true;
+    function prepareNextSlide() {
+      if (!heroVisible || document.hidden || controller.signal.aborted) return;
+      if (!firstHero?.complete || !firstHero.naturalWidth) return;
+      const index = (current + 1) % slides.length;
+      if (slides[index].hasAttribute('src')) return;
+      const { props } = getImageProps({
+        src: heroImages[index].image,
+        alt: heroImages[index].alt,
+        sizes: '100vw',
+      });
+      slides[index].sizes = props.sizes || '100vw';
+      slides[index].srcset = props.srcSet || '';
+      slides[index].src = props.src;
+    }
+    const hero = firstHero.closest('.hero');
+    if (hero && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(([entry]) => {
+        heroVisible = entry.isIntersecting;
+        if (heroVisible) prepareNextSlide();
+      });
+      observers.push(observer);
+      observer.observe(hero);
+    }
+    if (firstHero.complete && firstHero.naturalWidth) prepareNextSlide();
+    else on(firstHero, 'load', prepareNextSlide, { once: true });
+    document.addEventListener('visibilitychange', prepareNextSlide, { signal: controller.signal });
     setInterval(() => {
-      if (document.hidden) return;
-      let next = (current + 1) % slides.length;
-      while (next !== current && (!slides[next].complete || !slides[next].naturalWidth)) {
-        next = (next + 1) % slides.length;
+      if (document.hidden || !heroVisible) return;
+      const next = (current + 1) % slides.length;
+      if (!slides[next].complete || !slides[next].naturalWidth) {
+        prepareNextSlide();
+        return;
       }
-      if (next === current) return;
       const outgoing = slides[current];
       outgoing.classList.replace('is-active', 'is-leaving');
       outgoing.setAttribute('aria-hidden', 'true');
@@ -65,6 +93,7 @@ export function initInteractions() {
       slides[next].classList.add('is-active');
       setTimeout(() => outgoing.classList.remove('is-leaving'), 650);
       current = next;
+      prepareNextSlide();
     }, 3000);
   }
   if (intro && document.body.classList.contains('home-page')) {

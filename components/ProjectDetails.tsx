@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import PortfolioImage from './PortfolioImage';
 import type { ProjectDetailsData, ProjectImage } from '../data/projects';
 
 function ProjectFigure({
@@ -17,14 +18,10 @@ function ProjectFigure({
       id={index === 1 ? 'project-details-views' : undefined}
       className="project-detail-figure reveal"
     >
-      <img
-        src={image.src}
-        srcSet={image.srcSet}
-        sizes={image.sizes}
-        alt={image.alt}
-        decoding="async"
-        fetchPriority={index === 0 ? 'high' : undefined}
-        loading={index === 0 ? undefined : 'lazy'}
+      <PortfolioImage
+        image={image}
+        sizes={index === 0 ? '90vw' : '(max-width: 600px) 90vw, 45vw'}
+        eager={index === 0}
       />
       <figcaption>
         <span>{title}</span>

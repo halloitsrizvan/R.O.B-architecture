@@ -330,7 +330,12 @@ export default function AdminDashboard({ data, view }: { data: AdminData; view: 
               <div className="admin-overview-grid">
                 <section className="admin-spotlight">
                   {spotlight?.images[0] && (
-                    <img src={spotlight.images[0].src} alt={spotlight.images[0].alt} />
+                    <img
+                      loading="lazy"
+                      decoding="async"
+                      src={spotlight.images[0].src}
+                      alt={spotlight.images[0].alt}
+                    />
                   )}
                   <div className="admin-spotlight-overlay" />
                   <span className="admin-spotlight-tag">

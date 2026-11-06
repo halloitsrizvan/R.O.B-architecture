@@ -48,7 +48,12 @@ export default function ProjectImageEditor({ image, disabled, cover, run }: Prop
     >
       <input type="hidden" name="id" value={image.id} />
       <div className="admin-image-preview">
-        <img src={preview || image.src} alt={description ?? image.alt} />
+        <img
+          loading="lazy"
+          decoding="async"
+          src={preview || image.src}
+          alt={description ?? image.alt}
+        />
         {cover && <span className="admin-image-badge">Cover</span>}
         {preview && <span className="admin-image-badge pending">Unsaved</span>}
         <button

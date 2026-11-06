@@ -1,4 +1,6 @@
 import StudioPortrait from '../StudioPortrait';
+import Image from 'next/image';
+import studioImage from '../../public/assets/about-image.png';
 
 export default function About() {
   return (
@@ -16,9 +18,11 @@ export default function About() {
           }
         </p>
       </section>
-      <img
+      <Image
         className="wide-image reveal"
-        src="/assets/about-image.png"
+        src={studioImage}
+        sizes="100vw"
+        loading="lazy"
         alt="A considered balance of built form and nature"
       />
       <section className="editorial section-pad">

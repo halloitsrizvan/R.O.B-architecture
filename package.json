@@ -18,7 +18,9 @@
     "test:neon": "node --env-file=.env.local scripts/test-neon-e2e.cjs",
     "test:realtime": "node --env-file=.env.local scripts/test-realtime-lifecycle.cjs",
     "test:images": "node scripts/test-project-images.cjs",
-    "test:admin-hosts": "node scripts/test-admin-hosts.cjs"
+    "test:admin-hosts": "node scripts/test-admin-hosts.cjs",
+    "test:image-loading": "node scripts/test-image-loading.cjs",
+    "test:intro": "node scripts/test-intro-loading.cjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "3.1161.0",

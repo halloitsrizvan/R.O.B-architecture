@@ -1,4 +1,5 @@
 import { getPortfolio } from '../lib/portfolio';
+import PortfolioImage from './PortfolioImage';
 
 export default async function ProjectGrid({ featured = false }: { featured?: boolean }) {
   const projects = (await getPortfolio()).filter((project) => !featured || project.featured);
@@ -16,12 +17,13 @@ export default async function ProjectGrid({ featured = false }: { featured?: boo
           >
             <span className="project-image">
               {cover && (
-                <img
-                  src={cover.src}
-                  srcSet={cover.srcSet}
-                  sizes={cover.sizes}
-                  alt={cover.alt}
-                  loading="lazy"
+                <PortfolioImage
+                  image={cover}
+                  sizes={
+                    featured
+                      ? '(max-width: 540px) 90vw, 45vw'
+                      : '(max-width: 540px) 90vw, (max-width: 1023px) 45vw, 30vw'
+                  }
                 />
               )}
             </span>

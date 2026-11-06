@@ -21,6 +21,9 @@ page; /index.html redirects to /.
 - npm start: production web server.
 - npm run test:database: isolated PostgreSQL schema and permission tests.
 - npm run test:browser: public website regression checks against TEST_BASE_URL.
+- npm run test:image-loading: checks responsive WebP output, mobile hero bytes,
+  lazy galleries, slideshow pausing and reduced-motion behavior. Start the production
+  server on port 3242 first, or set TEST_BASE_URL to another local server.
 - npm run test:neon: live end-to-end checks for all five Neon services. Set ADMIN_TEST_EMAIL and ADMIN_TEST_PASSWORD in the invoking shell; these are never committed.
 
 See [DEPLOYMENT.md](DEPLOYMENT.md) and [database/README.md](database/README.md).

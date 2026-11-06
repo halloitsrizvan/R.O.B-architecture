@@ -1,6 +1,13 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  images: {
+    localPatterns: [
+      { pathname: '/assets/**', search: '' },
+      { pathname: '/_next/static/media/**', search: '' },
+      { pathname: '/logo.png', search: '' },
+    ],
+  },
   experimental: { serverActions: { bodySizeLimit: '4.4mb' } },
   async redirects() {
     return [
