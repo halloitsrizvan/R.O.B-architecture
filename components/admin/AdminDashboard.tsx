@@ -1,10 +1,12 @@
 'use client';
 import ProjectEditor from './ProjectEditor';
+import ProjectRemovalDialog from './ProjectRemovalDialog';
 import AdminProjectTable from './AdminProjectTable';
 import { disciplines } from '../../lib/admin/constants';
 
 import { useEffect, useState, useTransition } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import {
   ArrowUpRight,
   Check,
@@ -24,25 +26,30 @@ import {
   Sparkles,
   X,
 } from 'lucide-react';
-import type { ActionResult, AdminData, AdminProject, AdminInquiry } from '../../lib/admin/types';
-import { signOut, updateInquiry } from '../../app/admin/actions';
+import type {
+  ActionResult,
+  AdminData,
+  AdminProject,
+  AdminInquiry,
+  AdminSection,
+} from '../../lib/admin/types';
+import { removeProject, signOut, updateInquiry } from '../../app/admin/actions';
 
-type View = 'overview' | 'projects' | 'inbox' | 'settings';
 const navigation = [
-  { id: 'overview', label: 'Overview', icon: LayoutDashboard },
-  { id: 'projects', label: 'Projects', icon: FolderOpen },
-  { id: 'inbox', label: 'Inquiries', icon: Inbox },
-  { id: 'settings', label: 'Settings', icon: Settings },
+  { id: 'overview', href: '/admin', label: 'Overview', icon: LayoutDashboard },
+  { id: 'projects', href: '/admin/projects', label: 'Projects', icon: FolderOpen },
+  { id: 'inbox', href: '/admin/inquiries', label: 'Inquiries', icon: Inbox },
+  { id: 'settings', href: '/admin/settings', label: 'Settings', icon: Settings },
 ] as const;
 
-export default function AdminDashboard({ data }: { data: AdminData }) {
+export default function AdminDashboard({ data, view }: { data: AdminData; view: AdminSection }) {
   const router = useRouter();
-  const [view, setView] = useState<View>('overview');
   const [menu, setMenu] = useState(false);
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState('all');
   const [editor, setEditor] = useState<AdminProject | null>(null);
   const [inquiry, setInquiry] = useState<AdminInquiry | null>(null);
+  const [removal, setRemoval] = useState<AdminProject | null>(null);
   const [notice, setNotice] = useState('');
   const [pending, startTransition] = useTransition();
   const published = data.projects.filter((project) => project.published).length;
@@ -59,7 +66,7 @@ export default function AdminDashboard({ data }: { data: AdminData }) {
     `${item.name} ${item.email} ${item.service}`.toLowerCase().includes(search.toLowerCase()),
   );
   const spotlight = data.projects.find((project) => project.featured && project.images.length);
-  const modalOpen = Boolean(editor || inquiry);
+  const modalOpen = Boolean(editor || inquiry || removal);
   useEffect(() => {
     if (!modalOpen) return;
     const previous = document.activeElement;
@@ -72,14 +79,20 @@ export default function AdminDashboard({ data }: { data: AdminData }) {
           'button:not(:disabled),a[href],input:not(:disabled):not([type="hidden"]),select:not(:disabled),textarea:not(:disabled)',
         ) ?? [],
       );
-    focusable()[0]?.focus();
+    (dialog?.querySelector<HTMLElement>('[data-initial-focus]') ?? focusable()[0])?.focus();
     function keydown(event: KeyboardEvent) {
       if (event.key === 'Escape') {
+        if (dialog?.getAttribute('aria-busy') === 'true') return;
         setEditor(null);
         setInquiry(null);
+        setRemoval(null);
       }
       if (event.key !== 'Tab') return;
       const targets = focusable();
+      if (!targets.length) {
+        event.preventDefault();
+        return;
+      }
       const first = targets[0];
       const last = targets[targets.length - 1];
       if (event.shiftKey && document.activeElement === first) {
@@ -96,13 +109,12 @@ export default function AdminDashboard({ data }: { data: AdminData }) {
       document.removeEventListener('keydown', keydown);
       if (previous instanceof HTMLElement) previous.focus();
     };
-  }, [modalOpen]);
+  }, [modalOpen, removal]);
 
-  function navigate(next: View) {
-    setView(next);
-    setSearch('');
+  function navigate(next: AdminSection) {
+    const destination = navigation.find((item) => item.id === next);
+    if (destination) router.push(destination.href);
     setMenu(false);
-    setNotice('');
   }
   function edit(project: AdminProject) {
     setEditor(project);
@@ -119,6 +131,11 @@ export default function AdminDashboard({ data }: { data: AdminData }) {
       sortOrder: Math.max(-1, ...data.projects.map((project) => project.sortOrder)) + 1,
       images: [],
     });
+  }
+  function confirmRemoval(project: AdminProject) {
+    setEditor(null);
+    setRemoval(project);
+    setNotice('');
   }
   function run(task: () => Promise<ActionResult>, complete?: () => void) {
     if (data.preview) {
@@ -160,17 +177,18 @@ export default function AdminDashboard({ data }: { data: AdminData }) {
         <span className="admin-nav-label">Workspace</span>
         <nav aria-label="Admin navigation">
           {navigation.map((item) => (
-            <button
+            <Link
               key={item.id}
+              href={item.href}
               aria-current={view === item.id ? 'page' : undefined}
-              onClick={() => navigate(item.id)}
+              onClick={() => setMenu(false)}
             >
               <item.icon size={18} strokeWidth={1.5} />
               {item.label}
               {item.id === 'inbox' && newInquiries > 0 && (
                 <span className="admin-nav-count">{newInquiries}</span>
               )}
-            </button>
+            </Link>
           ))}
         </nav>
         <div className="admin-sidebar-bottom">
@@ -391,7 +409,11 @@ export default function AdminDashboard({ data }: { data: AdminData }) {
                     All projects <ArrowUpRight size={14} />
                   </button>
                 </div>
-                <AdminProjectTable items={data.projects.slice(0, 4)} onEdit={edit} />
+                <AdminProjectTable
+                  items={data.projects.slice(0, 4)}
+                  onEdit={edit}
+                  disabled={data.preview || pending}
+                />
               </section>
             </>
           )}
@@ -434,7 +456,12 @@ export default function AdminDashboard({ data }: { data: AdminData }) {
                     ))}
                   </div>
                 </div>
-                <AdminProjectTable items={visibleProjects} onEdit={edit} />
+                <AdminProjectTable
+                  items={visibleProjects}
+                  onEdit={edit}
+                  onRemove={confirmRemoval}
+                  disabled={data.preview || pending}
+                />
                 <div className="admin-table-footer">
                   {visibleProjects.length} of {data.projects.length} projects
                   <span>Ordered as shown on your website</span>
@@ -624,7 +651,23 @@ export default function AdminDashboard({ data }: { data: AdminData }) {
           pending={pending}
           notice={notice}
           onClose={() => setEditor(null)}
+          onRemove={view === 'projects' ? confirmRemoval : undefined}
           run={run}
+        />
+      )}
+
+      {removal && (
+        <ProjectRemovalDialog
+          project={removal}
+          pending={pending}
+          notice={notice}
+          onCancel={() => setRemoval(null)}
+          onConfirm={() =>
+            run(
+              () => removeProject(removal.slug),
+              () => setRemoval(null),
+            )
+          }
         />
       )}
 

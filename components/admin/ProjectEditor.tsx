@@ -1,18 +1,46 @@
 'use client';
-import type { FormEvent } from 'react';
-import { Check, ImagePlus, Plus, X } from 'lucide-react';
+import { useState, type FormEvent } from 'react';
+import { Check, ImagePlus, Plus, Trash2, X } from 'lucide-react';
 import { saveProject, uploadImage, updateImage } from '../../app/admin/actions';
 import type { AdminProject, ActionResult } from '../../lib/admin/types';
 import { disciplines } from '../../lib/admin/constants';
+import ProjectImagePicker from './ProjectImagePicker';
 type Props = {
   editor: AdminProject;
   preview: boolean;
   pending: boolean;
   notice: string;
   onClose: () => void;
+  onRemove?: (project: AdminProject) => void;
   run: (task: () => Promise<ActionResult>, complete?: () => void) => void;
 };
-export default function ProjectEditor({ editor, preview, pending, notice, onClose, run }: Props) {
+
+function projectUrlFromName(name: string): string {
+  const slug = name
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/['’]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 92)
+    .replace(/-+$/g, '');
+  return slug ? `project-${slug}` : '';
+}
+
+export default function ProjectEditor({
+  editor,
+  preview,
+  pending,
+  notice,
+  onClose,
+  onRemove,
+  run,
+}: Props) {
+  const [projectName, setProjectName] = useState(editor.title);
+  const [customUrl, setCustomUrl] = useState<string | null>(null);
+  const projectUrl = editor.slug || (customUrl ?? projectUrlFromName(projectName));
+
   return (
     <div
       className="admin-modal-backdrop"
@@ -62,13 +90,15 @@ export default function ProjectEditor({ editor, preview, pending, notice, onClos
             );
           }}
         >
+          <input type="hidden" name="intent" value={editor.slug ? 'update' : 'create'} />
           <label>
             Project name
             <input
               name="title"
               required
               maxLength={160}
-              defaultValue={editor.title}
+              value={projectName}
+              onChange={(event) => setProjectName(event.target.value)}
               placeholder="e.g. Courtyard Residence"
             />
           </label>
@@ -80,10 +110,15 @@ export default function ProjectEditor({ editor, preview, pending, notice, onClos
               pattern="project-[a-z0-9]+(-[a-z0-9]+)*"
               maxLength={100}
               readOnly={Boolean(editor.slug)}
-              defaultValue={editor.slug}
+              value={projectUrl}
+              onChange={(event) => setCustomUrl(event.target.value)}
               placeholder="project-courtyard-residence"
             />
-            <small>Use lowercase words with hyphens. Existing URLs stay fixed.</small>
+            <small>
+              {editor.slug
+                ? 'Existing project URLs stay fixed.'
+                : 'Generated from the project name. You can customize it before saving.'}
+            </small>
           </label>
           <label>
             The story
@@ -111,82 +146,59 @@ export default function ProjectEditor({ editor, preview, pending, notice, onClos
               ))}
             </div>
           </fieldset>
-          <div className="admin-editor-row">
+          {!editor.slug && <ProjectImagePicker disabled={preview || pending} />}
+          <div className="admin-checkboxes stacked">
             <label>
-              Display order
-              <input
-                name="sortOrder"
-                type="number"
-                required
-                min={0}
-                max={100000}
-                defaultValue={editor.sortOrder}
-              />
+              <input type="checkbox" name="published" defaultChecked={editor.published} />
+              Published on website
             </label>
-            <div className="admin-checkboxes stacked">
-              <label>
-                <input type="checkbox" name="published" defaultChecked={editor.published} />
-                Published on website
-              </label>
-              <label>
-                <input type="checkbox" name="featured" defaultChecked={editor.featured} />
-                Feature on homepage
-              </label>
-            </div>
+            <label>
+              <input type="checkbox" name="featured" defaultChecked={editor.featured} />
+              Feature on homepage
+            </label>
           </div>
           <button className="admin-button primary" disabled={preview || pending}>
             {pending ? 'Saving…' : 'Save project'}
             <Check size={15} />
           </button>
         </form>
-        <div className="admin-editor-gallery">
-          <div className="admin-panel-heading">
-            <h3>Project images</h3>
-            <span className="admin-small-caption">{editor.images.length} images</span>
-          </div>
-          {editor.images.map((image) => (
-            <form
-              className="admin-image-row"
-              key={image.id}
-              onSubmit={(event) => {
-                event.preventDefault();
-                const form = new FormData(event.currentTarget);
-                run(() => updateImage(form));
-              }}
-            >
-              <img src={image.src} alt={image.alt} />
-              <input type="hidden" name="id" value={image.id} />
-              <label>
-                <span className="admin-sr-only">Image description</span>
-                <input
-                  name="alt"
-                  aria-label="Image description"
-                  defaultValue={image.alt}
-                  required
-                  maxLength={300}
-                />
-              </label>
-              <label className="admin-image-order">
-                Order
-                <input
-                  name="sortOrder"
-                  aria-label="Image order"
-                  type="number"
-                  min={0}
-                  max={100000}
-                  defaultValue={image.sortOrder}
-                />
-              </label>
-              <button
-                className="admin-icon-button"
-                disabled={preview || pending}
-                aria-label="Save image details"
+        {editor.slug && (
+          <div className="admin-editor-gallery">
+            <div className="admin-panel-heading">
+              <h3>Project images</h3>
+              <span className="admin-small-caption">{editor.images.length} images</span>
+            </div>
+            {editor.images.map((image) => (
+              <form
+                className="admin-image-row"
+                key={image.id}
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  const form = new FormData(event.currentTarget);
+                  run(() => updateImage(form));
+                }}
               >
-                <Check size={17} />
-              </button>
-            </form>
-          ))}
-          {editor.slug ? (
+                <img src={image.src} alt={image.alt} />
+                <input type="hidden" name="id" value={image.id} />
+                <label>
+                  <span className="admin-sr-only">Image description</span>
+                  <input
+                    name="alt"
+                    aria-label="Image description"
+                    defaultValue={image.alt}
+                    required
+                    maxLength={300}
+                  />
+                </label>
+                <button
+                  className="admin-icon-button"
+                  disabled={preview || pending}
+                  aria-label="Save image details"
+                >
+                  <Check size={17} />
+                </button>
+              </form>
+            ))}
             <form
               className="admin-upload"
               onSubmit={(event) => {
@@ -221,10 +233,19 @@ export default function ProjectEditor({ editor, preview, pending, notice, onClos
                 <Plus size={15} />
               </button>
             </form>
-          ) : (
-            <p className="admin-small-caption">Save your project first, then add its images.</p>
-          )}
-        </div>
+          </div>
+        )}
+        {editor.slug && onRemove && (
+          <div className="admin-editor-removal">
+            <button
+              className="admin-button danger-outline"
+              disabled={preview || pending}
+              onClick={() => onRemove(editor)}
+            >
+              <Trash2 size={15} /> Remove project
+            </button>
+          </div>
+        )}
       </section>
     </div>
   );

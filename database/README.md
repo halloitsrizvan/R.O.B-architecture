@@ -6,7 +6,9 @@ Tables: projects, project_images, contact_inquiries, and studio_admins. Anonymou
 
 The first migration imports the portfolio schema without Supabase-specific roles, APIs, or storage tables. Auth is owned by Neon's managed neon_auth schema and is never manually migrated or patched. New admin identities are created through Neon Auth, then explicitly bound to studio_admins.
 
-The private assets bucket stores new uploads. project_images.storage_key records the immutable object key and src records its same-origin /api/media/ URL. Image bytes are not stored in PostgreSQL. Original bundled/remote image references remain valid.
+New uploads use Cloudinary authenticated image assets. project_images.storage_key stores a cloudinary: reference and src stores a same-origin /api/media/cloudinary/ URL. The media handler checks the project publication state before obtaining a short-lived signed Cloudinary download. Image bytes are not stored in PostgreSQL.
+
+Existing Neon uploads remain readable and removable using their original storage keys. Keep the AWS variables until those assets have been migrated separately. Original bundled/remote image references also remain valid. No image-reference schema migration is required for the Cloudinary switch.
 
 The submit_contact_inquiry function allows at most five submissions per hashed source in 15 minutes. It takes an advisory transaction lock before counting/inserting, which makes the limit work across app/function instances. Raw IP addresses are never stored.
 

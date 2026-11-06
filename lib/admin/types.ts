@@ -1,3 +1,5 @@
+export type AdminSection = 'overview' | 'projects' | 'inbox' | 'settings';
+
 export interface AdminImage {
   id: string;
   src: string;

@@ -1,3 +1,5 @@
+import StudioPortrait from '../StudioPortrait';
+
 export default function About() {
   return (
     <main id="main">
@@ -20,7 +22,10 @@ export default function About() {
         alt="A considered balance of built form and nature"
       />
       <section className="editorial section-pad">
-        <span className="eyebrow">{'Our philosophy'}</span>
+        <div className="philosophy-profile reveal">
+          <span className="eyebrow">{'Our philosophy'}</span>
+          <StudioPortrait />
+        </div>
         <div className="reveal">
           <h2>
             {'Minimalism'}

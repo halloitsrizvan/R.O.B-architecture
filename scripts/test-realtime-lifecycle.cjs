@@ -54,14 +54,102 @@ const fs = require('node:fs');
     await signIn();
     await assertLive();
     console.log('PASS Realtime survives the development Strict Mode effect cycle.');
-    for (const tab of ['Projects', 'Inquiries', 'Overview']) {
+    const sections = [
+      ['Projects', '/admin/projects'],
+      ['Inquiries', '/admin/inquiries'],
+      ['Settings', '/admin/settings'],
+      ['Overview', '/admin'],
+    ];
+    assert.equal(await page.locator('button[aria-label^="Remove "]').count(), 0);
+    if (await page.getByRole('button', { name: /^Edit / }).count()) {
+      await page
+        .getByRole('button', { name: /^Edit / })
+        .first()
+        .click();
+      assert.equal(
+        await page.getByRole('button', { name: 'Remove project', exact: true }).count(),
+        0,
+      );
+      await page.getByRole('button', { name: 'Close project editor' }).click();
+    }
+    for (const [tab, pathname] of sections) {
       await page
         .getByRole('navigation', { name: 'Admin navigation' })
-        .getByRole('button', { name: tab })
+        .getByRole('link', { name: tab })
         .click();
+      await page.waitForURL(baseURL + pathname);
+      await page.locator('.admin-topbar strong').filter({ hasText: tab }).waitFor();
       await assertLive();
+      assert.equal(
+        await page
+          .getByRole('link', { name: tab, exact: tab !== 'Inquiries' })
+          .getAttribute('aria-current'),
+        'page',
+      );
+      assert.equal(
+        (await page.locator('button[aria-label^="Remove "]').count()) > 0,
+        tab === 'Projects' && (await page.getByRole('button', { name: /^Edit / }).count()) > 0,
+      );
+      if (tab === 'Projects' && (await page.getByRole('button', { name: /^Edit / }).count()) > 0) {
+        await page
+          .getByRole('button', { name: /^Edit / })
+          .first()
+          .click();
+        assert(await page.getByRole('button', { name: 'Remove project', exact: true }).isVisible());
+        await page.getByRole('button', { name: 'Close project editor' }).click();
+      }
+      await page.reload();
+      assert.equal(new URL(page.url()).pathname, pathname);
+      await assertLive();
+      assert(
+        (await page.locator('meta[name="robots"]').getAttribute('content')).includes('noindex'),
+      );
+      console.log(
+        `PASS ${pathname}: direct URL, reload, active navigation, live inbox, and project-removal visibility.`,
+      );
     }
-    console.log('PASS Dashboard rerenders keep one active Realtime connection.');
+    await page.getByRole('link', { name: 'Projects', exact: true }).click();
+    await page.waitForURL(baseURL + '/admin/projects');
+    await page.getByRole('link', { name: 'Inquiries' }).click();
+    await page.waitForURL(baseURL + '/admin/inquiries');
+    await page.goBack();
+    await page.waitForURL(baseURL + '/admin/projects');
+    await assertLive();
+    await page.goForward();
+    await page.waitForURL(baseURL + '/admin/inquiries');
+    await assertLive();
+    console.log(
+      'PASS Back/forward navigation restores the correct admin section and one live connection.',
+    );
+
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.getByRole('button', { name: 'Open navigation' }).click();
+    await page.getByRole('link', { name: 'Projects', exact: true }).click();
+    await page.waitForURL(baseURL + '/admin/projects');
+    await page.locator('.admin-main h1').waitFor();
+    await page.evaluate(() => scrollTo({ top: 350, behavior: 'instant' }));
+    assert.equal(
+      await page
+        .locator('.admin-topbar')
+        .evaluate((header) => Math.round(header.getBoundingClientRect().top)),
+      0,
+    );
+    await page.getByRole('button', { name: 'Open navigation' }).click();
+    await page.getByRole('link', { name: 'Overview', exact: true }).click();
+    await page.waitForURL(baseURL + '/admin');
+    await assertLive();
+    assert.equal(await page.locator('button[aria-label^="Remove "]').count(), 0);
+    console.log('PASS Mobile navigation uses real URLs and retains the fixed header.');
+    await page.setViewportSize({ width: 1440, height: 1000 });
+
+    const anonymous = await browser.newContext();
+    for (const [, pathname] of sections) {
+      const response = await anonymous.request.get(baseURL + pathname, { maxRedirects: 0 });
+      assert([302, 303, 307, 308].includes(response.status()));
+      assert.equal(new URL(response.headers().location, baseURL).pathname, '/admin/login');
+    }
+    await anonymous.close();
+    console.log('PASS Every admin section requires sign-in.');
     await page.reload();
     await assertLive();
     console.log('PASS Reload restores the live connection without runtime errors.');

@@ -522,6 +522,35 @@ footer {
   grid-template-columns: 1fr 2fr;
   gap: 50px;
 }
+.philosophy-profile {
+  min-width: 0;
+  align-self: start;
+}
+.philosophy-portrait {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 28px;
+  overflow: hidden;
+}
+.portrait-monochrome {
+  height: auto;
+  filter: grayscale(1);
+}
+.portrait-color {
+  pointer-events: none;
+  opacity: 0;
+  mask-image: radial-gradient(
+    circle clamp(80px, 8.5vw, 120px) at var(--portrait-x, 50%) var(--portrait-y, 50%),
+    #000 0%,
+    #000 65%,
+    transparent 100%
+  );
+  transition: opacity 0.3s ease;
+}
+.philosophy-portrait[data-revealing='true'] .portrait-color {
+  opacity: 1;
+}
 .editorial h2 {
   font-size: clamp(40px, 5vw, 70px);
   letter-spacing: -0.04em;
@@ -2109,8 +2138,8 @@ footer {
   padding-top: 0;
 }
 @media (max-width: 540px) {
-  .hero-bottom > .hero-cta {
-    min-width: 190px;
+  .hero-content > .hero-bottom {
+    display: none;
   }
 }
 /* Align the hero heading and inquiry on one bottom edge. */
@@ -2203,6 +2232,11 @@ footer {
 }
 .project-grid .project-open {
   display: none;
+}
+@media (min-width: 1024px) {
+  .portfolio .project-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 @media (max-width: 800px) {
   .project-grid {
@@ -2450,6 +2484,14 @@ footer {
   }
   .chapter-section .chapter-link {
     width: auto;
+  }
+}
+@media (max-width: 540px) {
+  .chapter-section {
+    height: auto;
+    min-height: 0;
+    padding-top: 32px;
+    padding-bottom: 32px;
   }
 }
 

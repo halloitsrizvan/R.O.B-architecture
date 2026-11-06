@@ -25,6 +25,12 @@ Set SITE_URL=https://www.robarchstudio.com. The production origin is registered 
 
 ## Architecture
 
+For new project image uploads, configure CLOUDINARY_URL (the API environment variable from
+Cloudinary Console), or CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, and CLOUDINARY_API_SECRET.
+Set the same values on the Next.js hosting platform. The API secret stays server-side.
+Existing Neon images still require the AWS variables; configuring Cloudinary does not
+automatically move or delete those files.
+
 - lib/db.ts: pooled node-postgres driver with Vercel pool lifecycle support. Runtime uses DATABASE_URL; migrations use the direct DATABASE_URL_UNPOOLED.
 - database/migrations/: tracked, checksummed PostgreSQL migrations. database/seed.sql imports the original 12 projects and 36 image references without overwriting existing records.
 - lib/neon/auth.ts and /api/auth/: Managed Neon Auth using its official Next.js adapter. /admin/login authenticates against Neon; admin reads and writes also require the server email allowlist and a matching studio_admins membership row.

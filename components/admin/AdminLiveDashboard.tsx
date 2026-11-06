@@ -4,14 +4,18 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { createRealtimeClient, type SealedLiveQuery } from '@neon/realtime/client';
 import { RealtimeProvider, useLiveQuery } from '@neon/realtime-react';
 import AdminDashboard from './AdminDashboard';
-import type { AdminData } from '../../lib/admin/types';
+import type { AdminData, AdminSection } from '../../lib/admin/types';
 import type { LiveInquiry } from '../../lib/neon/realtime';
 
-export default function AdminLiveDashboard({ data }: { data: AdminData }) {
-  if (!data.realtime) return <AdminDashboard data={data} />;
-  return <ConnectedDashboard key={data.realtime.sealedQuery.queryFingerprint} data={data} />;
+type Props = { data: AdminData; view: AdminSection };
+
+export default function AdminLiveDashboard({ data, view }: Props) {
+  if (!data.realtime) return <AdminDashboard key={view} data={data} view={view} />;
+  return (
+    <ConnectedDashboard key={data.realtime.sealedQuery.queryFingerprint} data={data} view={view} />
+  );
 }
-function ConnectedDashboard({ data }: { data: AdminData }) {
+function ConnectedDashboard({ data, view }: Props) {
   const [client] = useState(() => createRealtimeClient({ url: data.realtime!.url }));
   const closeTimer = useRef<number | undefined>(undefined);
 
@@ -26,11 +30,11 @@ function ConnectedDashboard({ data }: { data: AdminData }) {
 
   return (
     <RealtimeProvider client={client}>
-      <LiveDashboard data={data} />
+      <LiveDashboard data={data} view={view} />
     </RealtimeProvider>
   );
 }
-function LiveDashboard({ data }: { data: AdminData }) {
+function LiveDashboard({ data, view }: Props) {
   const [sealedQuery] = useState(() => data.realtime!.sealedQuery);
   const userId = data.realtime!.userId;
   const refreshQuery = useCallback(async () => {
@@ -58,6 +62,8 @@ function LiveDashboard({ data }: { data: AdminData }) {
   const live = useLiveQuery(sealedQuery, { refreshQuery, initialData });
   return (
     <AdminDashboard
+      key={view}
+      view={view}
       data={{
         ...data,
         liveState:
