@@ -9,6 +9,7 @@ export default defineConfig({
         'http://localhost:3240',
         'http://localhost:3241',
         'https://www.robarchstudio.com',
+        'https://admin.robarchstudio.com',
       ],
     },
   },

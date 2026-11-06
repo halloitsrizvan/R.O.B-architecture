@@ -192,7 +192,7 @@ export default function AdminDashboard({ data, view }: { data: AdminData; view: 
           ))}
         </nav>
         <div className="admin-sidebar-bottom">
-          <a href="/" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.robarchstudio.com" target="_blank" rel="noopener noreferrer">
             <ExternalLink size={16} />
             View website
             <ArrowUpRight size={14} />
@@ -646,7 +646,7 @@ export default function AdminDashboard({ data, view }: { data: AdminData; view: 
 
       {editor && (
         <ProjectEditor
-          editor={editor}
+          editor={data.projects.find((project) => project.slug === editor.slug) ?? editor}
           preview={data.preview}
           pending={pending}
           notice={notice}

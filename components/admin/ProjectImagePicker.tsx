@@ -4,7 +4,15 @@ import { useEffect, useRef, useState } from 'react';
 import { ImagePlus, X } from 'lucide-react';
 import { imageTypes, validateProjectImages } from '../../lib/project-image-policy';
 
-export default function ProjectImagePicker({ disabled }: { disabled: boolean }) {
+export default function ProjectImagePicker({
+  disabled,
+  mode = 'create',
+  onSelectionChange,
+}: {
+  disabled: boolean;
+  mode?: 'create' | 'append';
+  onSelectionChange?: (count: number) => void;
+}) {
   const input = useRef<HTMLInputElement>(null);
   const objectUrls = useRef<string[]>([]);
   const [previews, setPreviews] = useState<{ name: string; url: string }[]>([]);
@@ -17,6 +25,7 @@ export default function ProjectImagePicker({ disabled }: { disabled: boolean }) 
     objectUrls.current = [];
     setPreviews([]);
     setError(null);
+    onSelectionChange?.(0);
     if (input.current) {
       input.current.value = '';
       input.current.setCustomValidity('');
@@ -36,6 +45,7 @@ export default function ProjectImagePicker({ disabled }: { disabled: boolean }) 
           name="images"
           accept={imageTypes.join(',')}
           multiple
+          required={mode === 'append'}
           disabled={disabled}
           aria-describedby="initial-image-help"
           onChange={(event) => {
@@ -50,12 +60,14 @@ export default function ProjectImagePicker({ disabled }: { disabled: boolean }) 
               : files.map((file) => ({ name: file.name, url: URL.createObjectURL(file) }));
             objectUrls.current = next.map((file) => file.url);
             setPreviews(next);
+            onSelectionChange?.(next.length);
           }}
         />
       </label>
       <p id="initial-image-help">
-        Choose up to 10 images, totalling 10 MB. The first image becomes the cover. Images upload
-        when you save the project.
+        {mode === 'append'
+          ? 'Select up to 10 photos, totalling 4 MB. New photos are added after your existing images.'
+          : 'Choose up to 10 images, totalling 4 MB. The first image becomes the cover. Images upload when you save the project.'}
       </p>
       {error && (
         <p className="admin-error" role="alert">
@@ -67,7 +79,9 @@ export default function ProjectImagePicker({ disabled }: { disabled: boolean }) 
           {previews.map((image, index) => (
             <figure key={image.url}>
               <img src={image.url} alt={`Selected image: ${image.name}`} />
-              <figcaption>{index === 0 ? 'Cover image' : `Image ${index + 1}`}</figcaption>
+              <figcaption>
+                {mode === 'create' && index === 0 ? 'Cover image' : `Image ${index + 1}`}
+              </figcaption>
             </figure>
           ))}
         </div>

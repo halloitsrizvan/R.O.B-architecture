@@ -22,7 +22,11 @@ const path = require('node:path');
     cloudinary.config().cloud_name && cloudinary.config().api_key && cloudinary.config().api_secret,
     'Configure Cloudinary before running the live image test.',
   );
-  const publicId = (key) => 'rob_arch/' + key.replace(/^cloudinary:/, '').replace(/\.[^.]+$/, '');
+  await cloudinary.api.ping();
+  const publicId = (key) =>
+    (key.startsWith('cloudinary-public:') ? '' : 'rob_arch/') +
+    key.replace(/^cloudinary(?:-public)?:/, '').replace(/\.[^.]+$/, '');
+  const deliveryType = (key) => (key.startsWith('cloudinary-public:') ? 'upload' : 'authenticated');
   const executablePath = [
     'C:/Program Files/Google/Chrome/Application/chrome.exe',
     'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',
@@ -95,7 +99,7 @@ const path = require('node:path');
       )
     ).rows.map((image) => image.storage_key);
     assert.equal(storageKeys.length, 2, 'Images must be attached during the initial project save.');
-    assert(storageKeys.every((key) => key.startsWith('cloudinary:')));
+    assert(storageKeys.every((key) => /^cloudinary(?:-public)?:/.test(key)));
     console.log(
       'PASS Project creation: selected images were saved with the new project through Cloudinary.',
     );
@@ -122,7 +126,7 @@ const path = require('node:path');
     assert.equal(storageKeys.length, 3);
     const stored = await cloudinary.api.resource(publicId(storageKey), {
       resource_type: 'image',
-      type: 'authenticated',
+      type: deliveryType(storageKey),
     });
     assert.equal(stored.public_id, publicId(storageKey));
     const draftRead = await page.request.get(baseURL + image.src);
@@ -360,7 +364,7 @@ const path = require('node:path');
     );
     for (const key of storageKeys)
       await assert.rejects(
-        cloudinary.api.resource(publicId(key), { resource_type: 'image', type: 'authenticated' }),
+        cloudinary.api.resource(publicId(key), { resource_type: 'image', type: deliveryType(key) }),
         (error) => error.error?.http_code === 404 || error.http_code === 404,
       );
     assert.equal((await anonymous.request.get(baseURL + '/' + slug)).status(), 404);
@@ -434,12 +438,12 @@ const path = require('node:path');
       .catch(() => ({ rows: [] }));
     const cleanupKeys = [
       ...new Set([...storageKeys, ...remaining.rows.map((image) => image.storage_key)]),
-    ].filter((key) => key?.startsWith('cloudinary:'));
+    ].filter((key) => /^cloudinary(?:-public)?:/.test(key ?? ''));
     await Promise.allSettled(
       cleanupKeys.map((key) =>
         cloudinary.uploader.destroy(publicId(key), {
           resource_type: 'image',
-          type: 'authenticated',
+          type: deliveryType(key),
           invalidate: true,
         }),
       ),

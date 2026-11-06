@@ -239,47 +239,61 @@ export async function updateInquiry(id: string, status: string): Promise<ActionR
 }
 export async function uploadImage(form: FormData): Promise<ActionResult> {
   await requireAdmin();
-  const slug = String(form.get('slug') ?? ''),
-    alt = String(form.get('alt') ?? '').trim(),
-    image = form.get('image');
-  if (
-    !/^project-[a-z0-9]+(-[a-z0-9]+)*$/.test(slug) ||
-    !alt ||
-    alt.length > 300 ||
-    !(image instanceof File) ||
-    validateProjectImages([image])
-  )
-    return { ok: false, error: 'Choose an image under 10 MB and add a description.' };
+  const slug = String(form.get('slug') ?? '');
+  const alt = String(form.get('alt') ?? '').trim();
+  const entries = form.has('images') ? form.getAll('images') : form.getAll('image');
+  if (!/^project-[a-z0-9]+(-[a-z0-9]+)*$/.test(slug) || slug.length > 100 || alt.length > 300)
+    return { ok: false, error: 'Check the project and image description.' };
+  if (!entries.length || entries.some((entry) => !(entry instanceof File)))
+    return { ok: false, error: 'Choose one or more images.' };
+  const files = entries as File[];
+  const validation = validateProjectImages(files);
+  if (validation) return { ok: false, error: validation };
   if (!isCloudinaryConfigured())
     return { ok: false, error: 'Configure Cloudinary to upload images.' };
-  let uploaded: StoredProjectImage | undefined;
+  let uploaded: StoredProjectImage[] = [];
   let client: PoolClient | undefined;
   try {
-    uploaded = await uploadProjectImage(slug, image);
+    const [existing] = await query('select slug from public.projects where slug=$1', [slug]);
+    if (!existing) throw new ProjectSaveError('This project no longer exists.');
+    const results = await Promise.allSettled(files.map((file) => uploadProjectImage(slug, file)));
+    uploaded = results.flatMap((result) => (result.status === 'fulfilled' ? [result.value] : []));
+    if (results.some((result) => result.status === 'rejected'))
+      throw new Error('An image upload failed.');
     client = await getDatabase().connect();
     await client.query('BEGIN');
-    const project = await client.query(
-      'select slug from public.projects where slug=$1 for update',
+    const project = await client.query<{ title: string }>(
+      'select slug,title from public.projects where slug=$1 for update',
       [slug],
     );
     if (!project.rowCount) throw new ProjectSaveError('This project no longer exists.');
-    await attachImages(client, slug, [{ ...uploaded, alt }]);
+    await attachImages(
+      client,
+      slug,
+      uploaded.map((image, index) => ({
+        ...image,
+        alt: alt || (project.rows[0].title + ' - additional view ' + (index + 1)).slice(0, 300),
+      })),
+    );
     await client.query('COMMIT');
   } catch (error) {
     if (client) await client.query('ROLLBACK').catch(() => {});
-    if (uploaded) await cleanupProjectImages([uploaded]);
+    await cleanupProjectImages(uploaded);
     return {
       ok: false,
       error:
         error instanceof ProjectSaveError
           ? error.message
-          : 'Image upload failed. Please try again.',
+          : 'Image upload failed. No images were added. Please try again.',
     };
   } finally {
     client?.release();
   }
   refreshPortfolio(slug);
-  return { ok: true, message: 'Image uploaded.' };
+  return {
+    ok: true,
+    message: uploaded.length === 1 ? 'Image uploaded.' : uploaded.length + ' images uploaded.',
+  };
 }
 export async function updateImage(form: FormData): Promise<ActionResult> {
   await requireAdmin();
@@ -287,6 +301,14 @@ export async function updateImage(form: FormData): Promise<ActionResult> {
     alt = String(form.get('alt') ?? '').trim();
   if (!/^[0-9a-f-]{36}$/i.test(id) || !alt || alt.length > 300)
     return { ok: false, error: 'Check the image description.' };
+  const replacement = form.get('image');
+  if (replacement !== null && !(replacement instanceof File))
+    return { ok: false, error: 'Choose a valid replacement image.' };
+  if (replacement instanceof File && (replacement.size > 0 || replacement.name)) {
+    const error = validateProjectImages([replacement]);
+    if (error) return { ok: false, error };
+    return replaceProjectImage(id, alt, replacement);
+  }
   try {
     const [row] = await query<{ project_slug: string }>(
       'update public.project_images set alt=$1 where id=$2 returning project_slug',
@@ -298,4 +320,65 @@ export async function updateImage(form: FormData): Promise<ActionResult> {
     return { ok: false, error: 'Could not save the image.' };
   }
   return { ok: true, message: 'Image details saved.' };
+}
+
+async function replaceProjectImage(id: string, alt: string, file: File): Promise<ActionResult> {
+  if (!isCloudinaryConfigured())
+    return { ok: false, error: 'Configure Cloudinary to replace images.' };
+  let uploaded: StoredProjectImage | undefined;
+  let client: PoolClient | undefined;
+  let slug = '';
+  let previousKey: string | null = null;
+  try {
+    const [existing] = await query<{ project_slug: string }>(
+      'select project_slug from public.project_images where id=$1',
+      [id],
+    );
+    if (!existing) return { ok: false, error: 'Image not found. Reopen the project to refresh.' };
+    slug = existing.project_slug;
+    uploaded = await uploadProjectImage(slug, file);
+    client = await getDatabase().connect();
+    await client.query('BEGIN');
+    // Use the same project-first lock order as uploads and project removal.
+    const project = await client.query(
+      'select slug from public.projects where slug=$1 for update',
+      [slug],
+    );
+    if (!project.rowCount) throw new ProjectSaveError('This project no longer exists.');
+    const image = await client.query<{ storage_key: string | null }>(
+      'select storage_key from public.project_images where id=$1 and project_slug=$2 for update',
+      [id, slug],
+    );
+    if (!image.rowCount) throw new ProjectSaveError('This image no longer exists.');
+    previousKey = image.rows[0].storage_key;
+    await client.query(
+      'update public.project_images set src=$1,storage_key=$2,alt=$3,src_set=null,sizes=null where id=$4 and project_slug=$5',
+      [uploaded.src, uploaded.storageKey, alt, id, slug],
+    );
+    await client.query('COMMIT');
+  } catch (error) {
+    if (client) await client.query('ROLLBACK').catch(() => {});
+    if (uploaded) await cleanupProjectImages([uploaded]);
+    return {
+      ok: false,
+      error:
+        error instanceof ProjectSaveError
+          ? error.message
+          : 'Could not replace the image. Your current photo is unchanged.',
+    };
+  } finally {
+    client?.release();
+  }
+  refreshPortfolio(slug);
+  if (previousKey) {
+    try {
+      await removeProjectImage(previousKey);
+    } catch {
+      return {
+        ok: true,
+        message: 'Image replaced. The previous file still needs cleanup in storage.',
+      };
+    }
+  }
+  return { ok: true, message: 'Image replaced.' };
 }

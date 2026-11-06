@@ -8,17 +8,14 @@ export async function GET(_request: Request, { params }: { params: Promise<{ key
   const key = (await params).key.join('/');
   if (!/^(?:cloudinary\/)?project-[a-z0-9-]+\/[0-9a-f-]+\.(jpg|png|webp|avif)$/.test(key))
     return new NextResponse('Not found', { status: 404 });
-  const storageKey = key.startsWith('cloudinary/')
-    ? 'cloudinary:' + key.slice('cloudinary/'.length)
-    : key;
-  const [image] = await query<{ published: boolean }>(
-    `select p.published from public.project_images i join public.projects p on p.slug=i.project_slug where i.storage_key=$1`,
-    [storageKey],
+  const [image] = await query<{ published: boolean; storage_key: string }>(
+    `select p.published,i.storage_key from public.project_images i join public.projects p on p.slug=i.project_slug where i.src=$1 and i.storage_key is not null`,
+    ['/api/media/' + key],
   );
   if (!image || (!image.published && !(await getAdminIdentity())))
     return new NextResponse('Not found', { status: 404 });
   try {
-    const imageFile = await readProjectImage(storageKey);
+    const imageFile = await readProjectImage(image.storage_key);
     return new NextResponse(imageFile.bytes, {
       headers: {
         'Content-Type': imageFile.contentType,

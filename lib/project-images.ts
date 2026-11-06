@@ -7,7 +7,8 @@ export type StoredProjectImage = { storageKey: string; src: string };
 export const uploadProjectImage = uploadCloudinaryImage;
 
 export async function readProjectImage(key: string) {
-  if (key.startsWith('cloudinary:')) return readCloudinaryImage(key);
+  if (key.startsWith('cloudinary:') || key.startsWith('cloudinary-public:'))
+    return readCloudinaryImage(key);
   const object = await readObject(key);
   const bytes = await object.Body?.transformToByteArray();
   if (!bytes) throw new Error('Image could not be loaded.');
@@ -18,7 +19,8 @@ export async function readProjectImage(key: string) {
 }
 
 export async function removeProjectImage(key: string) {
-  if (key.startsWith('cloudinary:')) return removeCloudinaryImage(key);
+  if (key.startsWith('cloudinary:') || key.startsWith('cloudinary-public:'))
+    return removeCloudinaryImage(key);
   return removeObject(key);
 }
 

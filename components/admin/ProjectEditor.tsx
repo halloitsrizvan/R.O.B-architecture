@@ -1,10 +1,11 @@
 'use client';
 import { useState, type FormEvent } from 'react';
-import { Check, ImagePlus, Plus, Trash2, X } from 'lucide-react';
-import { saveProject, uploadImage, updateImage } from '../../app/admin/actions';
+import { Check, Plus, Trash2, X } from 'lucide-react';
+import { saveProject, uploadImage } from '../../app/admin/actions';
 import type { AdminProject, ActionResult } from '../../lib/admin/types';
 import { disciplines } from '../../lib/admin/constants';
 import ProjectImagePicker from './ProjectImagePicker';
+import ProjectImageEditor from './ProjectImageEditor';
 type Props = {
   editor: AdminProject;
   preview: boolean;
@@ -39,6 +40,8 @@ export default function ProjectEditor({
 }: Props) {
   const [projectName, setProjectName] = useState(editor.title);
   const [customUrl, setCustomUrl] = useState<string | null>(null);
+  const [uploadVersion, setUploadVersion] = useState(0);
+  const [selectedImages, setSelectedImages] = useState(0);
   const projectUrl = editor.slug || (customUrl ?? projectUrlFromName(projectName));
 
   return (
@@ -168,71 +171,56 @@ export default function ProjectEditor({
               <h3>Project images</h3>
               <span className="admin-small-caption">{editor.images.length} images</span>
             </div>
-            {editor.images.map((image) => (
+            <p className="admin-gallery-hint">JPG, PNG, WebP or AVIF. Max 4 MB.</p>
+            <div className="admin-image-grid">
+              {editor.images.map((image, index) => (
+                <ProjectImageEditor
+                  key={image.id}
+                  image={image}
+                  cover={index === 0}
+                  disabled={preview || pending}
+                  run={run}
+                />
+              ))}
+            </div>
+            <details className="admin-add-photos">
+              <summary>
+                <Plus size={15} /> Add photos
+              </summary>
               <form
-                className="admin-image-row"
-                key={image.id}
+                className="admin-upload"
                 onSubmit={(event) => {
                   event.preventDefault();
                   const form = new FormData(event.currentTarget);
-                  run(() => updateImage(form));
+                  run(
+                    () => uploadImage(form),
+                    () => {
+                      setUploadVersion((version) => version + 1);
+                      setSelectedImages(0);
+                    },
+                  );
                 }}
               >
-                <img src={image.src} alt={image.alt} />
-                <input type="hidden" name="id" value={image.id} />
-                <label>
-                  <span className="admin-sr-only">Image description</span>
-                  <input
-                    name="alt"
-                    aria-label="Image description"
-                    defaultValue={image.alt}
-                    required
-                    maxLength={300}
-                  />
-                </label>
-                <button
-                  className="admin-icon-button"
+                <input type="hidden" name="slug" value={editor.slug} />
+                <ProjectImagePicker
+                  key={uploadVersion}
                   disabled={preview || pending}
-                  aria-label="Save image details"
+                  mode="append"
+                  onSelectionChange={setSelectedImages}
+                />
+                <button
+                  className="admin-button secondary"
+                  disabled={preview || pending || !selectedImages}
                 >
-                  <Check size={17} />
+                  {pending
+                    ? 'Uploading...'
+                    : selectedImages
+                      ? `Upload ${selectedImages} ${selectedImages === 1 ? 'photo' : 'photos'}`
+                      : 'Upload photos'}
+                  <Plus size={15} />
                 </button>
               </form>
-            ))}
-            <form
-              className="admin-upload"
-              onSubmit={(event) => {
-                event.preventDefault();
-                const form = new FormData(event.currentTarget);
-                run(
-                  () => uploadImage(form),
-                  () => onClose(),
-                );
-              }}
-            >
-              <input type="hidden" name="slug" value={editor.slug} />
-              <ImagePlus size={22} />
-              <strong>Add another perspective</strong>
-              <label>
-                Image
-                <input
-                  name="image"
-                  type="file"
-                  required
-                  accept="image/jpeg,image/png,image/webp,image/avif"
-                  disabled={preview}
-                />
-              </label>
-              <label>
-                Description
-                <input name="alt" required maxLength={300} placeholder="Describe this view" />
-              </label>
-              <small>JPG, PNG, WebP, or AVIF · Up to 10 MB</small>
-              <button className="admin-button secondary" disabled={preview || pending}>
-                Upload image
-                <Plus size={15} />
-              </button>
-            </form>
+            </details>
           </div>
         )}
         {editor.slug && onRemove && (

@@ -35,6 +35,8 @@ function loadModule(file, dependencies) {
   let configured = true;
   let authorized = true;
   let failImageInsert = false;
+  let failImageUpdate = false;
+  let failCleanup = false;
   let uploadCount = 0;
   const policy = loadModule('lib/project-image-policy.ts', {});
   const imageStore = {
@@ -48,7 +50,10 @@ function loadModule(file, dependencies) {
     },
     cleanupProjectImages: async (images) =>
       images.forEach((image) => assets.delete(image.storageKey)),
-    removeProjectImage: async (key) => assets.delete(key),
+    removeProjectImage: async (key) => {
+      if (failCleanup) throw new Error('Simulated cleanup failure');
+      return assets.delete(key);
+    },
     readProjectImage: async (key) => {
       if (!assets.has(key)) throw new Error('Not found');
       return { bytes: Buffer.from('image'), contentType: 'image/png' };
@@ -58,6 +63,8 @@ function loadModule(file, dependencies) {
     query: async (sql, parameters = []) => {
       if (failImageInsert && sql.includes('insert into public.project_images'))
         throw new Error('Simulated database failure');
+      if (failImageUpdate && sql.includes('set src=$1,storage_key=$2'))
+        throw new Error('Simulated image update failure');
       const result = await db.query(sql, parameters);
       return { rows: result.rows, rowCount: result.rows.length };
     },
@@ -200,6 +207,121 @@ function loadModule(file, dependencies) {
         (image) => image.sort_order,
       ),
       [0, 1, 2],
+    );
+    const edit = new FormData();
+    // Imported photos can have old responsive candidates that override img.src.
+    await db.query('update project_images set src_set=$1,sizes=$2 where id=$3', [
+      'https://example.com/old-photo.jpg 1600w',
+      '100vw',
+      images[0].id,
+    ]);
+    edit.set('id', images[0].id);
+    edit.set('alt', 'Updated cover description');
+    assert.equal((await actions.updateImage(edit)).ok, true);
+    assert.equal(
+      (await db.query('select alt from project_images where id=$1', [images[0].id])).rows[0].alt,
+      'Updated cover description',
+    );
+    edit.set('image', new File(['replacement'], 'replacement.png', { type: 'image/png' }));
+    assert.equal((await actions.updateImage(edit)).ok, true);
+    let replaced = (await db.query('select * from project_images where id=$1', [images[0].id]))
+      .rows[0];
+    assert.equal(replaced.sort_order, 0);
+    assert.equal(replaced.src_set, null);
+    assert.equal(replaced.sizes, null);
+    assert.notEqual(replaced.src, images[0].src);
+    assert.equal(assets.has(images[0].storage_key), false);
+    assert.equal(assets.has(replaced.storage_key), true);
+    assert.equal((await getImage()).status, 404);
+    console.log(
+      'PASS Image replacement preserves identity and cover position, updates descriptions and retires the old media URL.',
+    );
+
+    const previous = replaced;
+    failImageUpdate = true;
+    assert.equal((await actions.updateImage(edit)).ok, false);
+    failImageUpdate = false;
+    replaced = (await db.query('select * from project_images where id=$1', [images[0].id])).rows[0];
+    assert.equal(replaced.src, previous.src);
+    assert.equal(assets.size, 3);
+    edit.set('image', new File(['bad'], 'bad.txt', { type: 'text/plain' }));
+    assert.equal((await actions.updateImage(edit)).ok, false);
+    edit.set('image', new File(['replacement'], 'replacement.png', { type: 'image/png' }));
+    configured = false;
+    assert.equal((await actions.updateImage(edit)).ok, false);
+    configured = true;
+    authorized = false;
+    await assert.rejects(actions.updateImage(edit), /Unauthorized/);
+    authorized = true;
+    failCleanup = true;
+    const cleanupWarning = await actions.updateImage(edit);
+    failCleanup = false;
+    assert.equal(cleanupWarning.ok, true);
+    assert.match(cleanupWarning.message, /cleanup/);
+    // The deliberately orphaned mock asset is removed without touching a real provider.
+    assets.delete(previous.storage_key);
+    edit.set('id', '00000000-0000-0000-0000-000000000000');
+    const uploadsBefore = uploadCount;
+    assert.equal((await actions.updateImage(edit)).ok, false);
+    assert.equal(uploadCount, uploadsBefore);
+    console.log(
+      'PASS Replacement rollback, validation, authorization, stale image handling and cleanup warnings.',
+    );
+    const assetsBeforeBatch = assets.size;
+    assert.equal(
+      (await actions.saveProject(project('project-batch-upload', ['cover.png']))).ok,
+      true,
+    );
+    const batch = new FormData();
+    batch.set('slug', 'project-batch-upload');
+    batch.append('images', new File(['one'], 'one.png', { type: 'image/png' }));
+    batch.append('images', new File(['two'], 'two.png', { type: 'image/png' }));
+    const batchResult = await actions.uploadImage(batch);
+    assert.equal(batchResult.ok, true);
+    assert.match(batchResult.message, /2 images/);
+    assert.deepEqual(
+      (
+        await db.query(
+          'select sort_order from project_images where project_slug=$1 order by sort_order',
+          ['project-batch-upload'],
+        )
+      ).rows.map((row) => row.sort_order),
+      [0, 1, 2],
+    );
+    assert.equal(assets.size, assetsBeforeBatch + 3);
+    const badBatch = new FormData();
+    badBatch.set('slug', 'project-batch-upload');
+    badBatch.append('images', new File(['one'], 'one.png', { type: 'image/png' }));
+    badBatch.append('images', new File(['bad'], 'failure.png', { type: 'image/png' }));
+    assert.equal((await actions.uploadImage(badBatch)).ok, false);
+    assert.equal(assets.size, assetsBeforeBatch + 3);
+    failImageInsert = true;
+    assert.equal((await actions.uploadImage(batch)).ok, false);
+    failImageInsert = false;
+    assert.equal(assets.size, assetsBeforeBatch + 3);
+    assert.equal(
+      (
+        await db.query('select count(*)::int as n from project_images where project_slug=$1', [
+          'project-batch-upload',
+        ])
+      ).rows[0].n,
+      3,
+    );
+    const oversizedBatch = new FormData();
+    oversizedBatch.set('slug', 'project-batch-upload');
+    oversizedBatch.append(
+      'images',
+      new File([Buffer.alloc(4 * 1024 * 1024)], 'one.png', { type: 'image/png' }),
+    );
+    oversizedBatch.append('images', new File(['two'], 'two.png', { type: 'image/png' }));
+    assert.equal((await actions.uploadImage(oversizedBatch)).ok, false);
+    const emptyBatch = new FormData();
+    emptyBatch.set('slug', 'project-batch-upload');
+    assert.equal((await actions.uploadImage(emptyBatch)).ok, false);
+    assert.equal((await actions.removeProject('project-batch-upload')).ok, true);
+    assert.equal(assets.size, assetsBeforeBatch);
+    console.log(
+      'PASS Existing projects accept multiple photos, preserve image positions, validate total size and roll back incomplete batches.',
     );
     assert.equal((await actions.removeProject('project-create-with-images')).ok, true);
     assert.equal(assets.size, 0);

@@ -8,7 +8,7 @@ export default function AdminLogin({ configured }: { configured: boolean }) {
   const [state, action, pending] = useActionState(signIn, { error: '' });
   return (
     <main className="admin-login">
-      <a href="/" className="admin-login-brand">
+      <a href="https://www.robarchstudio.com" className="admin-login-brand">
         <img src="/logo.png" alt="R.O.B Architectural Studio" />
       </a>
       <div className="admin-login-art">

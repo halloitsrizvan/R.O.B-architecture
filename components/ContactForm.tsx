@@ -44,12 +44,15 @@ export default function ContactForm() {
     }
   }
 
+  // Autofill extensions can inject attributes before hydration. Limit suppression
+  // to native form controls so the rest of the page retains hydration checks.
   return (
     <form id="contact-form" className="reveal" onSubmit={submit}>
       <div className="form-pair">
         <label>
           Your name
           <input
+            suppressHydrationWarning
             name="name"
             autoComplete="name"
             minLength={2}
@@ -61,6 +64,7 @@ export default function ContactForm() {
         <label>
           Email address
           <input
+            suppressHydrationWarning
             type="email"
             name="email"
             autoComplete="email"
@@ -72,7 +76,7 @@ export default function ContactForm() {
       </div>
       <label>
         What are you planning?
-        <select name="service" required defaultValue="">
+        <select name="service" required defaultValue="" suppressHydrationWarning>
           <option value="">Select an area of interest</option>
           <option>Architecture</option>
           <option>Interior design</option>
@@ -82,6 +86,7 @@ export default function ContactForm() {
       <label>
         A little about your project
         <textarea
+          suppressHydrationWarning
           name="message"
           rows={4}
           minLength={10}
@@ -93,14 +98,14 @@ export default function ContactForm() {
       <div hidden aria-hidden="true">
         <label>
           Website
-          <input name="website" tabIndex={-1} autoComplete="off" />
+          <input name="website" tabIndex={-1} autoComplete="off" suppressHydrationWarning />
         </label>
       </div>
       <p className="form-note">
         We use your details to respond to your inquiry. Continue to WhatsApp to send your message
         directly.
       </p>
-      <button className="submit-button" type="submit" disabled={pending}>
+      <button className="submit-button" type="submit" disabled={pending} suppressHydrationWarning>
         {pending ? 'Saving inquiry…' : 'Continue to WhatsApp'}{' '}
         <span aria-hidden="true">&#8599;</span>
       </button>

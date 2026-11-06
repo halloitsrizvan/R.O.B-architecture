@@ -1,0 +1,13 @@
+.git/
+.next/
+node_modules/
+.env
+.env.*
+.neon
+.agents/
+.codex/
+artifacts/
+legacy/
+dist/
+out/
+*.tsbuildinfo

@@ -17,7 +17,8 @@
     "db:migrate": "node --env-file=.env.local scripts/migrate-neon.cjs",
     "test:neon": "node --env-file=.env.local scripts/test-neon-e2e.cjs",
     "test:realtime": "node --env-file=.env.local scripts/test-realtime-lifecycle.cjs",
-    "test:images": "node scripts/test-project-images.cjs"
+    "test:images": "node scripts/test-project-images.cjs",
+    "test:admin-hosts": "node scripts/test-admin-hosts.cjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "3.1161.0",

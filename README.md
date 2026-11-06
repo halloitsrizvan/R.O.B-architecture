@@ -43,6 +43,18 @@ uploads the images and saves their references with the project. You can publish 
 when images are selected, or save a draft without images. Choose up to 10 JPG, PNG, WebP,
 or AVIF images, totalling at most 10 MB per save.
 
-New uploads require `CLOUDINARY_URL` or `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, and
-`CLOUDINARY_API_SECRET` in the server environment. Never use a `NEXT_PUBLIC_` prefix for
-these credentials. Existing Neon images continue to work using the AWS environment variables.
+Public uploads use `CLOUDINARY_CLOUD_NAME` and `CLOUDINARY_UPLOAD_PRESET` (the unsigned
+`rob_arch` preset). Draft images stay hidden by the website, but their Cloudinary URLs
+are public. Uploads still pass through an authenticated administrator action.
+
+Automatic permanent cleanup requires a valid `CLOUDINARY_API_KEY` and
+`CLOUDINARY_API_SECRET`, or `CLOUDINARY_URL`. Without working credentials, removing a
+project removes it from the website and reports that Cloudinary files need manual cleanup.
+Never use a `NEXT_PUBLIC_` prefix for credentials. Existing Neon images continue to work
+using the AWS environment variables. For authenticated Cloudinary assets instead of
+public preset uploads, leave the upload preset unset and configure valid API credentials.
+
+`npm run test:images` checks transactions, validation, and media authorization using
+isolated PostgreSQL and a mocked provider. The full `test:neon` image/deletion check
+requires valid Cloudinary management credentials and verifies authentication before
+creating test assets.
