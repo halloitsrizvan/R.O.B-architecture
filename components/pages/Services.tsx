@@ -1,9 +1,10 @@
 import PortfolioImage from '../PortfolioImage';
+import './services.css';
 
 export default function Services() {
   return (
-    <main id="main">
-      <section className="page-heading">
+    <main id="main" className="services-page">
+      <section className="page-heading services-heading">
         <span className="eyebrow reveal">{'Expertise / What we do'}</span>
         <h1 className="reveal">
           {'One vision.'}
@@ -23,7 +24,7 @@ export default function Services() {
             <h2>{'Buildings that belong.'}</h2>
             <p>
               {
-                'We shape homes and built environments around people, climate, and context. Form and function find a natural balance through careful planning and considered material choices.'
+                'Homes and buildings shaped around your life, the climate, and the character of the site.'
               }
             </p>
             <a
@@ -37,7 +38,7 @@ export default function Services() {
           </div>
           <PortfolioImage
             image={{ src: '/assets/image2.jpg', alt: 'Architecture by R.O.B Studio' }}
-            sizes="(max-width: 800px) 90vw, 45vw"
+            sizes="(max-width: 540px) 110px, (max-width: 900px) 190px, 30vw"
           />
         </article>
         <article className="service-row reveal">
@@ -46,7 +47,7 @@ export default function Services() {
             <h2>{'Life, from the inside.'}</h2>
             <p>
               {
-                'Thoughtful interiors bring texture, light, and everyday rituals together. We create a coherent experience through spatial planning, material palettes, furniture, and details.'
+                'Thoughtful spaces brought together through natural materials, light, furniture, and the details of everyday life.'
               }
             </p>
             <a
@@ -60,7 +61,7 @@ export default function Services() {
           </div>
           <PortfolioImage
             image={{ src: '/assets/image5.jpg', alt: 'Interior design by R.O.B Studio' }}
-            sizes="(max-width: 800px) 90vw, 45vw"
+            sizes="(max-width: 540px) 110px, (max-width: 900px) 190px, 30vw"
           />
         </article>
         <article className="service-row reveal">
@@ -69,7 +70,7 @@ export default function Services() {
             <h2>{'Room for nature.'}</h2>
             <p>
               {
-                'Outdoor spaces extend the life of a building. We explore planting, pathways, and gathering places that connect architecture to its natural setting.'
+                'Gardens, pathways, and places to gather that connect your building with its natural setting.'
               }
             </p>
             <a
@@ -83,7 +84,7 @@ export default function Services() {
           </div>
           <PortfolioImage
             image={{ src: '/assets/image1.jpg', alt: 'Landscape design by R.O.B Studio' }}
-            sizes="(max-width: 800px) 90vw, 45vw"
+            sizes="(max-width: 540px) 110px, (max-width: 900px) 190px, 30vw"
           />
         </article>
       </section>
